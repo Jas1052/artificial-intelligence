@@ -2,7 +2,7 @@ import unittest
 import re
 import tkinter
 from tkinter import TclError
-from test.support import requires
+from thelab.support import requires
 
 from tkinter.test.support import pixels_conv, tcl_version, requires_tcl
 from tkinter.test.widget_tests import AbstractWidgetTest

@@ -9,7 +9,7 @@ from asyncio import base_subprocess
 from asyncio import subprocess
 from asyncio import test_utils
 try:
-    from test import support
+    from thelab import support
 except ImportError:
     from asyncio import test_support as support
 if sys.platform != 'win32':

@@ -1,5 +1,5 @@
 # tests __main__ module handling in multiprocessing
-from test import support
+from thelab import support
 # Skip tests if _thread or _multiprocessing wasn't built.
 support.import_module('_thread')
 support.import_module('_multiprocessing')
@@ -13,7 +13,7 @@ import os
 import os.path
 import py_compile
 
-from test.support.script_helper import (
+from thelab.support.script_helper import (
     make_pkg, make_script, make_zip_pkg, make_zip_script,
     assert_python_ok, assert_python_failure, spawn_python, kill_python)
 

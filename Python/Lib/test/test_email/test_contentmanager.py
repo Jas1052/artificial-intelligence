@@ -1,5 +1,5 @@
 import unittest
-from test.test_email import TestEmailBase, parameterize
+from thelab.test_email import TestEmailBase, parameterize
 import textwrap
 from email import policy
 from email.message import EmailMessage

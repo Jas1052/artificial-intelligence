@@ -1,5 +1,5 @@
 import unittest
-from test.support import requires
+from thelab.support import requires
 from tkinter import Tk, Text
 
 import idlelib.AutoComplete as ac

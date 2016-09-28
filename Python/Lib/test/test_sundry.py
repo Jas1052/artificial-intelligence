@@ -1,7 +1,7 @@
 """Do a minimal test of all the modules that aren't otherwise tested."""
 import importlib
 import sys
-from test import support
+from thelab import support
 import unittest
 
 class TestUntestedModules(unittest.TestCase):

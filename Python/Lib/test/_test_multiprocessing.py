@@ -18,14 +18,14 @@ import random
 import logging
 import struct
 import operator
-import test.support
-import test.support.script_helper
+import thelab.support
+import thelab.support.script_helper
 
 
 # Skip tests if _multiprocessing wasn't built.
-_multiprocessing = test.support.import_module('_multiprocessing')
+_multiprocessing = thelab.support.import_module('_multiprocessing')
 # Skip tests if sem_open implementation is broken.
-test.support.import_module('multiprocessing.synchronize')
+thelab.support.import_module('multiprocessing.synchronize')
 # import threading after _multiprocessing to raise a more revelant error
 # message: "No module named _multiprocessing". _multiprocessing is not compiled
 # without thread support.
@@ -441,8 +441,8 @@ class _TestSubclassingProcess(BaseTestCase):
         if self.TYPE == "threads":
             self.skipTest('test not appropriate for {}'.format(self.TYPE))
 
-        testfn = test.support.TESTFN
-        self.addCleanup(test.support.unlink, testfn)
+        testfn = thelab.support.TESTFN
+        self.addCleanup(thelab.support.unlink, testfn)
         proc = self.Process(target=self._test_stderr_flush, args=(testfn,))
         proc.start()
         proc.join()
@@ -471,8 +471,8 @@ class _TestSubclassingProcess(BaseTestCase):
         if self.TYPE == 'threads':
             self.skipTest('test not appropriate for {}'.format(self.TYPE))
 
-        testfn = test.support.TESTFN
-        self.addCleanup(test.support.unlink, testfn)
+        testfn = thelab.support.TESTFN
+        self.addCleanup(thelab.support.unlink, testfn)
 
         for reason in (
             [1, 2, 3],
@@ -722,7 +722,7 @@ class _TestQueue(BaseTestCase):
             p.join()
 
     def test_no_import_lock_contention(self):
-        with test.support.temp_cwd():
+        with thelab.support.temp_cwd():
             module_name = 'imported_by_an_imported_module'
             with open(module_name + '.py', 'w') as f:
                 f.write("""if 1:
@@ -735,7 +735,7 @@ class _TestQueue(BaseTestCase):
                     del q
                 """)
 
-            with test.support.DirsOnSysPath(os.getcwd()):
+            with thelab.support.DirsOnSysPath(os.getcwd()):
                 try:
                     __import__(module_name)
                 except pyqueue.Empty:
@@ -1892,7 +1892,7 @@ class _TestPool(BaseTestCase):
             self.assertIs(type(cause), multiprocessing.pool.RemoteTraceback)
             self.assertIn('raise RuntimeError(123) # some comment', cause.tb)
 
-            with test.support.captured_stderr() as f1:
+            with thelab.support.captured_stderr() as f1:
                 try:
                     raise exc
                 except RuntimeError:
@@ -2129,7 +2129,7 @@ class _TestRemoteManager(BaseTestCase):
         authkey = os.urandom(32)
 
         manager = QueueManager(
-            address=(test.support.HOST, 0), authkey=authkey, serializer=SERIALIZER
+            address=(thelab.support.HOST, 0), authkey=authkey, serializer=SERIALIZER
             )
         manager.start()
 
@@ -2166,7 +2166,7 @@ class _TestManagerRestart(BaseTestCase):
     def test_rapid_restart(self):
         authkey = os.urandom(32)
         manager = QueueManager(
-            address=(test.support.HOST, 0), authkey=authkey, serializer=SERIALIZER)
+            address=(thelab.support.HOST, 0), authkey=authkey, serializer=SERIALIZER)
         srvr = manager.get_server()
         addr = srvr.address
         # Close the connection.Listener socket which gets opened as a part
@@ -2388,14 +2388,14 @@ class _TestConnection(BaseTestCase):
         p = self.Process(target=self._writefd, args=(child_conn, b"foo"))
         p.daemon = True
         p.start()
-        self.addCleanup(test.support.unlink, test.support.TESTFN)
-        with open(test.support.TESTFN, "wb") as f:
+        self.addCleanup(thelab.support.unlink, thelab.support.TESTFN)
+        with open(thelab.support.TESTFN, "wb") as f:
             fd = f.fileno()
             if msvcrt:
                 fd = msvcrt.get_osfhandle(fd)
             reduction.send_handle(conn, fd, p.pid)
         p.join()
-        with open(test.support.TESTFN, "rb") as f:
+        with open(thelab.support.TESTFN, "rb") as f:
             self.assertEqual(f.read(), b"foo")
 
     @unittest.skipUnless(HAS_REDUCTION, "test needs multiprocessing.reduction")
@@ -2414,8 +2414,8 @@ class _TestConnection(BaseTestCase):
         p = self.Process(target=self._writefd, args=(child_conn, b"bar", True))
         p.daemon = True
         p.start()
-        self.addCleanup(test.support.unlink, test.support.TESTFN)
-        with open(test.support.TESTFN, "wb") as f:
+        self.addCleanup(thelab.support.unlink, thelab.support.TESTFN)
+        with open(thelab.support.TESTFN, "wb") as f:
             fd = f.fileno()
             for newfd in range(256, MAXFD):
                 if not self._is_fd_assigned(newfd):
@@ -2428,7 +2428,7 @@ class _TestConnection(BaseTestCase):
             finally:
                 os.close(newfd)
         p.join()
-        with open(test.support.TESTFN, "rb") as f:
+        with open(thelab.support.TESTFN, "rb") as f:
             self.assertEqual(f.read(), b"bar")
 
     @classmethod
@@ -2638,7 +2638,7 @@ class _TestPicklingConnections(BaseTestCase):
             l.close()
 
         l = socket.socket()
-        l.bind((test.support.HOST, 0))
+        l.bind((thelab.support.HOST, 0))
         l.listen()
         conn.send(l.getsockname())
         new_conn, addr = l.accept()
@@ -3285,7 +3285,7 @@ class TestWait(unittest.TestCase):
     def test_wait_socket(self, slow=False):
         from multiprocessing.connection import wait
         l = socket.socket()
-        l.bind((test.support.HOST, 0))
+        l.bind((thelab.support.HOST, 0))
         l.listen()
         addr = l.getsockname()
         readers = []
@@ -3498,11 +3498,11 @@ class TestNoForkBomb(unittest.TestCase):
         sm = multiprocessing.get_start_method()
         name = os.path.join(os.path.dirname(__file__), 'mp_fork_bomb.py')
         if sm != 'fork':
-            rc, out, err = test.support.script_helper.assert_python_failure(name, sm)
+            rc, out, err = thelab.support.script_helper.assert_python_failure(name, sm)
             self.assertEqual(out, b'')
             self.assertIn(b'RuntimeError', err)
         else:
-            rc, out, err = test.support.script_helper.assert_python_ok(name, sm)
+            rc, out, err = thelab.support.script_helper.assert_python_ok(name, sm)
             self.assertEqual(out.rstrip(), b'123')
             self.assertEqual(err, b'')
 

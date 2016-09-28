@@ -1,5 +1,5 @@
-from test.support import (TESTFN, run_unittest, import_module, unlink,
-                          requires, _2G, _4G, gc_collect, cpython_only)
+from thelab.support import (TESTFN, run_unittest, import_module, unlink,
+                            requires, _2G, _4G, gc_collect, cpython_only)
 import unittest
 import os
 import re

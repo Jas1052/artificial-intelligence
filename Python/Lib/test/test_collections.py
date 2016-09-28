@@ -11,7 +11,7 @@ from random import choice, randrange
 import re
 import string
 import sys
-from test import support
+from thelab import support
 import types
 import unittest
 

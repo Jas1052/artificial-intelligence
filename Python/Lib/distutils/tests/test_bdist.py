@@ -1,7 +1,7 @@
 """Tests for distutils.command.bdist."""
 import os
 import unittest
-from test.support import run_unittest
+from thelab.support import run_unittest
 
 from distutils.command.bdist import bdist
 from distutils.tests import support

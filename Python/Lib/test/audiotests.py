@@ -1,4 +1,4 @@
-from test.support import findfile, TESTFN, unlink
+from thelab.support import findfile, TESTFN, unlink
 import unittest
 import array
 import io

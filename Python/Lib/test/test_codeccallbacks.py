@@ -1,7 +1,7 @@
 import codecs
 import html.entities
 import sys
-import test.support
+import thelab.support
 import unicodedata
 import unittest
 import warnings
@@ -213,7 +213,7 @@ class CodecCallbackTest(unittest.TestCase):
         self.assertRaises(TypeError, codecs.charmap_encode, sin, "replace", charmap)
 
     def test_decodeunicodeinternal(self):
-        with test.support.check_warnings(('unicode_internal codec has been '
+        with thelab.support.check_warnings(('unicode_internal codec has been '
                                           'deprecated', DeprecationWarning)):
             self.assertRaises(
                 UnicodeDecodeError,
@@ -797,7 +797,7 @@ class CodecCallbackTest(unittest.TestCase):
                 ("utf-7", b"+x-"),
                 ("unicode-internal", b"\x00"),
             ):
-                with test.support.check_warnings():
+                with thelab.support.check_warnings():
                     # unicode-internal has been deprecated
                     self.assertRaises(
                         TypeError,
@@ -1025,7 +1025,7 @@ class CodecCallbackTest(unittest.TestCase):
                 raise TypeError("don't know how to handle %r" % exc)
         codecs.register_error("test.replacing", replacing)
 
-        with test.support.check_warnings():
+        with thelab.support.check_warnings():
             # unicode-internal has been deprecated
             for (encoding, data) in baddata:
                 with self.assertRaises(TypeError):
@@ -1040,7 +1040,7 @@ class CodecCallbackTest(unittest.TestCase):
         codecs.register_error("test.mutating", mutating)
         # If the decoder doesn't pick up the modified input the following
         # will lead to an endless loop
-        with test.support.check_warnings():
+        with thelab.support.check_warnings():
             # unicode-internal has been deprecated
             for (encoding, data) in baddata:
                 with self.assertRaises(TypeError):

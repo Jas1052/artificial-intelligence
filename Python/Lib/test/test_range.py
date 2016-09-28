@@ -1,6 +1,6 @@
 # Python test set -- built-in functions
 
-import test.support, unittest
+import thelab.support, unittest
 import sys
 import pickle
 import itertools

@@ -1,6 +1,6 @@
 import unittest
-from test import support
-from test import test_urllib
+from thelab import support
+from thelab import test_urllib
 
 import os
 import io
@@ -1187,7 +1187,7 @@ class HandlerTests(unittest.TestCase):
     def test_cookie_redirect(self):
         # cookies shouldn't leak into redirected requests
         from http.cookiejar import CookieJar
-        from test.test_http_cookiejar import interact_netscape
+        from thelab.test_http_cookiejar import interact_netscape
 
         cj = CookieJar()
         interact_netscape(cj, "http://www.example.com/", "spam=eggs")

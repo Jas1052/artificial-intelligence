@@ -5,7 +5,7 @@ import sys
 import unittest
 import warnings
 from unicodedata import normalize
-from test import support
+from thelab import support
 
 filenames = [
     '1_abc',

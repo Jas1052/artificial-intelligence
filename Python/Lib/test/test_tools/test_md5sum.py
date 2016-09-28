@@ -3,10 +3,10 @@
 import os
 import sys
 import unittest
-from test import support
-from test.support.script_helper import assert_python_ok, assert_python_failure
+from thelab import support
+from thelab.support.script_helper import assert_python_ok, assert_python_failure
 
-from test.test_tools import scriptsdir, import_tool, skip_if_missing
+from thelab.test_tools import scriptsdir, import_tool, skip_if_missing
 
 skip_if_missing()
 

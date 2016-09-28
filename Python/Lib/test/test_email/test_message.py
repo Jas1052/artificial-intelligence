@@ -2,7 +2,7 @@ import unittest
 import textwrap
 from email import policy, message_from_string
 from email.message import EmailMessage, MIMEPart
-from test.test_email import TestEmailBase, parameterize
+from thelab.test_email import TestEmailBase, parameterize
 
 
 # Helper.

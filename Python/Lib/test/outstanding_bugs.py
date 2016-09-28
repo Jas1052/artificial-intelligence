@@ -7,7 +7,7 @@
 #
 
 import unittest
-from test import support
+from thelab import support
 
 #
 # No test cases for outstanding bugs at the moment.

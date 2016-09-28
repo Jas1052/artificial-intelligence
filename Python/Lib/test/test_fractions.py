@@ -1,7 +1,7 @@
 """Tests for Lib/fractions.py."""
 
 from decimal import Decimal
-from test.support import requires_IEEE_754
+from thelab.support import requires_IEEE_754
 import math
 import numbers
 import operator

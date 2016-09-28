@@ -19,8 +19,8 @@ import codecs
 import gc
 import os.path
 import shutil
-from test import support
-from test.support import findfile, run_unittest, TESTFN
+from thelab import support
+from thelab.support import findfile, run_unittest, TESTFN
 
 TEST_XMLFILE = findfile("test.xml", subdir="xmltestdata")
 TEST_XMLFILE_OUT = findfile("test.xml.out", subdir="xmltestdata")

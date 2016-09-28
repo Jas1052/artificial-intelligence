@@ -5,7 +5,7 @@
 # Tests need to be coordinated with SearchDialogBase tests
 # to avoid duplication.
 
-from test.support import requires
+from thelab.support import requires
 requires('gui')
 
 import unittest

@@ -9,7 +9,7 @@ import re
 import io
 import shutil
 import tempfile
-from test import support
+from thelab import support
 import unittest
 import textwrap
 import mailbox

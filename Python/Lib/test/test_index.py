@@ -1,5 +1,5 @@
 import unittest
-from test import support
+from thelab import support
 import operator
 maxsize = support.MAX_Py_ssize_t
 

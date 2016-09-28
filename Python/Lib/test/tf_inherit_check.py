@@ -4,7 +4,7 @@
 
 import sys
 import os
-from test.support import SuppressCrashReport
+from thelab.support import SuppressCrashReport
 
 with SuppressCrashReport():
     verbose = (sys.argv[1] == 'v')

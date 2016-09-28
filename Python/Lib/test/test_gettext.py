@@ -4,7 +4,7 @@ import shutil
 import gettext
 import unittest
 
-from test import support
+from thelab import support
 
 
 # TODO:

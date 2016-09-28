@@ -8,9 +8,9 @@ tests of their own, such as h2py.py.
 import os
 import sys
 import unittest
-from test import support
+from thelab import support
 
-from test.test_tools import scriptsdir, import_tool, skip_if_missing
+from thelab.test_tools import scriptsdir, import_tool, skip_if_missing
 
 skip_if_missing()
 

@@ -1,6 +1,6 @@
 # Test mock_tk.Text class against tkinter.Text class by running same tests with both.
 import unittest
-from test.support import requires
+from thelab.support import requires
 
 from _tkinter import TclError
 

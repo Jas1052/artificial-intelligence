@@ -1,6 +1,6 @@
 import unittest
-from test import support
-from test.support import import_module
+from thelab import support
+from thelab.support import import_module
 
 # Skip test if _thread or _tkinter wasn't built or idlelib was deleted.
 import_module('threading')  # imported by PyShell, imports _thread

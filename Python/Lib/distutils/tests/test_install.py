@@ -5,7 +5,7 @@ import sys
 import unittest
 import site
 
-from test.support import captured_stdout, run_unittest
+from thelab.support import captured_stdout, run_unittest
 
 from distutils import sysconfig
 from distutils.command.install import install

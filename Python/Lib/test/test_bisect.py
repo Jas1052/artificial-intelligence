@@ -1,6 +1,6 @@
 import sys
 import unittest
-from test import support
+from thelab import support
 from collections import UserList
 
 py_bisect = support.import_fresh_module('bisect', blocked=['_bisect'])

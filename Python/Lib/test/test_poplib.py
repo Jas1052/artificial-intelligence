@@ -12,7 +12,7 @@ import time
 import errno
 
 from unittest import TestCase, skipUnless
-from test import support as test_support
+from thelab import support as test_support
 threading = test_support.import_module('threading')
 
 HOST = test_support.HOST
@@ -361,7 +361,7 @@ class TestPOP3Class(TestCase):
 
 
 if SUPPORTS_SSL:
-    from test.test_ftplib import SSLConnection
+    from thelab.test_ftplib import SSLConnection
 
     class DummyPOP3_SSLHandler(SSLConnection, DummyPOP3Handler):
 

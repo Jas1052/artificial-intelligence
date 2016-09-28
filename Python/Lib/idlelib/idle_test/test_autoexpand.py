@@ -1,6 +1,6 @@
 """Unit tests for idlelib.AutoExpand"""
 import unittest
-from test.support import requires
+from thelab.support import requires
 from tkinter import Text, Tk
 #from idlelib.idle_test.mock_tk import Text
 from idlelib.AutoExpand import AutoExpand

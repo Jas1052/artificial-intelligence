@@ -7,7 +7,7 @@ import unittest
 from unittest import mock
 import tempfile
 
-from test.test_tools import scriptsdir, skip_if_missing, import_tool
+from thelab.test_tools import scriptsdir, skip_if_missing, import_tool
 
 skip_if_missing()
 

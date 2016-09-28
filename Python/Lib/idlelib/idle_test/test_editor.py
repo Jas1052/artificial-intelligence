@@ -1,7 +1,7 @@
 import unittest
 from tkinter import Tk, Text
 from idlelib.EditorWindow import EditorWindow
-from test.support import requires
+from thelab.support import requires
 
 class Editor_func_test(unittest.TestCase):
     def test_filename_to_unicode(self):

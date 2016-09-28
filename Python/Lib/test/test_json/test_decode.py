@@ -1,7 +1,7 @@
 import decimal
 from io import StringIO, BytesIO
 from collections import OrderedDict
-from test.test_json import PyTest, CTest
+from thelab.test_json import PyTest, CTest
 
 
 class TestDecode:

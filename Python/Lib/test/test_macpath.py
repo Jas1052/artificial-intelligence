@@ -1,5 +1,5 @@
 import macpath
-from test import support, test_genericpath
+from thelab import support, test_genericpath
 import unittest
 
 

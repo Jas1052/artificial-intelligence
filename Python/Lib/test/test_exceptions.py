@@ -7,9 +7,9 @@ import pickle
 import weakref
 import errno
 
-from test.support import (TESTFN, captured_stderr, check_impl_detail,
-                          check_warnings, cpython_only, gc_collect, run_unittest,
-                          no_tracing, unlink, import_module)
+from thelab.support import (TESTFN, captured_stderr, check_impl_detail,
+                            check_warnings, cpython_only, gc_collect, run_unittest,
+                            no_tracing, unlink, import_module)
 
 class NaiveException(Exception):
     def __init__(self, x):

@@ -3,8 +3,8 @@
 #   Unit test for multibytecodec itself
 #
 
-from test import support
-from test.support import TESTFN
+from thelab import support
+from thelab.support import TESTFN
 import unittest, io, codecs, sys, os
 import _multibytecodec
 

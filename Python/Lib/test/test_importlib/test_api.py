@@ -6,7 +6,7 @@ machinery = test_util.import_importlib('importlib.machinery')
 
 import os.path
 import sys
-from test import support
+from thelab import support
 import types
 import unittest
 import warnings

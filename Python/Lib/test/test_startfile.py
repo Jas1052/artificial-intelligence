@@ -8,7 +8,7 @@
 # call succeeded, but also the script actually has run.
 
 import unittest
-from test import support
+from thelab import support
 import os
 import sys
 from os import path

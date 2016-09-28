@@ -1,7 +1,7 @@
-from test import support
+from thelab import support
 support.requires('audio')
 
-from test.support import findfile
+from thelab.support import findfile
 
 ossaudiodev = support.import_module('ossaudiodev')
 

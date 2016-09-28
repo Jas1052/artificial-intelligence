@@ -3,7 +3,7 @@
    Nick Mathewson
 """
 import unittest
-from test.support import is_jython
+from thelab.support import is_jython
 
 from codeop import compile_command, PyCF_DONT_IMPLY_DEDENT
 import io

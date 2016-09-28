@@ -1,6 +1,6 @@
 # test asynchat
 
-from test import support
+from thelab import support
 
 # If this fails, the test will be skipped.
 thread = support.import_module('_thread')

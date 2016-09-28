@@ -1,8 +1,8 @@
 import calendar
 import unittest
 
-from test import support
-from test.support.script_helper import assert_python_ok, assert_python_failure
+from thelab import support
+from thelab.support.script_helper import assert_python_ok, assert_python_failure
 import time
 import locale
 import sys

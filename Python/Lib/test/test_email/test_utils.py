@@ -1,6 +1,6 @@
 import datetime
 from email import utils
-import test.support
+import thelab.support
 import time
 import unittest
 import sys
@@ -52,55 +52,55 @@ class DateTimeTests(unittest.TestCase):
 class LocaltimeTests(unittest.TestCase):
 
     def test_localtime_is_tz_aware_daylight_true(self):
-        test.support.patch(self, time, 'daylight', True)
+        thelab.support.patch(self, time, 'daylight', True)
         t = utils.localtime()
         self.assertIsNotNone(t.tzinfo)
 
     def test_localtime_is_tz_aware_daylight_false(self):
-        test.support.patch(self, time, 'daylight', False)
+        thelab.support.patch(self, time, 'daylight', False)
         t = utils.localtime()
         self.assertIsNotNone(t.tzinfo)
 
     def test_localtime_daylight_true_dst_false(self):
-        test.support.patch(self, time, 'daylight', True)
+        thelab.support.patch(self, time, 'daylight', True)
         t0 = datetime.datetime(2012, 3, 12, 1, 1)
         t1 = utils.localtime(t0, isdst=-1)
         t2 = utils.localtime(t1)
         self.assertEqual(t1, t2)
 
     def test_localtime_daylight_false_dst_false(self):
-        test.support.patch(self, time, 'daylight', False)
+        thelab.support.patch(self, time, 'daylight', False)
         t0 = datetime.datetime(2012, 3, 12, 1, 1)
         t1 = utils.localtime(t0, isdst=-1)
         t2 = utils.localtime(t1)
         self.assertEqual(t1, t2)
 
     def test_localtime_daylight_true_dst_true(self):
-        test.support.patch(self, time, 'daylight', True)
+        thelab.support.patch(self, time, 'daylight', True)
         t0 = datetime.datetime(2012, 3, 12, 1, 1)
         t1 = utils.localtime(t0, isdst=1)
         t2 = utils.localtime(t1)
         self.assertEqual(t1, t2)
 
     def test_localtime_daylight_false_dst_true(self):
-        test.support.patch(self, time, 'daylight', False)
+        thelab.support.patch(self, time, 'daylight', False)
         t0 = datetime.datetime(2012, 3, 12, 1, 1)
         t1 = utils.localtime(t0, isdst=1)
         t2 = utils.localtime(t1)
         self.assertEqual(t1, t2)
 
-    @test.support.run_with_tz('EST+05EDT,M3.2.0,M11.1.0')
+    @thelab.support.run_with_tz('EST+05EDT,M3.2.0,M11.1.0')
     def test_localtime_epoch_utc_daylight_true(self):
-        test.support.patch(self, time, 'daylight', True)
+        thelab.support.patch(self, time, 'daylight', True)
         t0 = datetime.datetime(1990, 1, 1, tzinfo = datetime.timezone.utc)
         t1 = utils.localtime(t0)
         t2 = t0 - datetime.timedelta(hours=5)
         t2 = t2.replace(tzinfo = datetime.timezone(datetime.timedelta(hours=-5)))
         self.assertEqual(t1, t2)
 
-    @test.support.run_with_tz('EST+05EDT,M3.2.0,M11.1.0')
+    @thelab.support.run_with_tz('EST+05EDT,M3.2.0,M11.1.0')
     def test_localtime_epoch_utc_daylight_false(self):
-        test.support.patch(self, time, 'daylight', False)
+        thelab.support.patch(self, time, 'daylight', False)
         t0 = datetime.datetime(1990, 1, 1, tzinfo = datetime.timezone.utc)
         t1 = utils.localtime(t0)
         t2 = t0 - datetime.timedelta(hours=5)
@@ -108,14 +108,14 @@ class LocaltimeTests(unittest.TestCase):
         self.assertEqual(t1, t2)
 
     def test_localtime_epoch_notz_daylight_true(self):
-        test.support.patch(self, time, 'daylight', True)
+        thelab.support.patch(self, time, 'daylight', True)
         t0 = datetime.datetime(1990, 1, 1)
         t1 = utils.localtime(t0)
         t2 = utils.localtime(t0.replace(tzinfo=None))
         self.assertEqual(t1, t2)
 
     def test_localtime_epoch_notz_daylight_false(self):
-        test.support.patch(self, time, 'daylight', False)
+        thelab.support.patch(self, time, 'daylight', False)
         t0 = datetime.datetime(1990, 1, 1)
         t1 = utils.localtime(t0)
         t2 = utils.localtime(t0.replace(tzinfo=None))
@@ -127,7 +127,7 @@ class LocaltimeTests(unittest.TestCase):
     @unittest.skipUnless(os.path.exists('/usr/share/zoneinfo') or
                          os.path.exists('/usr/lib/zoneinfo'),
                          "Can't find the Olson's TZ database")
-    @test.support.run_with_tz('Europe/Kiev')
+    @thelab.support.run_with_tz('Europe/Kiev')
     def test_variable_tzname(self):
         t0 = datetime.datetime(1984, 1, 1, tzinfo=datetime.timezone.utc)
         t1 = utils.localtime(t0)
@@ -138,10 +138,10 @@ class LocaltimeTests(unittest.TestCase):
 
 # Issue #24836: The timezone files are out of date (pre 2011k)
 # on Mac OS X Snow Leopard.
-@test.support.requires_mac_ver(10, 7)
+@thelab.support.requires_mac_ver(10, 7)
 class FormatDateTests(unittest.TestCase):
 
-    @test.support.run_with_tz('Europe/Minsk')
+    @thelab.support.run_with_tz('Europe/Minsk')
     def test_formatdate(self):
         timeval = time.mktime((2011, 12, 1, 18, 0, 0, 4, 335, 0))
         string = utils.formatdate(timeval, localtime=False, usegmt=False)
@@ -149,7 +149,7 @@ class FormatDateTests(unittest.TestCase):
         string = utils.formatdate(timeval, localtime=False, usegmt=True)
         self.assertEqual(string, 'Thu, 01 Dec 2011 15:00:00 GMT')
 
-    @test.support.run_with_tz('Europe/Minsk')
+    @thelab.support.run_with_tz('Europe/Minsk')
     def test_formatdate_with_localtime(self):
         timeval = time.mktime((2011, 1, 1, 18, 0, 0, 6, 1, 0))
         string = utils.formatdate(timeval, localtime=True)

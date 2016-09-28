@@ -3,9 +3,9 @@
 import os
 import unittest
 
-from test.support.script_helper import assert_python_ok
-from test.test_tools import toolsdir
-from test.support import temp_cwd
+from thelab.support.script_helper import assert_python_ok
+from thelab.test_tools import toolsdir
+from thelab.support import temp_cwd
 
 class Test_pygettext(unittest.TestCase):
     """Tests for the pygettext.py tool"""

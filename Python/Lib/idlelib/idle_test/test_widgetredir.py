@@ -2,7 +2,7 @@
 
 100% coverage
 '''
-from test.support import requires
+from thelab.support import requires
 import unittest
 from idlelib.idle_test.mock_idle import Func
 from tkinter import Tk, Text, TclError

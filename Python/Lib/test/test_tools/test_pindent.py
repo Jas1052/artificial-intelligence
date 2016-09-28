@@ -5,10 +5,10 @@ import sys
 import unittest
 import subprocess
 import textwrap
-from test import support
-from test.support.script_helper import assert_python_ok
+from thelab import support
+from thelab.support.script_helper import assert_python_ok
 
-from test.test_tools import scriptsdir, skip_if_missing
+from thelab.test_tools import scriptsdir, skip_if_missing
 
 skip_if_missing()
 

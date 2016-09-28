@@ -12,7 +12,7 @@ import pkgutil
 import re
 import stat
 import string
-import test.support
+import thelab.support
 import time
 import types
 import unittest
@@ -22,13 +22,13 @@ import xml.etree.ElementTree
 import textwrap
 from io import StringIO
 from collections import namedtuple
-from test.support.script_helper import assert_python_ok
-from test.support import (
+from thelab.support.script_helper import assert_python_ok
+from thelab.support import (
     TESTFN, rmtree,
     reap_children, reap_threads, captured_output, captured_stdout,
     captured_stderr, unlink, requires_docstrings
 )
-from test import pydoc_mod
+from thelab import pydoc_mod
 
 try:
     import threading
@@ -39,7 +39,7 @@ class nonascii:
     'Це не латиниця'
     pass
 
-if test.support.HAVE_DOCSTRINGS:
+if thelab.support.HAVE_DOCSTRINGS:
     expected_data_docstrings = (
         'dictionary for instance variables (if defined)',
         'list of weak references to the object (if defined)',
@@ -584,7 +584,7 @@ class PydocDocTest(unittest.TestCase):
         self.assertEqual(synopsis, expected)
 
     def test_synopsis_sourceless_empty_doc(self):
-        with test.support.temp_cwd() as test_dir:
+        with thelab.support.temp_cwd() as test_dir:
             init_path = os.path.join(test_dir, 'foomod42.py')
             cached_path = importlib.util.cache_from_source(init_path)
             with open(init_path, 'w') as fobj:
@@ -610,11 +610,11 @@ class PydocDocTest(unittest.TestCase):
         self.assertFalse(pydoc._is_some_method("I am not a method"))
 
     def test_is_package_when_not_package(self):
-        with test.support.temp_cwd() as test_dir:
+        with thelab.support.temp_cwd() as test_dir:
             self.assertFalse(pydoc.ispackage(test_dir))
 
     def test_is_package_when_is_package(self):
-        with test.support.temp_cwd() as test_dir:
+        with thelab.support.temp_cwd() as test_dir:
             init_path = os.path.join(test_dir, '__init__.py')
             open(init_path, 'w').close()
             self.assertTrue(pydoc.ispackage(test_dir))
@@ -802,7 +802,7 @@ class TestDescriptions(unittest.TestCase):
 
     def test_module(self):
         # Check that pydocfodder module can be described
-        from test import pydocfodder
+        from thelab import pydocfodder
         doc = pydoc.render_doc(pydocfodder)
         self.assertIn("pydocfodder", doc)
 
@@ -1058,14 +1058,14 @@ class PydocWithMetaClasses(unittest.TestCase):
 @reap_threads
 def test_main():
     try:
-        test.support.run_unittest(PydocDocTest,
-                                  PydocImportTest,
-                                  TestDescriptions,
-                                  PydocServerTest,
-                                  PydocUrlHandlerTest,
-                                  TestHelper,
-                                  PydocWithMetaClasses,
-                                  )
+        thelab.support.run_unittest(PydocDocTest,
+                                    PydocImportTest,
+                                    TestDescriptions,
+                                    PydocServerTest,
+                                    PydocUrlHandlerTest,
+                                    TestHelper,
+                                    PydocWithMetaClasses,
+                                    )
     finally:
         reap_children()
 

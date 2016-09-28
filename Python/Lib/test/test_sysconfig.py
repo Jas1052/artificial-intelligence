@@ -5,8 +5,8 @@ import subprocess
 import shutil
 from copy import copy
 
-from test.support import (run_unittest, TESTFN, unlink, check_warnings,
-                          captured_stdout, skip_unless_symlink, change_cwd)
+from thelab.support import (run_unittest, TESTFN, unlink, check_warnings,
+                            captured_stdout, skip_unless_symlink, change_cwd)
 
 import sysconfig
 from sysconfig import (get_paths, get_platform, get_config_vars,

@@ -14,7 +14,7 @@ import sys
 import tempfile
 import unittest
 
-from test.support import requires, import_module, verbose
+from thelab.support import requires, import_module, verbose
 
 # Optionally test curses module.  This currently requires that the
 # 'curses' resource be given on the regrtest command line using the -u

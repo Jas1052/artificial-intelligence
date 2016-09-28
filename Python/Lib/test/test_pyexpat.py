@@ -11,7 +11,7 @@ import traceback
 from xml.parsers import expat
 from xml.parsers.expat import errors
 
-from test.support import sortdict
+from thelab.support import sortdict
 
 
 class SetAttributeTest(unittest.TestCase):

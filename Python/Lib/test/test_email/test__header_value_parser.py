@@ -3,7 +3,7 @@ import unittest
 from email import _header_value_parser as parser
 from email import errors
 from email import policy
-from test.test_email import TestEmailBase, parameterize
+from thelab.test_email import TestEmailBase, parameterize
 
 class TestTokens(TestEmailBase):
 

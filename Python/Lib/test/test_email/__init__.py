@@ -5,8 +5,8 @@ import collections
 import email
 from email.message import Message
 from email._policybase import compat32
-from test.support import load_package_tests
-from test.test_email import __file__ as landmark
+from thelab.support import load_package_tests
+from thelab.test_email import __file__ as landmark
 
 # Load all tests in package
 def load_tests(*args):

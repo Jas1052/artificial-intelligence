@@ -1,6 +1,6 @@
 import unittest
 import unittest.mock
-import test.support
+import thelab.support
 import os
 import os.path
 import contextlib
@@ -11,8 +11,8 @@ import ensurepip._uninstall
 
 # pip currently requires ssl support, so we ensure we handle
 # it being missing (http://bugs.python.org/issue19744)
-ensurepip_no_ssl = test.support.import_fresh_module("ensurepip",
-                                                    blocked=["ssl"])
+ensurepip_no_ssl = thelab.support.import_fresh_module("ensurepip",
+                                                      blocked=["ssl"])
 try:
     import ssl
 except ImportError:
@@ -198,7 +198,7 @@ class TestUninstall(EnsurepipMixin, unittest.TestCase):
 
     def test_uninstall_skipped_with_warning_for_wrong_version(self):
         with fake_pip("not a valid version"):
-            with test.support.captured_stderr() as stderr:
+            with thelab.support.captured_stderr() as stderr:
                 ensurepip._uninstall_helper()
         warning = stderr.getvalue().strip()
         self.assertIn("only uninstall a matching version", warning)
@@ -296,7 +296,7 @@ class TestMissingSSL(EnsurepipMixin, unittest.TestCase):
         self.assertIn("PIP_THIS_SHOULD_STAY", self.os_environ)
 
     def test_main_exits_early_with_warning(self):
-        with test.support.captured_stderr() as stderr:
+        with thelab.support.captured_stderr() as stderr:
             ensurepip_no_ssl._main(["--version"])
         warning = stderr.getvalue().strip()
         self.assertTrue(warning.endswith("requires SSL/TLS"), warning)
@@ -310,7 +310,7 @@ class TestBootstrappingMainFunction(EnsurepipMixin, unittest.TestCase):
 
     @requires_usable_pip
     def test_bootstrap_version(self):
-        with test.support.captured_stdout() as stdout:
+        with thelab.support.captured_stdout() as stdout:
             with self.assertRaises(SystemExit):
                 ensurepip._main(["--version"])
         result = stdout.getvalue().strip()
@@ -335,7 +335,7 @@ class TestBootstrappingMainFunction(EnsurepipMixin, unittest.TestCase):
 class TestUninstallationMainFunction(EnsurepipMixin, unittest.TestCase):
 
     def test_uninstall_version(self):
-        with test.support.captured_stdout() as stdout:
+        with thelab.support.captured_stdout() as stdout:
             with self.assertRaises(SystemExit):
                 ensurepip._uninstall._main(["--version"])
         result = stdout.getvalue().strip()

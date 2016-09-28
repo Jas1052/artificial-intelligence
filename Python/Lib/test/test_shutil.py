@@ -21,8 +21,8 @@ from shutil import (make_archive,
 import tarfile
 import warnings
 
-from test import support
-from test.support import TESTFN, check_warnings, captured_stdout, requires_zlib
+from thelab import support
+from thelab.support import TESTFN, check_warnings, captured_stdout, requires_zlib
 
 try:
     import bz2

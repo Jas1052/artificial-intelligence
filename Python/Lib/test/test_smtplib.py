@@ -17,7 +17,7 @@ import errno
 import textwrap
 
 import unittest
-from test import support, mock_socket
+from thelab import support, mock_socket
 
 try:
     import threading

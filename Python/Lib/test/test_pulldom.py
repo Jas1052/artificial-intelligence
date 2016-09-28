@@ -6,7 +6,7 @@ import xml.sax
 from xml.sax.xmlreader import AttributesImpl
 from xml.dom import pulldom
 
-from test.support import findfile
+from thelab.support import findfile
 
 
 tstfile = findfile("test.xml", subdir="xmltestdata")

@@ -7,8 +7,8 @@ import operator
 import contextlib
 import copy
 
-from test import support
-from test.support import script_helper
+from thelab import support
+from thelab.support import script_helper
 
 # Used in ReferencesTestCase.test_ref_created_during_del() .
 ref_from_del = None
@@ -1624,7 +1624,7 @@ class MappingTestCase(TestBase):
         dict = weakref.WeakKeyDictionary()
         self.assertRegex(repr(dict), '<WeakKeyDictionary at 0x.*>')
 
-from test import mapping_tests
+from thelab import mapping_tests
 
 class WeakValueDictionaryTestCase(mapping_tests.BasicTestMappingProtocol):
     """Check that WeakValueDictionary conforms to the mapping protocol"""

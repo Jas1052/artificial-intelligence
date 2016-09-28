@@ -1,7 +1,7 @@
 import unittest
 import tkinter
 from tkinter import ttk, TclError
-from test.support import requires
+from thelab.support import requires
 import sys
 
 from tkinter.test.test_ttk.test_functions import MockTclObj

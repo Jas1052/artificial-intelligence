@@ -3,7 +3,7 @@ import tkinter
 from tkinter import TclError
 import os
 import sys
-from test.support import requires
+from thelab.support import requires
 
 from tkinter.test.support import (tcl_version, requires_tcl,
                                   get_tk_patchlevel, widget_eq)

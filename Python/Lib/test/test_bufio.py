@@ -1,5 +1,5 @@
 import unittest
-from test import support
+from thelab import support
 
 import io # C implementation.
 import _pyio as pyio # Python implementation.

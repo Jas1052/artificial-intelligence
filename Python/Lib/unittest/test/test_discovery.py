@@ -5,7 +5,7 @@ import sys
 import types
 import pickle
 import builtins
-from test import support
+from thelab import support
 
 import unittest
 import unittest.test

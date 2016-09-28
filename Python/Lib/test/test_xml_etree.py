@@ -17,8 +17,8 @@ import warnings
 import weakref
 
 from itertools import product
-from test import support
-from test.support import TESTFN, findfile, import_fresh_module, gc_collect
+from thelab import support
+from thelab.support import TESTFN, findfile, import_fresh_module, gc_collect
 
 # pyET is the pure-Python implementation.
 #

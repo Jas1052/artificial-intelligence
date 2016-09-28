@@ -4,8 +4,8 @@ import shutil
 import sys
 import unittest
 
-from test.support import (TESTFN, skip_unless_symlink,
-                          can_symlink, create_empty_file, change_cwd)
+from thelab.support import (TESTFN, skip_unless_symlink,
+                            can_symlink, create_empty_file, change_cwd)
 
 
 class GlobTests(unittest.TestCase):

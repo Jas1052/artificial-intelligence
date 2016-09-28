@@ -13,17 +13,17 @@ import pickle
 import tempfile
 import unittest
 
-import test.support
-import test.string_tests
-import test.list_tests
-from test.support import bigaddrspacetest, MAX_Py_ssize_t
+import thelab.support
+import thelab.string_tests
+import thelab.list_tests
+from thelab.support import bigaddrspacetest, MAX_Py_ssize_t
 
 
 if sys.flags.bytes_warning:
     def check_bytes_warnings(func):
         @functools.wraps(func)
         def wrapper(*args, **kw):
-            with test.support.check_warnings(('', BytesWarning)):
+            with thelab.support.check_warnings(('', BytesWarning)):
                 return func(*args, **kw)
         return wrapper
 else:
@@ -671,8 +671,8 @@ class BaseBytesTest:
                                 x, None, None, None)
 
     def test_free_after_iterating(self):
-        test.support.check_free_after_iterating(self, iter, self.type2test)
-        test.support.check_free_after_iterating(self, reversed, self.type2test)
+        thelab.support.check_free_after_iterating(self, iter, self.type2test)
+        thelab.support.check_free_after_iterating(self, reversed, self.type2test)
 
 
 class BytesTest(BaseBytesTest, unittest.TestCase):
@@ -722,7 +722,7 @@ class BytesTest(BaseBytesTest, unittest.TestCase):
 
     # Test PyBytes_FromFormat()
     def test_from_format(self):
-        test.support.import_module('ctypes')
+        thelab.support.import_module('ctypes')
         from ctypes import pythonapi, py_object, c_int, c_char_p
         PyBytes_FromFormat = pythonapi.PyBytes_FromFormat
         PyBytes_FromFormat.restype = py_object
@@ -1190,7 +1190,7 @@ class ByteArrayTest(BaseBytesTest, unittest.TestCase):
         self.assertRaises(BufferError, delslice)
         self.assertEqual(b, orig)
 
-    @test.support.cpython_only
+    @thelab.support.cpython_only
     def test_obsolete_write_lock(self):
         from _testcapi import getbuffer_with_null_view
         self.assertRaises(BufferError, getbuffer_with_null_view, bytearray())
@@ -1231,7 +1231,7 @@ class ByteArrayTest(BaseBytesTest, unittest.TestCase):
             b[:] = data
             self.assertEqual(list(it), [])
 
-    test_exhausted_iterator = test.list_tests.CommonTest.test_exhausted_iterator
+    test_exhausted_iterator = thelab.list_tests.CommonTest.test_exhausted_iterator
 
 class AssortedBytesTest(unittest.TestCase):
     #
@@ -1278,7 +1278,7 @@ class AssortedBytesTest(unittest.TestCase):
         self.assertEqual(bytes(b"abc") < b"ab", False)
         self.assertEqual(bytes(b"abc") <= b"ab", False)
 
-    @test.support.requires_docstrings
+    @thelab.support.requires_docstrings
     def test_doc(self):
         self.assertIsNotNone(bytearray.__doc__)
         self.assertTrue(bytearray.__doc__.startswith("bytearray("), bytearray.__doc__)
@@ -1346,7 +1346,7 @@ class AssortedBytesTest(unittest.TestCase):
                          "BytesWarning is needed for this test: use -bb option")
     def test_compare(self):
         def bytes_warning():
-            return test.support.check_warnings(('', BytesWarning))
+            return thelab.support.check_warnings(('', BytesWarning))
         with bytes_warning():
             b'' == ''
         with bytes_warning():
@@ -1414,7 +1414,7 @@ class BytearrayPEP3137Test(unittest.TestCase):
         self.assertIsNot(val, newval)
 
 
-class FixedStringTest(test.string_tests.BaseTest):
+class FixedStringTest(thelab.string_tests.BaseTest):
     def fixtype(self, obj):
         if isinstance(obj, str):
             return self.type2test(obj.encode("utf-8"))

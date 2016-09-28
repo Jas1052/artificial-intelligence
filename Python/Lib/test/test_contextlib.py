@@ -5,7 +5,7 @@ import sys
 import tempfile
 import unittest
 from contextlib import *  # Tests __all__
-from test import support
+from thelab import support
 try:
     import threading
 except ImportError:

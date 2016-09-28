@@ -4,7 +4,7 @@ import os
 import sys
 import zipfile
 import unittest
-from test.support import run_unittest
+from thelab.support import run_unittest
 
 from distutils.core import Distribution
 from distutils.command.bdist_dumb import bdist_dumb

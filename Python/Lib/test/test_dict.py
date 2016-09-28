@@ -1,5 +1,5 @@
 import unittest
-from test import support
+from thelab import support
 
 import collections, random, string
 import collections.abc
@@ -958,7 +958,7 @@ class DictTest(unittest.TestCase):
         support.check_free_after_iterating(self, lambda d: iter(d.values()), dict)
         support.check_free_after_iterating(self, lambda d: iter(d.items()), dict)
 
-from test import mapping_tests
+from thelab import mapping_tests
 
 class GeneralMappingTests(mapping_tests.BasicTestMappingProtocol):
     type2test = dict

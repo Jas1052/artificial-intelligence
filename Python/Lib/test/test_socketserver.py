@@ -13,17 +13,17 @@ import tempfile
 import unittest
 import socketserver
 
-import test.support
-from test.support import reap_children, reap_threads, verbose
+import thelab.support
+from thelab.support import reap_children, reap_threads, verbose
 try:
     import threading
 except ImportError:
     threading = None
 
-test.support.requires("network")
+thelab.support.requires("network")
 
 TEST_STR = b"hello world\n"
-HOST = test.support.HOST
+HOST = thelab.support.HOST
 
 HAVE_UNIX_SOCKETS = hasattr(socket, "AF_UNIX")
 requires_unix_sockets = unittest.skipUnless(HAVE_UNIX_SOCKETS,

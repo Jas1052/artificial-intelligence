@@ -8,15 +8,15 @@ import struct
 import sys
 
 import unittest
-from test import support
+from thelab import support
 
-from test.pickletester import AbstractUnpickleTests
-from test.pickletester import AbstractPickleTests
-from test.pickletester import AbstractPickleModuleTests
-from test.pickletester import AbstractPersistentPicklerTests
-from test.pickletester import AbstractPicklerUnpicklerObjectTests
-from test.pickletester import AbstractDispatchTableTests
-from test.pickletester import BigmemPickleTests
+from thelab.pickletester import AbstractUnpickleTests
+from thelab.pickletester import AbstractPickleTests
+from thelab.pickletester import AbstractPickleModuleTests
+from thelab.pickletester import AbstractPersistentPicklerTests
+from thelab.pickletester import AbstractPicklerUnpicklerObjectTests
+from thelab.pickletester import AbstractDispatchTableTests
+from thelab.pickletester import BigmemPickleTests
 
 try:
     import _pickle

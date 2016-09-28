@@ -38,8 +38,8 @@ from email import iterators
 from email import base64mime
 from email import quoprimime
 
-from test.support import unlink, start_threads
-from test.test_email import openfile, TestEmailBase
+from thelab.support import unlink, start_threads
+from thelab.test_email import openfile, TestEmailBase
 
 # These imports are documented to work, but we are testing them using a
 # different path, so we import them here just to make sure they are importable.

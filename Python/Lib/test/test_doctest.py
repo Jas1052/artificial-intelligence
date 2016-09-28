@@ -2,7 +2,7 @@
 Test script for doctest.
 """
 
-from test import support
+from thelab import support
 import doctest
 import functools
 import os
@@ -428,9 +428,9 @@ will return a single test (for that function's docstring):
 
 We'll simulate a __file__ attr that ends in pyc:
 
-    >>> import test.test_doctest
-    >>> old = test.test_doctest.__file__
-    >>> test.test_doctest.__file__ = 'test_doctest.pyc'
+    >>> import thelab.test_doctest
+    >>> old = thelab.test_doctest.__file__
+    >>> thelab.test_doctest.__file__ = 'test_doctest.pyc'
 
     >>> tests = finder.find(sample_func)
 
@@ -443,7 +443,7 @@ leading path components.
     >>> tests[0].filename # doctest: +ELLIPSIS
     '...test_doctest.py'
 
-    >>> test.test_doctest.__file__ = old
+    >>> thelab.test_doctest.__file__ = old
 
 
     >>> e = tests[0].examples[0]
@@ -537,8 +537,8 @@ functions, classes, and the `__test__` dictionary, if it exists:
     >>> finder = doctest.DocTestFinder()
     >>> # Use module=test.test_doctest, to prevent doctest from
     >>> # ignoring the objects since they weren't defined in m.
-    >>> import test.test_doctest
-    >>> tests = finder.find(m, module=test.test_doctest)
+    >>> import thelab.test_doctest
+    >>> tests = finder.find(m, module=thelab.test_doctest)
     >>> for t in tests:
     ...     print('%2s  %s' % (len(t.examples), t.name))
      1  some_module
@@ -560,7 +560,7 @@ Duplicate Removal
 If a single object is listed twice (under different names), then tests
 will only be generated for it once:
 
-    >>> from test import doctest_aliases
+    >>> from thelab import doctest_aliases
     >>> assert doctest_aliases.TwoNames.f
     >>> assert doctest_aliases.TwoNames.g
     >>> tests = excl_empty_finder.find(doctest_aliases)
@@ -1789,9 +1789,9 @@ test with that name in that module, and converts it to a script. The
 example code is converted to regular Python code.  The surrounding
 words and expected output are converted to comments:
 
-    >>> import test.test_doctest
+    >>> import thelab.test_doctest
     >>> name = 'test.test_doctest.sample_func'
-    >>> print(doctest.testsource(test.test_doctest, name))
+    >>> print(doctest.testsource(thelab.test_doctest, name))
     # Blah blah
     #
     print(sample_func(22))
@@ -1802,7 +1802,7 @@ words and expected output are converted to comments:
     <BLANKLINE>
 
     >>> name = 'test.test_doctest.SampleNewStyleClass'
-    >>> print(doctest.testsource(test.test_doctest, name))
+    >>> print(doctest.testsource(thelab.test_doctest, name))
     print('1\n2\n3')
     # Expected:
     ## 1
@@ -1811,7 +1811,7 @@ words and expected output are converted to comments:
     <BLANKLINE>
 
     >>> name = 'test.test_doctest.SampleClass.a_classmethod'
-    >>> print(doctest.testsource(test.test_doctest, name))
+    >>> print(doctest.testsource(thelab.test_doctest, name))
     print(SampleClass.a_classmethod(10))
     # Expected:
     ## 12
@@ -2080,8 +2080,8 @@ def test_DocTestSuite():
        by passing a module object:
 
          >>> import unittest
-         >>> import test.sample_doctest
-         >>> suite = doctest.DocTestSuite(test.sample_doctest)
+         >>> import thelab.sample_doctest
+         >>> suite = doctest.DocTestSuite(thelab.sample_doctest)
          >>> suite.run(unittest.TestResult())
          <unittest.result.TestResult run=9 errors=0 failures=4>
 
@@ -2105,7 +2105,7 @@ def test_DocTestSuite():
 
        We can use the current module:
 
-         >>> suite = test.sample_doctest.test_suite()
+         >>> suite = thelab.sample_doctest.test_suite()
          >>> suite.run(unittest.TestResult())
          <unittest.result.TestResult run=9 errors=0 failures=4>
 
@@ -2152,12 +2152,12 @@ def test_DocTestSuite():
        You can supply setUp and tearDown functions:
 
          >>> def setUp(t):
-         ...     import test.test_doctest
-         ...     test.test_doctest.sillySetup = True
+         ...     import thelab.test_doctest
+         ...     thelab.test_doctest.sillySetup = True
 
          >>> def tearDown(t):
-         ...     import test.test_doctest
-         ...     del test.test_doctest.sillySetup
+         ...     import thelab.test_doctest
+         ...     del thelab.test_doctest.sillySetup
 
        Here, we installed a silly variable that the test expects:
 
@@ -2168,8 +2168,8 @@ def test_DocTestSuite():
 
        But the tearDown restores sanity:
 
-         >>> import test.test_doctest
-         >>> test.test_doctest.sillySetup
+         >>> import thelab.test_doctest
+         >>> thelab.test_doctest.sillySetup
          Traceback (most recent call last):
          ...
          AttributeError: module 'test.test_doctest' has no attribute 'sillySetup'
@@ -2218,10 +2218,10 @@ def test_DocFileSuite():
        Support for using a package's __loader__.get_data() is also
        provided.
 
-         >>> import unittest, pkgutil, test
+         >>> import unittest, pkgutil, thelab
          >>> added_loader = False
-         >>> if not hasattr(test, '__loader__'):
-         ...     test.__loader__ = pkgutil.get_loader(test)
+         >>> if not hasattr(thelab, '__loader__'):
+         ...     thelab.__loader__ = pkgutil.get_loader(thelab)
          ...     added_loader = True
          >>> try:
          ...     suite = doctest.DocFileSuite('test_doctest.txt',
@@ -2231,7 +2231,7 @@ def test_DocFileSuite():
          ...     suite.run(unittest.TestResult())
          ... finally:
          ...     if added_loader:
-         ...         del test.__loader__
+         ...         del thelab.__loader__
          <unittest.result.TestResult run=3 errors=0 failures=2>
 
        '/' should be used as a path separator.  It will be converted
@@ -2244,9 +2244,9 @@ def test_DocFileSuite():
        If DocFileSuite is used from an interactive session, then files
        are resolved relative to the directory of sys.argv[0]:
 
-         >>> import types, os.path, test.test_doctest
+         >>> import types, os.path, thelab.test_doctest
          >>> save_argv = sys.argv
-         >>> sys.argv = [test.test_doctest.__file__]
+         >>> sys.argv = [thelab.test_doctest.__file__]
          >>> suite = doctest.DocFileSuite('test_doctest.txt',
          ...                              package=types.ModuleType('__main__'))
          >>> sys.argv = save_argv
@@ -2256,7 +2256,7 @@ def test_DocFileSuite():
        working directory):
 
          >>> # Get the absolute path of the test package.
-         >>> test_doctest_path = os.path.abspath(test.test_doctest.__file__)
+         >>> test_doctest_path = os.path.abspath(thelab.test_doctest.__file__)
          >>> test_pkg_path = os.path.split(test_doctest_path)[0]
 
          >>> # Use it to find the absolute path of test_doctest.txt.
@@ -2296,12 +2296,12 @@ def test_DocFileSuite():
        And, you can provide setUp and tearDown functions:
 
          >>> def setUp(t):
-         ...     import test.test_doctest
-         ...     test.test_doctest.sillySetup = True
+         ...     import thelab.test_doctest
+         ...     thelab.test_doctest.sillySetup = True
 
          >>> def tearDown(t):
-         ...     import test.test_doctest
-         ...     del test.test_doctest.sillySetup
+         ...     import thelab.test_doctest
+         ...     del thelab.test_doctest.sillySetup
 
        Here, we installed a silly variable that the test expects:
 
@@ -2314,8 +2314,8 @@ def test_DocFileSuite():
 
        But the tearDown restores sanity:
 
-         >>> import test.test_doctest
-         >>> test.test_doctest.sillySetup
+         >>> import thelab.test_doctest
+         >>> thelab.test_doctest.sillySetup
          Traceback (most recent call last):
          ...
          AttributeError: module 'test.test_doctest' has no attribute 'sillySetup'
@@ -2729,7 +2729,7 @@ With those preliminaries out of the way, we'll start with a file with two
 simple tests and no errors.  We'll run both the unadorned doctest command, and
 the verbose version, and then check the output:
 
-    >>> from test.support import script_helper, temp_dir
+    >>> from thelab.support import script_helper, temp_dir
     >>> with temp_dir() as tmpdir:
     ...     fn = os.path.join(tmpdir, 'myfile.doc')
     ...     with open(fn, 'w') as f:
@@ -2780,7 +2780,7 @@ ability to process more than one file on the command line and, since the second
 file ends in '.py', its handling of python module files (as opposed to straight
 text files).
 
-    >>> from test.support import script_helper, temp_dir
+    >>> from thelab.support import script_helper, temp_dir
     >>> with temp_dir() as tmpdir:
     ...     fn = os.path.join(tmpdir, 'myfile.doc')
     ...     with open(fn, 'w') as f:
@@ -2949,7 +2949,7 @@ def test_main():
     # Check the doctest cases in doctest itself:
     ret = support.run_doctest(doctest, verbosity=True)
     # Check the doctest cases defined here:
-    from test import test_doctest
+    from thelab import test_doctest
     support.run_doctest(test_doctest, verbosity=True)
 
 import sys, re, io

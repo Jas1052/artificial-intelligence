@@ -17,13 +17,13 @@ import errno
 import shutil
 import contextlib
 
-import test.support
-from test.support import (
+import thelab.support
+from thelab.support import (
     EnvironmentVarGuard, TESTFN, check_warnings, forget, is_jython,
     make_legacy_pyc, rmtree, run_unittest, swap_attr, swap_item, temp_umask,
     unlink, unload, create_empty_file, cpython_only, TESTFN_UNENCODABLE,
     temp_dir)
-from test.support import script_helper
+from thelab.support import script_helper
 
 
 skip_if_dont_write_bytecode = unittest.skipIf(
@@ -78,7 +78,7 @@ class ImportTests(unittest.TestCase):
     def test_double_const(self):
         # Another brief digression to test the accuracy of manifest float
         # constants.
-        from test import double_const  # don't blink -- that *was* the test
+        from thelab import double_const  # don't blink -- that *was* the test
 
     def test_import(self):
         def test_with_extension(ext):
@@ -186,14 +186,14 @@ class ImportTests(unittest.TestCase):
 
     def test_import_name_binding(self):
         # import x.y.z binds x in the current namespace
-        import test as x
-        import test.support
-        self.assertIs(x, test, x.__name__)
-        self.assertTrue(hasattr(test.support, "__file__"))
+        import thelab as x
+        import thelab.support
+        self.assertIs(x, thelab, x.__name__)
+        self.assertTrue(hasattr(thelab.support, "__file__"))
 
         # import x.y.z as w binds z as w
-        import test.support as y
-        self.assertIs(y, test.support, y.__name__)
+        import thelab.support as y
+        self.assertIs(y, thelab.support, y.__name__)
 
     def test_failing_reload(self):
         # A failing reload should leave the module object in sys.modules.
@@ -803,22 +803,22 @@ class TestSymbolicallyLinkedPackage(unittest.TestCase):
     tagged = package_name + '-tagged'
 
     def setUp(self):
-        test.support.rmtree(self.tagged)
-        test.support.rmtree(self.package_name)
+        thelab.support.rmtree(self.tagged)
+        thelab.support.rmtree(self.package_name)
         self.orig_sys_path = sys.path[:]
 
         # create a sample package; imagine you have a package with a tag and
         #  you want to symbolically link it from its untagged name.
         os.mkdir(self.tagged)
-        self.addCleanup(test.support.rmtree, self.tagged)
+        self.addCleanup(thelab.support.rmtree, self.tagged)
         init_file = os.path.join(self.tagged, '__init__.py')
-        test.support.create_empty_file(init_file)
+        thelab.support.create_empty_file(init_file)
         assert os.path.exists(init_file)
 
         # now create a symlink to the tagged package
         # sample -> sample-tagged
         os.symlink(self.tagged, self.package_name, target_is_directory=True)
-        self.addCleanup(test.support.unlink, self.package_name)
+        self.addCleanup(thelab.support.unlink, self.package_name)
         importlib.invalidate_caches()
 
         self.assertEqual(os.path.isdir(self.package_name), True)
@@ -833,7 +833,7 @@ class TestSymbolicallyLinkedPackage(unittest.TestCase):
         not hasattr(sys, 'getwindowsversion')
         or sys.getwindowsversion() >= (6, 0),
         "Windows Vista or later required")
-    @test.support.skip_unless_symlink
+    @thelab.support.skip_unless_symlink
     def test_symlinked_dir_importable(self):
         # make sure sample can only be imported from the current directory.
         sys.path[:] = ['.']
@@ -1101,29 +1101,29 @@ class CircularImportTests(unittest.TestCase):
 
     def test_direct(self):
         try:
-            import test.test_import.data.circular_imports.basic
+            import thelab.test_import.data.circular_imports.basic
         except ImportError:
             self.fail('circular import through relative imports failed')
 
     def test_indirect(self):
         try:
-            import test.test_import.data.circular_imports.indirect
+            import thelab.test_import.data.circular_imports.indirect
         except ImportError:
             self.fail('relative import in module contributing to circular '
                       'import failed')
 
     def test_subpackage(self):
         try:
-            import test.test_import.data.circular_imports.subpackage
+            import thelab.test_import.data.circular_imports.subpackage
         except ImportError:
             self.fail('circular import involving a subpackage failed')
 
     def test_rebinding(self):
         try:
-            import test.test_import.data.circular_imports.rebinding as rebinding
+            import thelab.test_import.data.circular_imports.rebinding as rebinding
         except ImportError:
             self.fail('circular import with rebinding of module attribute failed')
-        from test.test_import.data.circular_imports.subpkg import util
+        from thelab.test_import.data.circular_imports.subpkg import util
         self.assertIs(util.util, rebinding.util)
 
 

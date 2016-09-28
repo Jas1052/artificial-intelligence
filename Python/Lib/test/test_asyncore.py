@@ -8,7 +8,7 @@ import time
 import errno
 import struct
 
-from test import support
+from thelab import support
 from io import BytesIO
 
 try:

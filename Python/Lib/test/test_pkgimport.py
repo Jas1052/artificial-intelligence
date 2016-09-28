@@ -7,7 +7,7 @@ import tempfile
 import unittest
 
 from importlib.util import cache_from_source
-from test.support import create_empty_file
+from thelab.support import create_empty_file
 
 class TestImport(unittest.TestCase):
 

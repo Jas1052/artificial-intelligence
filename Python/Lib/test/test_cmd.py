@@ -9,7 +9,7 @@ import sys
 import re
 import unittest
 import io
-from test import support
+from thelab import support
 
 class samplecmdclass(cmd.Cmd):
     """
@@ -221,7 +221,7 @@ class TestAlternateInput(unittest.TestCase):
 
 
 def test_main(verbose=None):
-    from test import test_cmd
+    from thelab import test_cmd
     support.run_doctest(test_cmd, verbose)
     support.run_unittest(TestAlternateInput)
 

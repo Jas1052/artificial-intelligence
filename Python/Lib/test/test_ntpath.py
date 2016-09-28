@@ -3,8 +3,8 @@ import os
 import sys
 import unittest
 import warnings
-from test.support import TestFailed
-from test import support, test_genericpath
+from thelab.support import TestFailed
+from thelab import support, test_genericpath
 from tempfile import TemporaryFile
 
 

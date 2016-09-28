@@ -1,6 +1,6 @@
 from collections import OrderedDict
-from test.test_json import PyTest, CTest
-from test.support import bigaddrspacetest
+from thelab.test_json import PyTest, CTest
+from thelab.support import bigaddrspacetest
 
 
 CASES = [

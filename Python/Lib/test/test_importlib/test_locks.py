@@ -7,14 +7,14 @@ import time
 import unittest
 import weakref
 
-from test import support
+from thelab import support
 
 try:
     import threading
 except ImportError:
     threading = None
 else:
-    from test import lock_tests
+    from thelab import lock_tests
 
 if threading is not None:
     class ModuleLockAsRLockTests:

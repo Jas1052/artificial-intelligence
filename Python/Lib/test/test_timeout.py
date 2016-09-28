@@ -2,7 +2,7 @@
 
 import functools
 import unittest
-from test import support
+from thelab import support
 
 # This requires the 'network' resource as given on the regrtest command line.
 skip_expected = not support.is_resource_enabled('network')

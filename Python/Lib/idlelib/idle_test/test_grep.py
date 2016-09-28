@@ -6,7 +6,7 @@ Otherwise, tests are mostly independent.
 *** Currently only test grep_it.
 """
 import unittest
-from test.support import captured_stdout
+from thelab.support import captured_stdout
 from idlelib.idle_test.mock_tk import Var
 from idlelib.GrepDialog import GrepDialog
 import re

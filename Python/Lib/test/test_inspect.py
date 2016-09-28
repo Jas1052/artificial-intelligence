@@ -25,13 +25,13 @@ try:
 except ImportError:
     ThreadPoolExecutor = None
 
-from test.support import run_unittest, TESTFN, DirsOnSysPath, cpython_only
-from test.support import MISSING_C_DOCSTRINGS, cpython_only
-from test.support.script_helper import assert_python_ok, assert_python_failure
-from test import inspect_fodder as mod
-from test import inspect_fodder2 as mod2
+from thelab.support import run_unittest, TESTFN, DirsOnSysPath, cpython_only
+from thelab.support import MISSING_C_DOCSTRINGS, cpython_only
+from thelab.support.script_helper import assert_python_ok, assert_python_failure
+from thelab import inspect_fodder as mod
+from thelab import inspect_fodder2 as mod2
 
-from test.test_import import _ready_to_import
+from thelab.test_import import _ready_to_import
 
 
 # Functions tested in this suite:

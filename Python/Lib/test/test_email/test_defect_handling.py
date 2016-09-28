@@ -3,7 +3,7 @@ import unittest
 import contextlib
 from email import policy
 from email import errors
-from test.test_email import TestEmailBase
+from thelab.test_email import TestEmailBase
 
 
 class TestDefectsBase:

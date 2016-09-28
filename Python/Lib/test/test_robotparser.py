@@ -3,7 +3,7 @@ import unittest
 import urllib.robotparser
 from urllib.error import URLError, HTTPError
 from urllib.request import urlopen
-from test import support
+from thelab import support
 from http.server import BaseHTTPRequestHandler, HTTPServer
 try:
     import threading

@@ -401,7 +401,7 @@ Same with keyword only args:
 """
 
 import sys
-from test import support
+from thelab import support
 
 def test_main():
     support.run_doctest(sys.modules[__name__], True)

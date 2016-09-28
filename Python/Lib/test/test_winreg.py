@@ -3,7 +3,7 @@
 
 import os, sys, errno
 import unittest
-from test import support
+from thelab import support
 threading = support.import_module("threading")
 from platform import machine
 

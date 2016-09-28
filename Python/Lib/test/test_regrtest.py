@@ -7,7 +7,7 @@ import faulthandler
 import getopt
 import os.path
 import unittest
-from test import regrtest, support
+from thelab import regrtest, support
 
 class ParseArgsTestCase(unittest.TestCase):
 

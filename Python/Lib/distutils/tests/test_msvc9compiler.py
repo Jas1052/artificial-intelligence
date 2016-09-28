@@ -5,7 +5,7 @@ import os
 
 from distutils.errors import DistutilsPlatformError
 from distutils.tests import support
-from test.support import run_unittest
+from thelab.support import run_unittest
 
 # A manifest with the only assembly reference being the msvcrt assembly, so
 # should have the assembly completely stripped.  Note that although the

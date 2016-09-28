@@ -4,10 +4,10 @@ import os
 from io import StringIO
 import sys
 import unittest
-from test import support
-from test.support.script_helper import assert_python_ok, assert_python_failure
+from thelab import support
+from thelab.support.script_helper import assert_python_ok, assert_python_failure
 
-from test.test_warnings.data import stacklevel as warning_tests
+from thelab.test_warnings.data import stacklevel as warning_tests
 
 import warnings as original_warnings
 
@@ -398,7 +398,7 @@ class WarnTests(BaseTest):
             with original_warnings.catch_warnings(record=True,
                     module=self.module) as w:
                 self.module.simplefilter('always')
-                import test.test_warnings.data.import_warning
+                import thelab.test_warnings.data.import_warning
                 self.assertEqual(len(w), 1)
                 self.assertEqual(w[0].filename, __file__)
 

@@ -1,4 +1,4 @@
-from test.support import verbose
+from thelab.support import verbose
 import unittest
 import locale
 import sys

@@ -4,7 +4,7 @@ import sys
 import random
 import unittest
 
-from test import support
+from thelab import support
 from unittest import TestCase, skipUnless
 from operator import itemgetter
 

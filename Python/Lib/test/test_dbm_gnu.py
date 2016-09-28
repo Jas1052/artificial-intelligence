@@ -1,8 +1,8 @@
-from test import support
+from thelab import support
 gdbm = support.import_module("dbm.gnu") #skip if not supported
 import unittest
 import os
-from test.support import verbose, TESTFN, unlink
+from thelab.support import verbose, TESTFN, unlink
 
 
 filename = TESTFN

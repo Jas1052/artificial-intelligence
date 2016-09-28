@@ -3,9 +3,9 @@
 # email package unit tests for (optional) Asian codecs
 
 import unittest
-from test.support import run_unittest
+from thelab.support import run_unittest
 
-from test.test_email import TestEmailBase
+from thelab.test_email import TestEmailBase
 from email.charset import Charset
 from email.header import Header, decode_header
 from email.message import Message

@@ -1,4 +1,4 @@
-from test import support
+from thelab import support
 # Skip test if _tkinter wasn't built.
 support.import_module('_tkinter')
 

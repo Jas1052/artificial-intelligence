@@ -6,7 +6,7 @@ import shutil
 import unittest
 import tempfile
 
-from test import support
+from thelab import support
 
 import modulefinder
 

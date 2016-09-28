@@ -8,7 +8,7 @@ import urllib.parse
 from http.server import (HTTPServer as _HTTPServer,
     SimpleHTTPRequestHandler, BaseHTTPRequestHandler)
 
-from test import support
+from thelab import support
 threading = support.import_module("threading")
 
 here = os.path.dirname(__file__)

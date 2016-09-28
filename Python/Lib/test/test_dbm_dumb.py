@@ -7,7 +7,7 @@ import operator
 import os
 import unittest
 import dbm.dumb as dumbdbm
-from test import support
+from thelab import support
 from functools import partial
 
 _fname = support.TESTFN

@@ -1,8 +1,8 @@
 import unittest
-from test.support import (verbose, refcount_test, run_unittest,
+from thelab.support import (verbose, refcount_test, run_unittest,
                             strip_python_stderr, cpython_only, start_threads,
                             temp_dir)
-from test.support.script_helper import assert_python_ok, make_script
+from thelab.support.script_helper import assert_python_ok, make_script
 
 import sys
 import time

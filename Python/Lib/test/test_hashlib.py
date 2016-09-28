@@ -17,8 +17,8 @@ except ImportError:
     threading = None
 import unittest
 import warnings
-from test import support
-from test.support import _4G, bigmemtest, import_fresh_module
+from thelab import support
+from thelab.support import _4G, bigmemtest, import_fresh_module
 
 # Were we compiled --with-pydebug or with #define Py_DEBUG?
 COMPILED_WITH_PYDEBUG = hasattr(sys, 'gettotalrefcount')

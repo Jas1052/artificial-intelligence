@@ -3,7 +3,7 @@ import operator
 import sys
 import pickle
 
-from test import support
+from thelab import support
 
 class G:
     'Sequence using __getitem__'

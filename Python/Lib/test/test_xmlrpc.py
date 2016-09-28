@@ -13,7 +13,7 @@ import os
 import re
 import io
 import contextlib
-from test import support
+from thelab import support
 
 try:
     import gzip

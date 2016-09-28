@@ -5,7 +5,7 @@ testing skipping of suite when self.needwrapbutton is false.
 
 '''
 import unittest
-from test.support import requires
+from thelab.support import requires
 from tkinter import Tk, Toplevel, Frame ##, BooleanVar, StringVar
 from idlelib import SearchEngine as se
 from idlelib import SearchDialogBase as sdb

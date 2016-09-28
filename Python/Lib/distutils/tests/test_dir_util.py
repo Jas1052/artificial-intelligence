@@ -11,7 +11,7 @@ from distutils.dir_util import (mkpath, remove_tree, create_tree, copy_tree,
 
 from distutils import log
 from distutils.tests import support
-from test.support import run_unittest
+from thelab.support import run_unittest
 
 
 class DirUtilTestCase(support.TempdirManager, unittest.TestCase):

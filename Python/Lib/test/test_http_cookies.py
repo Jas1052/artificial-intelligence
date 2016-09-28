@@ -1,7 +1,7 @@
 # Simple test suite for http/cookies.py
 
 import copy
-from test.support import run_unittest, run_doctest, check_warnings
+from thelab.support import run_unittest, run_doctest, check_warnings
 import unittest
 from http import cookies
 import pickle

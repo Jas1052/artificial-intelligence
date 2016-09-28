@@ -8,7 +8,7 @@ this script.
 """
 import importlib
 import sys
-from test import regrtest
+from thelab import regrtest
 
 if __name__ == '__main__':
     __builtins__.__import__ = importlib.__import__

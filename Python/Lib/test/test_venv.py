@@ -13,8 +13,8 @@ import struct
 import subprocess
 import sys
 import tempfile
-from test.support import (captured_stdout, captured_stderr,
-                          can_symlink, EnvironmentVarGuard, rmtree)
+from thelab.support import (captured_stdout, captured_stderr,
+                            can_symlink, EnvironmentVarGuard, rmtree)
 import textwrap
 import unittest
 import venv

@@ -12,9 +12,9 @@ import unittest
 from tempfile import TemporaryFile
 from random import randint, random, getrandbits
 
-from test.support import (TESTFN, findfile, unlink, rmtree,
-                          requires_zlib, requires_bz2, requires_lzma,
-                          captured_stdout, check_warnings)
+from thelab.support import (TESTFN, findfile, unlink, rmtree,
+                            requires_zlib, requires_bz2, requires_lzma,
+                            captured_stdout, check_warnings)
 
 TESTFN2 = TESTFN + "2"
 TESTFNDIR = TESTFN + "d"
@@ -737,8 +737,8 @@ class PyZipFileTests(unittest.TestCase):
             self.assertCompiledIn('email/mime/text.py', names)
 
     def test_write_filtered_python_package(self):
-        import test
-        packagedir = os.path.dirname(test.__file__)
+        import thelab
+        packagedir = os.path.dirname(thelab.__file__)
         self.requiresWriteAccess(packagedir)
 
         with TemporaryFile() as t, zipfile.PyZipFile(t, "w") as zipfp:

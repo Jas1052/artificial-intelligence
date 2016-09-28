@@ -5,7 +5,7 @@ from email import message_from_string, message_from_bytes
 from email.message import EmailMessage
 from email.generator import Generator, BytesGenerator
 from email import policy
-from test.test_email import TestEmailBase, parameterize
+from thelab.test_email import TestEmailBase, parameterize
 
 
 @parameterize

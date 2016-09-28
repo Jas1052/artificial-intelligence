@@ -5,7 +5,7 @@ import random
 import unittest
 import re
 import sys
-import test.support
+import thelab.support
 
 if getattr(sys, 'float_repr_style', '') != 'short':
     raise unittest.SkipTest('correctly-rounded string->float conversions '
@@ -248,7 +248,7 @@ class StrtodTests(unittest.TestCase):
                     else:
                         assert False, "expected ValueError"
 
-    @test.support.bigmemtest(size=test.support._2G+10, memuse=3, dry_run=False)
+    @thelab.support.bigmemtest(size=thelab.support._2G + 10, memuse=3, dry_run=False)
     def test_oversized_digit_strings(self, maxsize):
         # Input string whose length doesn't fit in an INT.
         s = "1." + "1" * maxsize

@@ -6,7 +6,7 @@ import tkinter
 from tkinter.ttk import Scale
 from tkinter.test.support import (AbstractTkTest, tcl_version, requires_tcl,
                                   get_tk_patchlevel, pixels_conv, tcl_obj_eq)
-import test.support
+import thelab.support
 
 
 noconv = False
@@ -215,7 +215,7 @@ class AbstractWidgetTest(AbstractTkTest):
         for k in keys:
             widget[k]
         # Test if OPTIONS contains all keys
-        if test.support.verbose:
+        if thelab.support.verbose:
             aliases = {
                 'bd': 'borderwidth',
                 'bg': 'background',
@@ -276,7 +276,7 @@ class StandardOptionsTests:
         widget = self.create()
         self.checkParam(widget, 'bitmap', 'questhead')
         self.checkParam(widget, 'bitmap', 'gray50')
-        filename = test.support.findfile('python.xbm', subdir='imghdrdata')
+        filename = thelab.support.findfile('python.xbm', subdir='imghdrdata')
         self.checkParam(widget, 'bitmap', '@' + filename)
         # Cocoa Tk widgets don't detect invalid -bitmap values
         # See https://core.tcl.tk/tk/info/31cd33dbf0
@@ -543,6 +543,6 @@ def add_standard_options(*source_classes):
     return decorator
 
 def setUpModule():
-    if test.support.verbose:
+    if thelab.support.verbose:
         tcl = tkinter.Tcl()
         print('patchlevel =', tcl.call('info', 'patchlevel'))

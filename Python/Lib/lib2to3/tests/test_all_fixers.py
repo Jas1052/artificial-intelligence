@@ -7,14 +7,14 @@ running time.
 
 # Python imports
 import unittest
-import test.support
+import thelab.support
 
 # Local imports
 from lib2to3 import refactor
 from . import support
 
 
-@test.support.requires_resource('cpu')
+@thelab.support.requires_resource('cpu')
 class Test_all(support.TestCase):
 
     def setUp(self):

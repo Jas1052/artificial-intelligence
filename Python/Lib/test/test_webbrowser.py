@@ -2,7 +2,7 @@ import webbrowser
 import unittest
 import subprocess
 from unittest import mock
-from test import support
+from thelab import support
 
 
 URL = 'http://www.example.com'

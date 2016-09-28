@@ -1,5 +1,5 @@
 import unittest
-from test import support
+from thelab import support
 
 # Skip this test if the _testcapi module isn't available.
 support.import_module('_testcapi')

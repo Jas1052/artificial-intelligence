@@ -5,8 +5,8 @@ import io
 import time
 from textwrap import dedent
 
-from test.support import captured_stdout
-from test.support import captured_stderr
+from thelab.support import captured_stdout
+from thelab.support import captured_stderr
 
 # timeit's default number of iterations.
 DEFAULT_NUMBER = 1000000

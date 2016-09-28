@@ -1,6 +1,6 @@
-from test.support import requires_IEEE_754, cpython_only
-from test.test_math import parse_testfile, test_file
-import test.test_math as test_math
+from thelab.support import requires_IEEE_754, cpython_only
+from thelab.test_math import parse_testfile, test_file
+import thelab.test_math as test_math
 import unittest
 import cmath, math
 from cmath import phase, polar, rect, pi

@@ -11,7 +11,7 @@ from __future__ import with_statement
 # Testing imports
 from . import support
 from .support import driver, test_dir
-from test.support import verbose
+from thelab.support import verbose
 
 # Python imports
 import os

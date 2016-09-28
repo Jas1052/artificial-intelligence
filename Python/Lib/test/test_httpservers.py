@@ -21,7 +21,7 @@ import tempfile
 from io import BytesIO
 
 import unittest
-from test import support
+from thelab import support
 threading = support.import_module('threading')
 
 class NoLogRequestHandler:

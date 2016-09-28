@@ -1,6 +1,6 @@
 import unittest
 from doctest import DocTestSuite
-from test import support
+from thelab import support
 import weakref
 import gc
 

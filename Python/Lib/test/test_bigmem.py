@@ -8,8 +8,8 @@ tests themselves don't suffer from bitrot.  To run them for real, pass a
 high memory limit to regrtest, with the -M option.
 """
 
-from test import support
-from test.support import bigmemtest, _1G, _2G, _4G
+from thelab import support
+from thelab.support import bigmemtest, _1G, _2G, _4G
 
 import unittest
 import operator

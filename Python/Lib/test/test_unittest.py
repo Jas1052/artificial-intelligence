@@ -1,6 +1,6 @@
 import unittest.test
 
-from test import support
+from thelab import support
 
 
 def test_main():

@@ -1,7 +1,7 @@
 # Tests of the full ZIP64 functionality of zipfile
 # The support.requires call is the only reason for keeping this separate
 # from test_zipfile
-from test import support
+from thelab import support
 
 # XXX(nnorwitz): disable this test by looking for extralargefile resource,
 # which doesn't exist.  This test takes over 30 minutes to run in general
@@ -18,7 +18,7 @@ import sys
 from io import StringIO
 from tempfile import TemporaryFile
 
-from test.support import TESTFN, requires_zlib
+from thelab.support import TESTFN, requires_zlib
 
 TESTFN2 = TESTFN + "2"
 

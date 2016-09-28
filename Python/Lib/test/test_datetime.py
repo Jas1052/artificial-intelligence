@@ -1,7 +1,7 @@
 import unittest
 import sys
 
-from test.support import import_fresh_module, run_unittest
+from thelab.support import import_fresh_module, run_unittest
 
 TESTS = 'test.datetimetester'
 

@@ -1,6 +1,6 @@
 from importlib import _bootstrap_external
 import sys
-from test import support
+from thelab import support
 import unittest
 
 from .. import util

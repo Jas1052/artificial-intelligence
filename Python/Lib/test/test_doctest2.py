@@ -13,7 +13,7 @@ the example.  It should be ignored:
 
 import sys
 import unittest
-from test import support
+from thelab import support
 if sys.flags.optimize >= 2:
     raise unittest.SkipTest("Cannot test docstrings with -O2")
 
@@ -108,7 +108,7 @@ class C(object):
         return val
 
 def test_main():
-    from test import test_doctest2
+    from thelab import test_doctest2
     EXPECTED = 19
     f, t = support.run_doctest(test_doctest2)
     if t != EXPECTED:

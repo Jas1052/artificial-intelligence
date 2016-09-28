@@ -1,7 +1,7 @@
 """ Test suite for the code in msilib """
 import unittest
 import os
-from test.support import import_module
+from thelab.support import import_module
 msilib = import_module('msilib')
 
 class Test_make_id(unittest.TestCase):

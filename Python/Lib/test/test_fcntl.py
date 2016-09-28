@@ -5,8 +5,8 @@ import os
 import struct
 import sys
 import unittest
-from test.support import (verbose, TESTFN, unlink, run_unittest, import_module,
-                          cpython_only)
+from thelab.support import (verbose, TESTFN, unlink, run_unittest, import_module,
+                            cpython_only)
 
 # Skip test if no fcntl module.
 fcntl = import_module('fcntl')

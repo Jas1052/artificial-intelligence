@@ -1,7 +1,7 @@
 import unittest
 from io import StringIO
 
-from test import support
+from thelab import support
 
 NotDefined = object()
 

@@ -6,7 +6,7 @@ import importlib
 from importlib import machinery, util, invalidate_caches
 import os
 import os.path
-from test import support
+from thelab import support
 import unittest
 import sys
 import tempfile

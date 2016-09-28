@@ -9,14 +9,14 @@ Written by Marc-Andre Lemburg (mal@lemburg.com).
 
 """#"
 
-import test.support, unittest
+import thelab.support, unittest
 
 import codecs
 
 # Register a search function which knows about our codec
 def codec_search_function(encoding):
     if encoding == 'testcodec':
-        from test import testcodec
+        from thelab import testcodec
         return tuple(testcodec.getregentry())
     return None
 

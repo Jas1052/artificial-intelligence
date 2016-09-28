@@ -1,7 +1,7 @@
 import sys
 
 import unittest
-from test import support
+from thelab import support
 
 L = [
         ('0', 0),

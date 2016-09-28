@@ -5,8 +5,8 @@ import os, glob, time, shutil
 import unicodedata
 
 import unittest
-from test.support import (run_unittest, rmtree, change_cwd,
-    TESTFN_ENCODING, TESTFN_UNICODE, TESTFN_UNENCODABLE, create_empty_file)
+from thelab.support import (run_unittest, rmtree, change_cwd,
+                            TESTFN_ENCODING, TESTFN_UNICODE, TESTFN_UNENCODABLE, create_empty_file)
 
 if not os.path.supports_unicode_filenames:
     try:

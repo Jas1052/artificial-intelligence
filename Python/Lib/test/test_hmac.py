@@ -3,7 +3,7 @@ import hmac
 import hashlib
 import unittest
 import warnings
-from test import support
+from thelab import support
 
 
 def ignore_warning(func):

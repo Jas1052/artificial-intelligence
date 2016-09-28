@@ -2,9 +2,9 @@
 Tests for the threading module.
 """
 
-import test.support
-from test.support import verbose, strip_python_stderr, import_module, cpython_only
-from test.support.script_helper import assert_python_ok, assert_python_failure
+import thelab.support
+from thelab.support import verbose, strip_python_stderr, import_module, cpython_only
+from thelab.support.script_helper import assert_python_ok, assert_python_failure
 
 import random
 import re
@@ -17,7 +17,7 @@ import weakref
 import os
 import subprocess
 
-from test import lock_tests
+from thelab import lock_tests
 
 
 # Between fork() and exec(), only async-safe functions are allowed (issues
@@ -74,11 +74,11 @@ class TestThread(threading.Thread):
 
 class BaseTestCase(unittest.TestCase):
     def setUp(self):
-        self._threads = test.support.threading_setup()
+        self._threads = thelab.support.threading_setup()
 
     def tearDown(self):
-        test.support.threading_cleanup(*self._threads)
-        test.support.reap_children()
+        thelab.support.threading_cleanup(*self._threads)
+        thelab.support.reap_children()
 
 
 class ThreadTests(BaseTestCase):
@@ -841,7 +841,7 @@ class SubinterpThreadingTests(BaseTestCase):
                 os.write(%d, b"x")
             threading.Thread(target=f).start()
             """ % (w,)
-        ret = test.support.run_in_subinterp(code)
+        ret = thelab.support.run_in_subinterp(code)
         self.assertEqual(ret, 0)
         # The thread was joined properly.
         self.assertEqual(os.read(r, 1), b"x")
@@ -873,7 +873,7 @@ class SubinterpThreadingTests(BaseTestCase):
                 os.write(%d, b"x")
             threading.Thread(target=f).start()
             """ % (w,)
-        ret = test.support.run_in_subinterp(code)
+        ret = thelab.support.run_in_subinterp(code)
         self.assertEqual(ret, 0)
         # The thread was joined properly.
         self.assertEqual(os.read(r, 1), b"x")
@@ -896,7 +896,7 @@ class SubinterpThreadingTests(BaseTestCase):
 
             _testcapi.run_in_subinterp(%r)
             """ % (subinterp_code,)
-        with test.support.SuppressCrashReport():
+        with thelab.support.SuppressCrashReport():
             rc, out, err = assert_python_failure("-c", script)
         self.assertIn("Fatal Python error: Py_EndInterpreter: "
                       "not the last thread", err.decode())
@@ -927,7 +927,7 @@ class ThreadingExceptionTests(BaseTestCase):
         lock = threading.Lock()
         self.assertRaises(RuntimeError, lock.release)
 
-    @unittest.skipUnless(sys.platform == 'darwin' and test.support.python_is_optimized(),
+    @unittest.skipUnless(sys.platform == 'darwin' and thelab.support.python_is_optimized(),
                          'test macosx problem')
     def test_recursion_limit(self):
         # Issue 9670

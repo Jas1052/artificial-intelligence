@@ -1,7 +1,7 @@
 import unittest
 from unittest import mock
-from test.support import script_helper
-from test import support
+from thelab.support import script_helper
+from thelab import support
 import subprocess
 import sys
 import signal

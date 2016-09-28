@@ -1,10 +1,10 @@
 import unittest
-from test import support
+from thelab import support
 import base64
 import binascii
 import os
 from array import array
-from test.support import script_helper
+from thelab.support import script_helper
 
 
 class LegacyBase64TestCase(unittest.TestCase):

@@ -1,7 +1,7 @@
 # Minimal tests for dis module
 
-from test.support import captured_stdout
-from test.bytecode_helper import BytecodeTestCase
+from thelab.support import captured_stdout
+from thelab.bytecode_helper import BytecodeTestCase
 import difflib
 import unittest
 import sys
@@ -339,7 +339,7 @@ class DisTests(unittest.TestCase):
             expected = _BIG_LINENO_FORMAT % (i + 2)
             self.do_disassembly_test(func(i), expected)
 
-        from test import dis_module
+        from thelab import dis_module
         self.do_disassembly_test(dis_module, dis_module_expected_results)
 
     def test_disassemble_str(self):

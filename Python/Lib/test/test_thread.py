@@ -1,13 +1,13 @@
 import os
 import unittest
 import random
-from test import support
+from thelab import support
 thread = support.import_module('_thread')
 import time
 import sys
 import weakref
 
-from test import lock_tests
+from thelab import lock_tests
 
 NUMTASKS = 10
 NUMTRIPS = 3

@@ -32,8 +32,8 @@ def bar():
 def test_silly_setup():
     """
 
-    >>> import test.test_doctest
-    >>> test.test_doctest.sillySetup
+    >>> import thelab.test_doctest
+    >>> thelab.test_doctest.sillySetup
     True
     """
 

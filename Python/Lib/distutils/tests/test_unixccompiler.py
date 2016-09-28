@@ -2,7 +2,7 @@
 import os
 import sys
 import unittest
-from test.support import EnvironmentVarGuard, run_unittest
+from thelab.support import EnvironmentVarGuard, run_unittest
 
 from distutils import sysconfig
 from distutils.unixccompiler import UnixCCompiler

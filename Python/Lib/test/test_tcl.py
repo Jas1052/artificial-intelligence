@@ -3,7 +3,7 @@ import re
 import subprocess
 import sys
 import os
-from test import support
+from thelab import support
 
 # Skip this test if the _tkinter module wasn't built.
 _tkinter = support.import_module('_tkinter')

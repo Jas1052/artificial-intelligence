@@ -10,7 +10,7 @@ from distutils.log import set_threshold
 from distutils.log import WARN
 
 from distutils.tests import support
-from test.support import run_unittest
+from thelab.support import run_unittest
 
 PYPIRC = """\
 [distutils]

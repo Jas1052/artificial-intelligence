@@ -2,7 +2,7 @@
 
 import subprocess
 import sys
-from test.support import script_helper
+from thelab.support import script_helper
 import unittest
 from unittest import mock
 

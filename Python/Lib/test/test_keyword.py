@@ -1,6 +1,6 @@
 import keyword
 import unittest
-from test import support
+from thelab import support
 import filecmp
 import os
 import sys

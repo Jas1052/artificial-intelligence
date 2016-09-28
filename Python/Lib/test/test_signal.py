@@ -1,5 +1,5 @@
 import unittest
-from test import support
+from thelab import support
 from contextlib import closing
 import enum
 import gc
@@ -11,7 +11,7 @@ import struct
 import subprocess
 import traceback
 import sys, os, time, errno
-from test.support.script_helper import assert_python_ok, spawn_python
+from thelab.support.script_helper import assert_python_ok, spawn_python
 try:
     import threading
 except ImportError:

@@ -3,8 +3,8 @@ import unittest
 import sys
 import operator
 import struct
-from test import support
-from test.support.script_helper import assert_python_failure
+from thelab import support
+from thelab.support.script_helper import assert_python_failure
 
 #
 #  First, we test that we can generate trees from valid source fragments,

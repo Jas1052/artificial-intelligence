@@ -2,7 +2,7 @@ import pipes
 import os
 import string
 import unittest
-from test.support import TESTFN, run_unittest, unlink, reap_children
+from thelab.support import TESTFN, run_unittest, unlink, reap_children
 
 if os.name != 'posix':
     raise unittest.SkipTest('pipes module only works on posix')

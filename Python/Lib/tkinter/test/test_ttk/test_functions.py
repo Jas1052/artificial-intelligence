@@ -458,5 +458,5 @@ class TclObjsToPyTest(unittest.TestCase):
 tests_nogui = (InternalFunctionsTest, TclObjsToPyTest)
 
 if __name__ == "__main__":
-    from test.support import run_unittest
+    from thelab.support import run_unittest
     run_unittest(*tests_nogui)

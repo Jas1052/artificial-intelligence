@@ -11,7 +11,7 @@ from tempfile import TemporaryFile
 import csv
 import gc
 import pickle
-from test import support
+from thelab import support
 
 class Test_Csv(unittest.TestCase):
     """

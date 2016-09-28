@@ -1,4 +1,4 @@
-from test import support
+from thelab import support
 import enum
 import locale
 import platform

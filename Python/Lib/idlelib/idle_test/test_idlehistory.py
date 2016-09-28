@@ -1,5 +1,5 @@
 import unittest
-from test.support import requires
+from thelab.support import requires
 
 import tkinter as tk
 from tkinter import Text as tkText

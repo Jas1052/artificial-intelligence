@@ -1,7 +1,7 @@
 import copyreg
 import unittest
 
-from test.pickletester import ExtensionSaver
+from thelab.pickletester import ExtensionSaver
 
 class C:
     pass

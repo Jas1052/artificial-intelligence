@@ -22,8 +22,8 @@ except ImportError:
 from io import BytesIO, StringIO
 from fileinput import FileInput, hook_encoded
 
-from test.support import verbose, TESTFN, run_unittest, check_warnings
-from test.support import unlink as safe_unlink
+from thelab.support import verbose, TESTFN, run_unittest, check_warnings
+from thelab.support import unlink as safe_unlink
 from unittest import mock
 
 

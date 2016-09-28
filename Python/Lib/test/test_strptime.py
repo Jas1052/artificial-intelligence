@@ -6,7 +6,7 @@ import locale
 import re
 import os
 import sys
-from test import support
+from thelab import support
 from datetime import date as datetime_date
 
 import _strptime

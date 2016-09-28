@@ -5,8 +5,8 @@ import io
 import itertools
 import pprint
 import random
-import test.support
-import test.test_set
+import thelab.support
+import thelab.test_set
 import types
 import unittest
 
@@ -393,7 +393,7 @@ frozenset2({0,
 
     @unittest.expectedFailure
     #See http://bugs.python.org/issue13907
-    @test.support.cpython_only
+    @thelab.support.cpython_only
     def test_set_of_sets_reprs(self):
         # This test creates a complex arrangement of frozensets and
         # compares the pretty-printed repr against a string hard-coded in
@@ -440,7 +440,7 @@ frozenset2({0,
  frozenset({0, 1, 2}): frozenset({frozenset({1, 2}),
                                   frozenset({0, 2}),
                                   frozenset({0, 1})})}"""
-        cube = test.test_set.cube(3)
+        cube = thelab.test_set.cube(3)
         self.assertEqual(pprint.pformat(cube), cube_repr_tgt)
         cubo_repr_tgt = """\
 {frozenset({frozenset({0, 2}), frozenset({0})}): frozenset({frozenset({frozenset({0,
@@ -600,7 +600,7 @@ frozenset2({0,
                                                                              frozenset({1,
                                                                                         2})})})}"""
 
-        cubo = test.test_set.linegraph(cube)
+        cubo = thelab.test_set.linegraph(cube)
         self.assertEqual(pprint.pformat(cubo), cubo_repr_tgt)
 
     def test_depth(self):

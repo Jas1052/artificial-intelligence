@@ -1,7 +1,7 @@
 # Ridiculously simple test of the winsound module for Windows.
 
 import unittest
-from test import support
+from thelab import support
 support.requires('audio')
 import time
 import os

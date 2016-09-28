@@ -14,7 +14,7 @@ from distutils.errors import (
     UnknownFileError)
 
 import unittest
-from test import support
+from thelab import support
 
 # http://bugs.python.org/issue4373
 # Don't load the xx module more than once.

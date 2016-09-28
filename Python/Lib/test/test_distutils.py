@@ -6,12 +6,12 @@ be run.
 """
 
 import distutils.tests
-import test.support
+import thelab.support
 
 
 def test_main():
-    test.support.run_unittest(distutils.tests.test_suite())
-    test.support.reap_children()
+    thelab.support.run_unittest(distutils.tests.test_suite())
+    thelab.support.reap_children()
 
 
 if __name__ == "__main__":

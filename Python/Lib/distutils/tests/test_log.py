@@ -3,7 +3,7 @@
 import sys
 import unittest
 from tempfile import NamedTemporaryFile
-from test.support import run_unittest
+from thelab.support import run_unittest
 
 from distutils import log
 

@@ -14,7 +14,7 @@ import shutil
 import zipfile
 
 from importlib.util import source_from_cache
-from test.support import make_legacy_pyc, strip_python_stderr
+from thelab.support import make_legacy_pyc, strip_python_stderr
 
 
 # Cached result of the expensive test performed in the function below.

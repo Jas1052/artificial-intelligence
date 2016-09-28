@@ -2,7 +2,7 @@ import unittest
 import pickle
 import sys
 
-from test import support
+from thelab import support
 
 py_operator = support.import_fresh_module('operator', blocked=['_operator'])
 c_operator = support.import_fresh_module('operator', fresh=['_operator'])

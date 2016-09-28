@@ -1,5 +1,5 @@
 """Unittest for idlelib.ReplaceDialog"""
-from test.support import requires
+from thelab.support import requires
 requires('gui')
 
 import unittest

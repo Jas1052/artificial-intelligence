@@ -1,6 +1,6 @@
 import unittest
 import textwrap
-from test import support, mock_socket
+from thelab import support, mock_socket
 import socket
 import io
 import smtpd

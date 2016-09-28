@@ -6,7 +6,7 @@ import email
 import email.message
 from email import policy
 from email.headerregistry import HeaderRegistry
-from test.test_email import TestEmailBase, parameterize
+from thelab.test_email import TestEmailBase, parameterize
 
 
 @parameterize

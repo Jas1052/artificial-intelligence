@@ -8,7 +8,7 @@ from _thread import start_new_thread, TIMEOUT_MAX
 import threading
 import unittest
 
-from test import support
+from thelab import support
 
 
 def _wait():

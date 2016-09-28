@@ -1,5 +1,5 @@
 import unittest
-from test import support
+from thelab import support
 
 from random import random
 from math import atan2, isnan, copysign

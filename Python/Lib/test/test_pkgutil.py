@@ -1,4 +1,4 @@
-from test.support import run_unittest, unload, check_warnings, CleanImport
+from thelab.support import run_unittest, unload, check_warnings, CleanImport
 import unittest
 import sys
 import importlib

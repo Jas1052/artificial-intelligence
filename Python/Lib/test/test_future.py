@@ -1,7 +1,7 @@
 # Test various flavors of legal and illegal future statements
 
 import unittest
-from test import support
+from thelab import support
 import re
 
 rx = re.compile('\((\S+).py, line (\d+)')
@@ -14,21 +14,21 @@ class FutureTest(unittest.TestCase):
 
     def test_future1(self):
         with support.CleanImport('future_test1'):
-            from test import future_test1
+            from thelab import future_test1
             self.assertEqual(future_test1.result, 6)
 
     def test_future2(self):
         with support.CleanImport('future_test2'):
-            from test import future_test2
+            from thelab import future_test2
             self.assertEqual(future_test2.result, 6)
 
     def test_future3(self):
         with support.CleanImport('test_future3'):
-            from test import test_future3
+            from thelab import test_future3
 
     def test_badfuture3(self):
         try:
-            from test import badsyntax_future3
+            from thelab import badsyntax_future3
         except SyntaxError as msg:
             self.assertEqual(get_error_location(msg), ("badsyntax_future3", '3'))
         else:
@@ -36,7 +36,7 @@ class FutureTest(unittest.TestCase):
 
     def test_badfuture4(self):
         try:
-            from test import badsyntax_future4
+            from thelab import badsyntax_future4
         except SyntaxError as msg:
             self.assertEqual(get_error_location(msg), ("badsyntax_future4", '3'))
         else:
@@ -44,7 +44,7 @@ class FutureTest(unittest.TestCase):
 
     def test_badfuture5(self):
         try:
-            from test import badsyntax_future5
+            from thelab import badsyntax_future5
         except SyntaxError as msg:
             self.assertEqual(get_error_location(msg), ("badsyntax_future5", '4'))
         else:
@@ -52,7 +52,7 @@ class FutureTest(unittest.TestCase):
 
     def test_badfuture6(self):
         try:
-            from test import badsyntax_future6
+            from thelab import badsyntax_future6
         except SyntaxError as msg:
             self.assertEqual(get_error_location(msg), ("badsyntax_future6", '3'))
         else:
@@ -60,7 +60,7 @@ class FutureTest(unittest.TestCase):
 
     def test_badfuture7(self):
         try:
-            from test import badsyntax_future7
+            from thelab import badsyntax_future7
         except SyntaxError as msg:
             self.assertEqual(get_error_location(msg), ("badsyntax_future7", '3'))
         else:
@@ -68,7 +68,7 @@ class FutureTest(unittest.TestCase):
 
     def test_badfuture8(self):
         try:
-            from test import badsyntax_future8
+            from thelab import badsyntax_future8
         except SyntaxError as msg:
             self.assertEqual(get_error_location(msg), ("badsyntax_future8", '3'))
         else:
@@ -76,7 +76,7 @@ class FutureTest(unittest.TestCase):
 
     def test_badfuture9(self):
         try:
-            from test import badsyntax_future9
+            from thelab import badsyntax_future9
         except SyntaxError as msg:
             self.assertEqual(get_error_location(msg), ("badsyntax_future9", '3'))
         else:
@@ -84,7 +84,7 @@ class FutureTest(unittest.TestCase):
 
     def test_badfuture10(self):
         try:
-            from test import badsyntax_future10
+            from thelab import badsyntax_future10
         except SyntaxError as msg:
             self.assertEqual(get_error_location(msg), ("badsyntax_future10", '3'))
         else:
@@ -112,7 +112,7 @@ class FutureTest(unittest.TestCase):
 
     def test_multiple_features(self):
         with support.CleanImport("test.test_future5"):
-            from test import test_future5
+            from thelab import test_future5
 
     def test_unicode_literals_exec(self):
         scope = {}

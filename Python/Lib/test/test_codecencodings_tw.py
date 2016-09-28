@@ -3,8 +3,8 @@
 #   Codec encoding tests for ROC encodings.
 #
 
-from test import support
-from test import multibytecodec_support
+from thelab import support
+from thelab import multibytecodec_support
 import unittest
 
 class Test_Big5(multibytecodec_support.TestBase, unittest.TestCase):

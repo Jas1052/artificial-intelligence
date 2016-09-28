@@ -8,7 +8,7 @@ from distutils.core import Distribution
 from distutils import sysconfig
 
 from distutils.tests import support
-from test.support import run_unittest
+from thelab.support import run_unittest
 
 
 class BuildScriptsTestCase(support.TempdirManager,

@@ -1,9 +1,9 @@
 import unittest
 import shelve
 import glob
-from test import support
+from thelab import support
 from collections.abc import MutableMapping
-from test.test_dbm import dbm_iterator
+from thelab.test_dbm import dbm_iterator
 
 def L1(s):
     return s.decode("latin-1")
@@ -162,7 +162,7 @@ class TestCase(unittest.TestCase):
         else:
             self.fail('Closed shelf should not find a key')
 
-from test import mapping_tests
+from thelab import mapping_tests
 
 class TestShelveBase(mapping_tests.BasicTestMappingProtocol):
     fn = "shelftemp.db"

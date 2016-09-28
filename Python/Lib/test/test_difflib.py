@@ -1,5 +1,5 @@
 import difflib
-from test.support import run_unittest, findfile
+from thelab.support import run_unittest, findfile
 import unittest
 import doctest
 import sys

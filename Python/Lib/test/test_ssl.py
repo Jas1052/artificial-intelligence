@@ -2,7 +2,7 @@
 
 import sys
 import unittest
-from test import support
+from thelab import support
 import socket
 import select
 import time
@@ -1795,7 +1795,7 @@ except ImportError:
 else:
     _have_threads = True
 
-    from test.ssl_servers import make_https_server
+    from thelab.ssl_servers import make_https_server
 
     class ThreadedEchoServer(threading.Thread):
 

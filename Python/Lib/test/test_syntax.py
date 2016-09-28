@@ -533,7 +533,7 @@ import re
 import unittest
 import warnings
 
-from test import support
+from thelab import support
 
 class SyntaxTestCase(unittest.TestCase):
 
@@ -608,7 +608,7 @@ class SyntaxTestCase(unittest.TestCase):
 
 def test_main():
     support.run_unittest(SyntaxTestCase)
-    from test import test_syntax
+    from thelab import test_syntax
     support.run_doctest(test_syntax, verbosity=True)
 
 if __name__ == "__main__":

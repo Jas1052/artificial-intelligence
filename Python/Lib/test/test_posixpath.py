@@ -5,7 +5,7 @@ import sys
 import unittest
 import warnings
 from posixpath import realpath, abspath, dirname, basename
-from test import support, test_genericpath
+from thelab import support, test_genericpath
 
 try:
     import posix

@@ -10,7 +10,7 @@ import os
 import sys
 import unittest
 import importlib
-import test.support
+import thelab.support
 
 this_dir_path = os.path.abspath(os.path.dirname(__file__))
 
@@ -48,7 +48,7 @@ def get_tests_modules(basepath=this_dir_path, gui=True, packages=None):
                     yield importlib.import_module(
                         ".%s.%s" % (pkg_name, name[:-len(py_ext)]),
                         "tkinter.test")
-                except test.support.ResourceDenied:
+                except thelab.support.ResourceDenied:
                     if gui:
                         raise
 
@@ -68,4 +68,4 @@ def get_tests(text=True, gui=True, packages=None):
                 yield test
 
 if __name__ == "__main__":
-    test.support.run_unittest(*get_tests())
+    thelab.support.run_unittest(*get_tests())

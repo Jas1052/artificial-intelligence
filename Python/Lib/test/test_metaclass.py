@@ -257,8 +257,8 @@ else:
     __test__ = {'doctests' : doctests}
 
 def test_main(verbose=False):
-    from test import support
-    from test import test_metaclass
+    from thelab import support
+    from thelab import test_metaclass
     support.run_doctest(test_metaclass, verbose)
 
 if __name__ == "__main__":

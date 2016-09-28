@@ -6,7 +6,7 @@ import warnings
 import zipfile
 from os.path import join
 from textwrap import dedent
-from test.support import captured_stdout, check_warnings, run_unittest
+from thelab.support import captured_stdout, check_warnings, run_unittest
 
 try:
     import zlib

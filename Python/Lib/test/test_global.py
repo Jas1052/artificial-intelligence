@@ -1,6 +1,6 @@
 """Verify that warnings are issued for global statements following use."""
 
-from test.support import run_unittest, check_syntax_error, check_warnings
+from thelab.support import run_unittest, check_syntax_error, check_warnings
 import unittest
 import warnings
 

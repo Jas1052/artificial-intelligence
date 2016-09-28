@@ -5,7 +5,7 @@ import unittest
 import struct
 import sys
 
-from test import support
+from thelab import support
 
 ISBIGENDIAN = sys.byteorder == "big"
 

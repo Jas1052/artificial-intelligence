@@ -2,7 +2,7 @@ import contextlib
 import sys
 import os
 import unittest
-from test import support
+from thelab import support
 import time
 
 resource = support.import_module('resource')

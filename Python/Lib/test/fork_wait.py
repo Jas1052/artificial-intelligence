@@ -10,7 +10,7 @@ active threads survive in the child after a fork(); this is an error.
 """
 
 import os, sys, time, unittest
-import test.support as support
+import thelab.support as support
 _thread = support.import_module('_thread')
 
 LONGSLEEP = 2

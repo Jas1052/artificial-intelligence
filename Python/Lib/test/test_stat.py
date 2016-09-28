@@ -1,7 +1,7 @@
 import unittest
 import os
 import sys
-from test.support import TESTFN, import_fresh_module
+from thelab.support import TESTFN, import_fresh_module
 
 c_stat = import_fresh_module('stat', fresh=['_stat'])
 py_stat = import_fresh_module('stat', blocked=['_stat'])

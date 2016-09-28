@@ -4,9 +4,9 @@ import os
 import sys
 import unittest
 import tempfile
-from test import support
+from thelab import support
 
-from test.test_tools import scriptsdir, skip_if_missing, import_tool
+from thelab.test_tools import scriptsdir, skip_if_missing, import_tool
 
 skip_if_missing()
 

@@ -6,7 +6,7 @@
 import binhex
 import os
 import unittest
-from test import support
+from thelab import support
 
 
 class BinHexTestCase(unittest.TestCase):

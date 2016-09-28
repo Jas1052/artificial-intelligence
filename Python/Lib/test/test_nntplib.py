@@ -6,7 +6,7 @@ import unittest
 import functools
 import contextlib
 import os.path
-from test import support
+from thelab import support
 from nntplib import NNTP, GroupInfo
 import nntplib
 from unittest.mock import patch

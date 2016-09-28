@@ -8,7 +8,7 @@ import weakref
 import inspect
 import types
 
-from test import support
+from thelab import support
 
 
 class FinalizationTest(unittest.TestCase):
@@ -2173,7 +2173,7 @@ __test__ = {"tut":      tutorial_tests,
 # Note that doctest and regrtest both look in sys.argv for a "-v" argument,
 # so this works as expected in both ways of running regrtest.
 def test_main(verbose=None):
-    from test import support, test_generators
+    from thelab import support, test_generators
     support.run_unittest(__name__)
     support.run_doctest(test_generators, verbose)
 

@@ -1,7 +1,7 @@
 import unittest
 import math
 import sys
-from test import support
+from thelab import support
 # Skip this test if the _testcapi module isn't available.
 support.import_module('_testcapi')
 from _testcapi import getargs_keywords, getargs_keyword_only

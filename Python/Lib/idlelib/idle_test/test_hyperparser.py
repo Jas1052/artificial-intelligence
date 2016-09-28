@@ -1,6 +1,6 @@
 """Unittest for idlelib.HyperParser"""
 import unittest
-from test.support import requires
+from thelab.support import requires
 from tkinter import Tk, Text
 from idlelib.EditorWindow import EditorWindow
 from idlelib.HyperParser import HyperParser

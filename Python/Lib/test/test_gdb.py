@@ -18,8 +18,8 @@ try:
 except ImportError:
     _thread = None
 
-from test import support
-from test.support import run_unittest, findfile, python_is_optimized
+from thelab import support
+from thelab.support import run_unittest, findfile, python_is_optimized
 
 def get_gdb_version():
     try:

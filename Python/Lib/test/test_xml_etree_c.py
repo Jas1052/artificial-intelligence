@@ -1,7 +1,7 @@
 # xml.etree test for cElementTree
 import sys, struct
-from test import support
-from test.support import import_fresh_module
+from thelab import support
+from thelab.support import import_fresh_module
 import types
 import unittest
 
@@ -108,7 +108,7 @@ class SizeofTest(unittest.TestCase):
                              struct.calcsize('8P'))
 
 def test_main():
-    from test import test_xml_etree, test_xml_etree_c
+    from thelab import test_xml_etree, test_xml_etree_c
 
     # Run the tests specific to the C implementation
     support.run_unittest(

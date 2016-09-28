@@ -5,7 +5,7 @@
 """
 
 import unittest
-import test.support
+import thelab.support
 import sys
 import gc
 import weakref
@@ -350,7 +350,7 @@ class AbstractMemoryTests:
             wr = weakref.ref(m, callback)
             self.assertIs(wr(), m)
             del m
-            test.support.gc_collect()
+            thelab.support.gc_collect()
             self.assertIs(wr(), None)
             self.assertIs(L[0], b)
 
@@ -497,7 +497,7 @@ class ArrayMemorySliceSliceTest(unittest.TestCase,
 class OtherTest(unittest.TestCase):
     def test_ctypes_cast(self):
         # Issue 15944: Allow all source formats when casting to bytes.
-        ctypes = test.support.import_module("ctypes")
+        ctypes = thelab.support.import_module("ctypes")
         p6 = bytes(ctypes.c_double(0.6))
 
         d = ctypes.c_double()

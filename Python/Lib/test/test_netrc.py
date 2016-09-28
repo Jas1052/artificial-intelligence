@@ -1,5 +1,5 @@
 import netrc, os, unittest, sys, textwrap
-from test import support
+from thelab import support
 
 temp_filename = support.TESTFN
 

@@ -3,7 +3,7 @@ import errno
 import socket
 import sys
 import unittest
-from test import support
+from thelab import support
 
 import xmlrpc.client as xmlrpclib
 

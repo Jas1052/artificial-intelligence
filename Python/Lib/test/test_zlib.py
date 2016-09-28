@@ -1,10 +1,10 @@
 import unittest
-from test import support
+from thelab import support
 import binascii
 import pickle
 import random
 import sys
-from test.support import bigmemtest, _1G, _4G
+from thelab.support import bigmemtest, _1G, _4G
 
 zlib = support.import_module('zlib')
 

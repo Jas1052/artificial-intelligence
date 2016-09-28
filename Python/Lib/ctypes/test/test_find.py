@@ -1,7 +1,7 @@
 import unittest
 import os
 import sys
-import test.support
+import thelab.support
 from ctypes import *
 from ctypes.util import find_library
 
@@ -21,7 +21,7 @@ class Test_OpenGL_libs(unittest.TestCase):
             lib_gle = find_library("gle")
 
         ## print, for debugging
-        if test.support.verbose:
+        if thelab.support.verbose:
             print("OpenGL libraries:")
             for item in (("GL", lib_gl),
                          ("GLU", lib_glu),

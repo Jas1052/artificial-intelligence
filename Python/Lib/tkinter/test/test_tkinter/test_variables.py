@@ -208,5 +208,5 @@ tests_gui = (TestVariable, TestStringVar, TestIntVar,
 
 
 if __name__ == "__main__":
-    from test.support import run_unittest
+    from thelab.support import run_unittest
     run_unittest(*tests_gui)

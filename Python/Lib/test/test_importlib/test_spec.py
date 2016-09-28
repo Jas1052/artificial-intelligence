@@ -5,7 +5,7 @@ machinery = test_util.import_importlib('importlib.machinery')
 util = test_util.import_importlib('importlib.util')
 
 import os.path
-from test.support import CleanImport
+from thelab.support import CleanImport
 import unittest
 import sys
 import warnings

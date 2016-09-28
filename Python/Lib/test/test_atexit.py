@@ -2,7 +2,7 @@ import sys
 import unittest
 import io
 import atexit
-from test import support
+from thelab import support
 
 ### helpers
 def h1():

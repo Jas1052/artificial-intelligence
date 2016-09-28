@@ -7,7 +7,7 @@ import os
 import sys
 import unittest
 import warnings
-from test import support
+from thelab import support
 
 
 def safe_rmdir(dirname):

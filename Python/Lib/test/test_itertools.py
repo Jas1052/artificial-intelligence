@@ -1,5 +1,5 @@
 import unittest
-from test import support
+from thelab import support
 from itertools import *
 import weakref
 from decimal import Decimal

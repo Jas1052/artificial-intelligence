@@ -9,7 +9,7 @@ simply passing a -u option to this script.
 
 import os
 import sys
-import test.support
+import thelab.support
 try:
     import threading
 except ImportError:
@@ -31,7 +31,7 @@ def main(regrtest_args):
             '-E',                 # Ignore environment variables
             ]
     # Allow user-specified interpreter options to override our defaults.
-    args.extend(test.support.args_from_interpreter_flags())
+    args.extend(thelab.support.args_from_interpreter_flags())
 
     # Workaround for issue #20361
     args.extend(['-W', 'error::BytesWarning'])

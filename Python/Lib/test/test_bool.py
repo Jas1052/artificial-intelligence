@@ -1,7 +1,7 @@
 # Test properties of bool promised by PEP 285
 
 import unittest
-from test import support
+from thelab import support
 
 import os
 

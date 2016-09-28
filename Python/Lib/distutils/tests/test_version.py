@@ -2,7 +2,7 @@
 import unittest
 from distutils.version import LooseVersion
 from distutils.version import StrictVersion
-from test.support import run_unittest
+from thelab.support import run_unittest
 
 class VersionTestCase(unittest.TestCase):
 

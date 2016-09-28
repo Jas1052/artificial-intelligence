@@ -104,7 +104,7 @@ consts: ('None',)
 
 import unittest
 import weakref
-from test.support import run_doctest, run_unittest, cpython_only
+from thelab.support import run_doctest, run_unittest, cpython_only
 
 
 def consts(t):
@@ -161,7 +161,7 @@ class CodeWeakRefTest(unittest.TestCase):
 
 
 def test_main(verbose=None):
-    from test import test_code
+    from thelab import test_code
     run_doctest(test_code, verbose)
     run_unittest(CodeTest, CodeWeakRefTest)
 

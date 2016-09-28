@@ -8,7 +8,7 @@ import os
 import os.path
 import shutil
 import sys
-from test import support
+from thelab import support
 import unittest
 import warnings
 with warnings.catch_warnings():

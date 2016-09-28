@@ -2,7 +2,7 @@ import sys
 import unittest
 import tkinter
 from tkinter import ttk
-from test.support import requires, run_unittest, swap_attr
+from thelab.support import requires, run_unittest, swap_attr
 from tkinter.test.support import AbstractTkTest, destroy_default_root
 
 requires('gui')

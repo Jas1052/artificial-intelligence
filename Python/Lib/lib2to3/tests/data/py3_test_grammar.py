@@ -8,7 +8,7 @@
 # regression test, the filterwarnings() call has been added to
 # regrtest.py.
 
-from test.support import run_unittest, check_syntax_error
+from thelab.support import run_unittest, check_syntax_error
 import unittest
 import sys
 # testing import *

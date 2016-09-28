@@ -3,7 +3,7 @@ import io
 import os
 import unittest
 import warnings
-from test.support import findfile, TESTFN, unlink
+from thelab.support import findfile, TESTFN, unlink
 
 TEST_FILES = (
     ('python.png', 'png'),

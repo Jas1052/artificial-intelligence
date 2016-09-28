@@ -4,7 +4,7 @@
 """Unit tests for abc.py."""
 
 import unittest
-from test import support
+from thelab import support
 
 import abc
 from inspect import isabstract

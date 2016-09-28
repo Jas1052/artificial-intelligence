@@ -12,7 +12,7 @@ import sys
 import time
 import shutil
 import unittest
-from test.support import (
+from thelab.support import (
     verbose, import_module, run_unittest, TESTFN, reap_threads,
     forget, unlink, rmtree, start_threads)
 threading = import_module('threading')
@@ -173,8 +173,8 @@ class ThreadedImportTests(unittest.TestCase):
             del sys.modules['test.threaded_import_hangers']
         except KeyError:
             pass
-        import test.threaded_import_hangers
-        self.assertFalse(test.threaded_import_hangers.errors)
+        import thelab.threaded_import_hangers
+        self.assertFalse(thelab.threaded_import_hangers.errors)
 
     def test_circular_imports(self):
         # The goal of this test is to exercise implementations of the import

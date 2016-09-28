@@ -4,7 +4,7 @@ import sys
 import os
 from io import BytesIO
 import subprocess
-from test.support import run_unittest
+from thelab.support import run_unittest
 
 from distutils import cygwinccompiler
 from distutils.cygwinccompiler import (CygwinCCompiler, check_config_h,

@@ -2,7 +2,7 @@ import queue
 import sched
 import time
 import unittest
-from test import support
+from thelab import support
 try:
     import threading
 except ImportError:

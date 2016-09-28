@@ -1,4 +1,4 @@
-from test.support import check_warnings
+from thelab.support import check_warnings
 import cgi
 import os
 import sys

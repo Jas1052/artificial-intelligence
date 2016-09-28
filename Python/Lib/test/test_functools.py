@@ -5,7 +5,7 @@ from itertools import permutations
 import pickle
 from random import choice
 import sys
-from test import support
+from thelab import support
 import unittest
 from weakref import proxy
 try:

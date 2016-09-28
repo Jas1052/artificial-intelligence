@@ -10,7 +10,7 @@ import importlib
 import importlib.util
 import unittest
 
-from test.support import create_empty_file, verbose
+from thelab.support import create_empty_file, verbose
 from reprlib import repr as r # Don't shadow builtin repr
 from reprlib import Repr
 from reprlib import recursive_repr

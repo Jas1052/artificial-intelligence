@@ -3,8 +3,8 @@ import sys
 import textwrap
 import unittest
 import subprocess
-from test import support
-from test.support.script_helper import assert_python_ok
+from thelab import support
+from thelab.support.script_helper import assert_python_ok
 
 
 class TestTool(unittest.TestCase):

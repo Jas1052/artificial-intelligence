@@ -9,7 +9,7 @@ import struct
 import time
 import unittest
 
-from test import support
+from thelab import support
 from math import isinf, isnan, copysign, ldexp
 
 INF = float("inf")

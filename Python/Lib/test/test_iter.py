@@ -2,8 +2,8 @@
 
 import sys
 import unittest
-from test.support import run_unittest, TESTFN, unlink, cpython_only
-from test.support import check_free_after_iterating
+from thelab.support import run_unittest, TESTFN, unlink, cpython_only
+from thelab.support import check_free_after_iterating
 import pickle
 import collections.abc
 

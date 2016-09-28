@@ -11,8 +11,8 @@ import os
 import unittest
 from io import StringIO
 
-from test.test_email import TestEmailBase
-from test.support import run_unittest
+from thelab.test_email import TestEmailBase
+from thelab.support import run_unittest
 
 import email
 from email import __file__ as testfile

@@ -6,11 +6,11 @@ import unittest
 import os
 from difflib import unified_diff
 from io import StringIO
-from test.support import TESTFN, run_unittest, unlink
+from thelab.support import TESTFN, run_unittest, unlink
 from contextlib import contextmanager
 
 import profile
-from test.profilee import testfunc, timer
+from thelab.profilee import testfunc, timer
 
 
 class ProfileTest(unittest.TestCase):

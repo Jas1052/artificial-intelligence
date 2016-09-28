@@ -1,4 +1,4 @@
-from test.test_json import CTest
+from thelab.test_json import CTest
 
 
 class TestSpeedups(CTest):

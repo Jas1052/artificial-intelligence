@@ -1,11 +1,11 @@
 import mailcap
 import os
 import shutil
-import test.support
+import thelab.support
 import unittest
 
 # Location of mailcap file
-MAILCAPFILE = test.support.findfile("mailcap.txt")
+MAILCAPFILE = thelab.support.findfile("mailcap.txt")
 
 # Dict to act as mock mailcap entry for this test
 # The keys and values should match the contents of MAILCAPFILE
@@ -62,7 +62,7 @@ class HelperFunctionTest(unittest.TestCase):
         self.assertIsInstance(mcfiles, list)
         for m in mcfiles:
             self.assertIsInstance(m, str)
-        with test.support.EnvironmentVarGuard() as env:
+        with thelab.support.EnvironmentVarGuard() as env:
             # According to RFC 1524, if MAILCAPS env variable exists, use that
             # and only that.
             if "MAILCAPS" in env:
@@ -116,7 +116,7 @@ class GetcapsTest(unittest.TestCase):
         # Test mailcap.getcaps() using mock mailcap file in this dir.
         # Temporarily override any existing system mailcap file by pointing the
         # MAILCAPS environment variable to our mock file.
-        with test.support.EnvironmentVarGuard() as env:
+        with thelab.support.EnvironmentVarGuard() as env:
             env["MAILCAPS"] = MAILCAPFILE
             caps = mailcap.getcaps()
             self.assertDictEqual(caps, MAILCAPDICT)

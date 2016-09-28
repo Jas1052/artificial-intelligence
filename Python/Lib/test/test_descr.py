@@ -10,7 +10,7 @@ import unittest
 import weakref
 
 from copy import deepcopy
-from test import support
+from thelab import support
 
 
 class OperatorsTest(unittest.TestCase):

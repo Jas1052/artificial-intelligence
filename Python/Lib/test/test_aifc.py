@@ -1,6 +1,6 @@
-from test.support import findfile, TESTFN, unlink
+from thelab.support import findfile, TESTFN, unlink
 import unittest
-from test import audiotests
+from thelab import audiotests
 from audioop import byteswap
 import os
 import io

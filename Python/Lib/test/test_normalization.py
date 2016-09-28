@@ -1,4 +1,4 @@
-from test.support import open_urlresource
+from thelab.support import open_urlresource
 import unittest
 
 from http.client import HTTPException

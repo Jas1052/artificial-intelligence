@@ -9,7 +9,7 @@
 import sys
 import unittest
 import hashlib
-from test.support import script_helper
+from thelab.support import script_helper
 
 encoding = 'utf-8'
 errors = 'surrogatepass'

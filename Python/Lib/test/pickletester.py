@@ -11,8 +11,8 @@ import unittest
 import weakref
 from http.cookies import SimpleCookie
 
-from test import support
-from test.support import (
+from thelab import support
+from thelab.support import (
     TestFailed, TESTFN, run_with_locale, no_tracing,
     _2G, _4G, bigmemtest,
     )

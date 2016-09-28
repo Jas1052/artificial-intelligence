@@ -6,7 +6,7 @@ import sys
 import os
 from functools import cmp_to_key
 
-from test import support, seq_tests
+from thelab import support, seq_tests
 
 
 class CommonTest(seq_tests.CommonTest):

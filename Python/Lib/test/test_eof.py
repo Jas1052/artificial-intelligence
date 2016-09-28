@@ -1,7 +1,7 @@
 """test script for a few new invalid token catches"""
 
 import unittest
-from test import support
+from thelab import support
 
 class EOFTestCase(unittest.TestCase):
     def test_EOFC(self):

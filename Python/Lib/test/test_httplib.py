@@ -9,7 +9,7 @@ import socket
 import unittest
 TestCase = unittest.TestCase
 
-from test import support
+from thelab import support
 
 here = os.path.dirname(__file__)
 # Self-signed cert file for 'localhost'
@@ -1372,7 +1372,7 @@ class HTTPSTest(TestCase):
             self.skipTest('ssl support required')
 
     def make_server(self, certfile):
-        from test.ssl_servers import make_https_server
+        from thelab.ssl_servers import make_https_server
         return make_https_server(self, certfile=certfile)
 
     def test_attributes(self):

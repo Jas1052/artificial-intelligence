@@ -8,7 +8,7 @@ import email.message
 import io
 import unittest
 from unittest.mock import patch
-from test import support
+from thelab import support
 import os
 try:
     import ssl

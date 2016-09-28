@@ -13,7 +13,7 @@ import struct
 import sys
 import unittest
 import warnings
-from test import support, string_tests
+from thelab import support, string_tests
 
 # Error handling (bad decoder return)
 def search_function(encoding):

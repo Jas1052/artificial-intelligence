@@ -122,8 +122,8 @@ error)
 __test__ = {'doctests' : doctests}
 
 def test_main(verbose=False):
-    from test import support
-    from test import test_unpack
+    from thelab import support
+    from thelab import test_unpack
     support.run_doctest(test_unpack, verbose)
 
 if __name__ == "__main__":

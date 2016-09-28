@@ -16,7 +16,7 @@ except ImportError:
                 raise TypeError('requires _testcapi.with_tp_del')
         return C
 
-from test import support
+from thelab import support
 
 
 class NonGCSimpleBase:

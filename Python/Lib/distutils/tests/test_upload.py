@@ -4,7 +4,7 @@ import unittest
 import unittest.mock as mock
 from urllib.request import HTTPError
 
-from test.support import run_unittest
+from thelab.support import run_unittest
 
 from distutils.command import upload as upload_mod
 from distutils.command.upload import upload

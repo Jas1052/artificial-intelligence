@@ -7,7 +7,7 @@ import unittest
 import warnings
 import encodings
 
-from test import support
+from thelab import support
 
 if sys.platform == 'win32':
     VISTA_OR_LATER = (sys.getwindowsversion().major >= 6)

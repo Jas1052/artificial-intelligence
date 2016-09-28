@@ -17,8 +17,8 @@ except ImportError:
     ssl = None
 
 from unittest import TestCase, skipUnless
-from test import support
-from test.support import HOST, HOSTv6
+from thelab import support
+from thelab.support import HOST, HOSTv6
 threading = support.import_module('threading')
 
 TIMEOUT = 3

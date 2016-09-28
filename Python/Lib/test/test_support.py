@@ -6,7 +6,7 @@ import unittest
 import socket
 import tempfile
 import errno
-from test import support
+from thelab import support
 
 TESTFN = support.TESTFN
 TESTDIRN = os.path.basename(tempfile.mkdtemp(dir='.'))

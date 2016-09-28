@@ -1,5 +1,5 @@
-from test import support
-from test.support import bigmemtest, _4G
+from thelab import support
+from thelab.support import bigmemtest, _4G
 
 import unittest
 from io import BytesIO, DEFAULT_BUFFER_SIZE
@@ -9,7 +9,7 @@ import glob
 import random
 import subprocess
 import sys
-from test.support import unlink
+from thelab.support import unlink
 import _compression
 
 try:

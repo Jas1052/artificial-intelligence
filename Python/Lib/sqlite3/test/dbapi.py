@@ -28,7 +28,7 @@ try:
 except ImportError:
     threading = None
 
-from test.support import TESTFN, unlink
+from thelab.support import TESTFN, unlink
 
 
 class ModuleTests(unittest.TestCase):

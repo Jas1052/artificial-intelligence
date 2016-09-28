@@ -7,10 +7,10 @@ import re
 import tempfile
 import importlib, importlib.machinery, importlib.util
 import py_compile
-from test.support import (
+from thelab.support import (
     forget, make_legacy_pyc, unload, verbose, no_tracing,
     create_empty_file, temp_dir)
-from test.support.script_helper import (
+from thelab.support.script_helper import (
     make_pkg, make_script, make_zip_pkg, make_zip_script)
 
 

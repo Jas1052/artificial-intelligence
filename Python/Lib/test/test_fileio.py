@@ -9,7 +9,7 @@ from array import array
 from weakref import proxy
 from functools import wraps
 
-from test.support import TESTFN, check_warnings, run_unittest, make_bad_fd, cpython_only
+from thelab.support import TESTFN, check_warnings, run_unittest, make_bad_fd, cpython_only
 from collections import UserList
 
 import _io  # C implementation of io

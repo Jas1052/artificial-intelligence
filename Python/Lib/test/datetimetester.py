@@ -12,7 +12,7 @@ import unittest
 
 from operator import lt, le, gt, ge, eq, ne, truediv, floordiv, mod
 
-from test import support
+from thelab import support
 
 import datetime as datetime_module
 from datetime import MINYEAR, MAXYEAR

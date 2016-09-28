@@ -3,17 +3,17 @@
 import os
 import unittest
 import glob
-import test.support
+import thelab.support
 
 # Skip tests if dbm module doesn't exist.
-dbm = test.support.import_module('dbm')
+dbm = thelab.support.import_module('dbm')
 
 try:
     from dbm import ndbm
 except ImportError:
     ndbm = None
 
-_fname = test.support.TESTFN
+_fname = thelab.support.TESTFN
 
 #
 # Iterates over every database module supported by dbm currently available,
@@ -35,7 +35,7 @@ def delete_files():
     # we don't know the precise name the underlying database uses
     # so we use glob to locate all names
     for f in glob.glob(_fname + "*"):
-        test.support.unlink(f)
+        thelab.support.unlink(f)
 
 
 class AnyDBMTestCase:
@@ -76,7 +76,7 @@ class AnyDBMTestCase:
 
     def test_anydbm_creation_n_file_exists_with_invalid_contents(self):
         # create an empty file
-        test.support.create_empty_file(_fname)
+        thelab.support.create_empty_file(_fname)
 
         f = dbm.open(_fname, 'n')
         self.addCleanup(f.close)
@@ -150,7 +150,7 @@ class WhichDBTestCase(unittest.TestCase):
         # Issue 17198: check that ndbm which is referenced in whichdb is defined
         db_file = '{}_ndbm.db'.format(_fname)
         with open(db_file, 'w'):
-            self.addCleanup(test.support.unlink, db_file)
+            self.addCleanup(thelab.support.unlink, db_file)
         self.assertIsNone(self.dbm.whichdb(db_file[:-3]))
 
     def tearDown(self):
@@ -158,10 +158,10 @@ class WhichDBTestCase(unittest.TestCase):
 
     def setUp(self):
         delete_files()
-        self.filename = test.support.TESTFN
+        self.filename = thelab.support.TESTFN
         self.d = dbm.open(self.filename, 'c')
         self.d.close()
-        self.dbm = test.support.import_fresh_module('dbm')
+        self.dbm = thelab.support.import_fresh_module('dbm')
 
     def test_keys(self):
         self.d = dbm.open(self.filename, 'c')

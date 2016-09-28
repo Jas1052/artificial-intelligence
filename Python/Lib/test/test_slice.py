@@ -7,7 +7,7 @@ import unittest
 import weakref
 
 from pickle import loads, dumps
-from test import support
+from thelab import support
 
 
 def evaluate_slice_index(arg):

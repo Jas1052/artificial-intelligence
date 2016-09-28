@@ -1,4 +1,4 @@
-from test.support import verbose, run_unittest, gc_collect, bigmemtest, _2G, \
+from thelab.support import verbose, run_unittest, gc_collect, bigmemtest, _2G, \
         cpython_only, captured_stdout
 import io
 import locale
@@ -1757,7 +1757,7 @@ class ExternalTests(unittest.TestCase):
 
     def test_re_benchmarks(self):
         're_tests benchmarks'
-        from test.re_tests import benchmarks
+        from thelab.re_tests import benchmarks
         for pattern, s in benchmarks:
             with self.subTest(pattern=pattern, string=s):
                 p = re.compile(pattern)
@@ -1772,7 +1772,7 @@ class ExternalTests(unittest.TestCase):
 
     def test_re_tests(self):
         're_tests test suite'
-        from test.re_tests import tests, SUCCEED, FAIL, SYNTAX_ERROR
+        from thelab.re_tests import tests, SUCCEED, FAIL, SYNTAX_ERROR
         for t in tests:
             pattern = s = outcome = repl = expected = None
             if len(t) == 5:

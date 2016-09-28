@@ -2,7 +2,7 @@ from ctypes import *
 import os
 import sys
 import unittest
-import test.support
+import thelab.support
 from ctypes.util import find_library
 
 libc_name = None
@@ -18,7 +18,7 @@ def setUpModule():
     else:
         libc_name = find_library("c")
 
-    if test.support.verbose:
+    if thelab.support.verbose:
         print("libc_name is", libc_name)
 
 class LoaderTest(unittest.TestCase):
@@ -55,7 +55,7 @@ class LoaderTest(unittest.TestCase):
         # CRT is no longer directly loadable. See issue23606 for the
         # discussion about alternative approaches.
         #self.assertIsNotNone(libc_name)
-        if test.support.verbose:
+        if thelab.support.verbose:
             print(find_library("kernel32"))
             print(find_library("user32"))
 

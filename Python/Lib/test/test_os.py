@@ -28,7 +28,7 @@ import time
 import unittest
 import uuid
 import warnings
-from test import support
+from thelab import support
 try:
     import threading
 except ImportError:
@@ -64,7 +64,7 @@ try:
 except ImportError:
     INT_MAX = PY_SSIZE_T_MAX = sys.maxsize
 
-from test.support.script_helper import assert_python_ok
+from thelab.support.script_helper import assert_python_ok
 
 root_in_posix = False
 if hasattr(os, 'geteuid'):
@@ -628,7 +628,7 @@ class UtimeTests(unittest.TestCase):
             os.utime(self.fname, (5, 5), ns=(5, 5))
 
 
-from test import mapping_tests
+from thelab import mapping_tests
 
 class EnvironTests(mapping_tests.BasicTestMappingProtocol):
     """check that os.environ object conform to mapping protocol"""

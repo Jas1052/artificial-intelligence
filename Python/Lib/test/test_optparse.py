@@ -13,7 +13,7 @@ import copy
 import unittest
 
 from io import StringIO
-from test import support
+from thelab import support
 
 
 from optparse import make_option, Option, \

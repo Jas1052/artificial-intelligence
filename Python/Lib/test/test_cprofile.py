@@ -1,12 +1,12 @@
 """Test suite for the cProfile module."""
 
 import sys
-from test.support import run_unittest, TESTFN, unlink
+from thelab.support import run_unittest, TESTFN, unlink
 
 # rip off all interesting stuff from test_profile
 import cProfile
-from test.test_profile import ProfileTest, regenerate_expected_output
-from test.profilee import testfunc
+from thelab.test_profile import ProfileTest, regenerate_expected_output
+from thelab.profilee import testfunc
 
 class CProfileTest(ProfileTest):
     profilerclass = cProfile.Profile

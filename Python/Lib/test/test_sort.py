@@ -1,4 +1,4 @@
-from test import support
+from thelab import support
 import random
 import sys
 import unittest

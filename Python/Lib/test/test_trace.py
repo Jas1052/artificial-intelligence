@@ -1,13 +1,13 @@
 import os
 import io
 import sys
-from test.support import TESTFN, rmtree, unlink, captured_stdout
+from thelab.support import TESTFN, rmtree, unlink, captured_stdout
 import unittest
 
 import trace
 from trace import CoverageResults, Trace
 
-from test.tracedmodules import testmod
+from thelab.tracedmodules import testmod
 
 #------------------------------- Utilities -----------------------------------#
 

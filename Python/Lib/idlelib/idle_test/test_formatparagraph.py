@@ -3,7 +3,7 @@ import unittest
 from idlelib import FormatParagraph as fp
 from idlelib.EditorWindow import EditorWindow
 from tkinter import Tk, Text
-from test.support import requires
+from thelab.support import requires
 
 
 class Is_Get_Test(unittest.TestCase):

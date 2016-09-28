@@ -1,5 +1,5 @@
 import unittest.mock
-from test import support
+from thelab import support
 import builtins
 import io
 import os

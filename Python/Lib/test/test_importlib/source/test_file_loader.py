@@ -17,7 +17,7 @@ import types
 import unittest
 import warnings
 
-from test.support import make_legacy_pyc, unload
+from thelab.support import make_legacy_pyc, unload
 
 
 class SimpleTest(abc.LoaderTests):

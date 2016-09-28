@@ -8,7 +8,7 @@ import codecs
 import binascii
 import collections
 import struct
-from test import support
+from thelab import support
 from io import BytesIO
 
 ALL_FORMATS=(plistlib.FMT_XML, plistlib.FMT_BINARY)

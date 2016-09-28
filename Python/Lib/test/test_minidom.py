@@ -2,7 +2,7 @@
 
 import copy
 import pickle
-from test.support import findfile
+from thelab.support import findfile
 import unittest
 
 import xml.dom.minidom

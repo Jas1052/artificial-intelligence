@@ -1,6 +1,6 @@
 import os
 import unittest
-from test import support
+from thelab import support
 
 spwd = support.import_module('spwd')
 

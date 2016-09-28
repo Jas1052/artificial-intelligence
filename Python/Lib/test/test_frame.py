@@ -4,7 +4,7 @@ import types
 import unittest
 import weakref
 
-from test import support
+from thelab import support
 
 
 class ClearTest(unittest.TestCase):

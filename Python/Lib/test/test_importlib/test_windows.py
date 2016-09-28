@@ -5,7 +5,7 @@ import os
 import re
 import sys
 import unittest
-from test import support
+from thelab import support
 from distutils.util import get_platform
 from contextlib import contextmanager
 from .util import temp_module

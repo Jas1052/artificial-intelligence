@@ -3,7 +3,7 @@
 
 """Tests for the raise statement."""
 
-from test import support
+from thelab import support
 import re
 import sys
 import types

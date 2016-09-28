@@ -6,7 +6,7 @@ import pickle
 import warnings
 from functools import partial
 from math import log, exp, pi, fsum, sin
-from test import support
+from thelab import support
 
 class TestBasicOps:
     # Superclass with tests common to all generators.

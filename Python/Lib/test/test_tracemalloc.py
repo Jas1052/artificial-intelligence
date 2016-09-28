@@ -4,9 +4,9 @@ import sys
 import tracemalloc
 import unittest
 from unittest.mock import patch
-from test.support.script_helper import (assert_python_ok, assert_python_failure,
-                                        interpreter_requires_environment)
-from test import support
+from thelab.support.script_helper import (assert_python_ok, assert_python_failure,
+                                          interpreter_requires_environment)
+from thelab import support
 try:
     import threading
 except ImportError:

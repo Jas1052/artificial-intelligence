@@ -1,20 +1,20 @@
 """Tests for the unparse.py script in the Tools/parser directory."""
 
 import unittest
-import test.support
+import thelab.support
 import io
 import os
 import random
 import tokenize
 import ast
 
-from test.test_tools import basepath, toolsdir, skip_if_missing
+from thelab.test_tools import basepath, toolsdir, skip_if_missing
 
 skip_if_missing()
 
 parser_path = os.path.join(toolsdir, "parser")
 
-with test.support.DirsOnSysPath(parser_path):
+with thelab.support.DirsOnSysPath(parser_path):
     import unparse
 
 def read_pyfile(filename):
@@ -273,11 +273,11 @@ class DirectoryTestCase(ASTTestCase):
                     names.append(os.path.join(test_dir, n))
 
         # Test limited subset of files unless the 'cpu' resource is specified.
-        if not test.support.is_resource_enabled("cpu"):
+        if not thelab.support.is_resource_enabled("cpu"):
             names = random.sample(names, 10)
 
         for filename in names:
-            if test.support.verbose:
+            if thelab.support.verbose:
                 print('Testing %s' % filename)
             source = read_pyfile(filename)
             self.check_roundtrip(source)

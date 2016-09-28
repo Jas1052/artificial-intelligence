@@ -5,7 +5,7 @@ Tests common to tuple, list and UserList.UserList
 import unittest
 import sys
 import pickle
-from test import support
+from thelab import support
 
 # Various iterables
 # This is used for checking the constructor (here and in test_deque.py)

@@ -5,7 +5,7 @@ import types
 from email import errors
 from email import policy
 from email.message import Message
-from test.test_email import TestEmailBase, parameterize
+from thelab.test_email import TestEmailBase, parameterize
 from email import headerregistry
 from email.headerregistry import Address, Group
 

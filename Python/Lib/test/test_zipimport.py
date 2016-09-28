@@ -7,7 +7,7 @@ import struct
 import time
 import unittest
 
-from test import support
+from thelab import support
 
 from zipfile import ZipFile, ZipInfo, ZIP_STORED, ZIP_DEFLATED
 

@@ -4,8 +4,8 @@
 import os
 import time
 import unittest
-from test.fork_wait import ForkWait
-from test.support import reap_children
+from thelab.fork_wait import ForkWait
+from thelab.support import reap_children
 
 if not hasattr(os, 'fork'):
     raise unittest.SkipTest("os.fork not defined")

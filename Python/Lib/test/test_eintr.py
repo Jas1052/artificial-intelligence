@@ -4,8 +4,8 @@ import subprocess
 import sys
 import unittest
 
-from test import support
-from test.support import script_helper
+from thelab import support
+from thelab.support import script_helper
 
 
 @unittest.skipUnless(os.name == "posix", "only supported on Unix")

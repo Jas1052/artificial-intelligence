@@ -10,9 +10,9 @@ Modified for Python 2.0 by Fredrik Lundh (fredrik@pythonware.com)
 import unittest
 import unicodedata
 
-from test import support
+from thelab import support
 from http.client import HTTPException
-from test.test_normalization import check_version
+from thelab.test_normalization import check_version
 
 try:
     from _testcapi import INT_MAX, PY_SSIZE_T_MAX, UINT_MAX

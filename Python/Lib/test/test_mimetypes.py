@@ -4,7 +4,7 @@ import mimetypes
 import sys
 import unittest
 
-from test import support
+from thelab import support
 
 # Tell it we don't know about external files:
 mimetypes.knownfiles = []

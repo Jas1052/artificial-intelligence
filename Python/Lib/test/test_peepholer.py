@@ -5,7 +5,7 @@ from io import StringIO
 import unittest
 from math import copysign
 
-from test.bytecode_helper import BytecodeTestCase
+from thelab.bytecode_helper import BytecodeTestCase
 
 class TestTranforms(BytecodeTestCase):
 

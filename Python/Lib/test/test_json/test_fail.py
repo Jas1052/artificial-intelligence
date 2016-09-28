@@ -1,4 +1,4 @@
-from test.test_json import PyTest, CTest
+from thelab.test_json import PyTest, CTest
 import re
 
 # 2007-10-05

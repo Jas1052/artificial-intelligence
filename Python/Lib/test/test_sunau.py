@@ -1,6 +1,6 @@
-from test.support import TESTFN
+from thelab.support import TESTFN
 import unittest
-from test import audiotests
+from thelab import audiotests
 from audioop import byteswap
 import sys
 import sunau

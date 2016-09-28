@@ -4,7 +4,7 @@ import builtins
 import contextlib
 import unittest
 
-from test.support import swap_item, swap_attr
+from thelab.support import swap_item, swap_attr
 
 
 class RebindBuiltinsTests(unittest.TestCase):

@@ -8,7 +8,7 @@ import sys
 import unittest
 import weakref
 from collections.abc import MutableMapping
-from test import mapping_tests, support
+from thelab import mapping_tests, support
 
 
 py_coll = support.import_fresh_module('collections', blocked=['_collections'])

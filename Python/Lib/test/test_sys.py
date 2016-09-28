@@ -1,5 +1,5 @@
-import unittest, test.support
-from test.support.script_helper import assert_python_ok, assert_python_failure
+import unittest, thelab.support
+from thelab.support.script_helper import assert_python_ok, assert_python_failure
 import sys, io, os
 import struct
 import subprocess
@@ -31,7 +31,7 @@ class SysModuleTest(unittest.TestCase):
         sys.stdout = self.orig_stdout
         sys.stderr = self.orig_stderr
         sys.displayhook = self.orig_displayhook
-        test.support.reap_children()
+        thelab.support.reap_children()
 
     def test_original_displayhook(self):
         import builtins
@@ -81,7 +81,7 @@ class SysModuleTest(unittest.TestCase):
         self.assertTrue(err.getvalue().endswith("ValueError: 42\n"))
 
     def test_excepthook(self):
-        with test.support.captured_output("stderr") as stderr:
+        with thelab.support.captured_output("stderr") as stderr:
             sys.excepthook(1, '1', 1)
         self.assertTrue("TypeError: print_exception(): Exception expected for " \
                          "value, str found" in stderr.getvalue())
@@ -220,7 +220,7 @@ class SysModuleTest(unittest.TestCase):
         finally:
             sys.setrecursionlimit(oldlimit)
 
-    @test.support.cpython_only
+    @thelab.support.cpython_only
     def test_setrecursionlimit_recursion_depth(self):
         # Issue #25274: Setting a low recursion limit must be blocked if the
         # current recursion depth is already higher than the "lower-water
@@ -269,7 +269,7 @@ class SysModuleTest(unittest.TestCase):
 
             sys.setrecursionlimit(%d)
             f()""")
-        with test.support.SuppressCrashReport():
+        with thelab.support.SuppressCrashReport():
             for i in (50, 1000):
                 sub = subprocess.Popen([sys.executable, '-c', code % i],
                     stderr=subprocess.PIPE)
@@ -281,7 +281,7 @@ class SysModuleTest(unittest.TestCase):
 
     def test_getwindowsversion(self):
         # Raise SkipTest if sys doesn't have getwindowsversion attribute
-        test.support.get_attribute(sys, "getwindowsversion")
+        thelab.support.get_attribute(sys, "getwindowsversion")
         v = sys.getwindowsversion()
         self.assertEqual(len(v), 5)
         self.assertIsInstance(v[0], int)
@@ -323,7 +323,7 @@ class SysModuleTest(unittest.TestCase):
         self.assertEqual(sys.getdlopenflags(), oldflags+1)
         sys.setdlopenflags(oldflags)
 
-    @test.support.refcount_test
+    @thelab.support.refcount_test
     def test_refcount(self):
         # n here must be a global in order for this test to pass while
         # tracing with a python function.  Tracing calls PyFrame_FastToLocals
@@ -361,7 +361,7 @@ class SysModuleTest(unittest.TestCase):
             self.current_frames_without_threads()
 
     # Test sys._current_frames() in a WITH_THREADS build.
-    @test.support.reap_threads
+    @thelab.support.reap_threads
     def current_frames_with_threads(self):
         import threading
         import traceback
@@ -575,10 +575,10 @@ class SysModuleTest(unittest.TestCase):
 
     def test_sys_getwindowsversion_no_instantiation(self):
         # Skip if not being run on Windows.
-        test.support.get_attribute(sys, "getwindowsversion")
+        thelab.support.get_attribute(sys, "getwindowsversion")
         self.assert_raise_on_new_sys_type(sys.getwindowsversion())
 
-    @test.support.cpython_only
+    @thelab.support.cpython_only
     def test_clear_type_cache(self):
         sys._clear_type_cache()
 
@@ -625,17 +625,17 @@ class SysModuleTest(unittest.TestCase):
         out = p.communicate()[0].strip()
         self.assertEqual(out, b'\xbd')
 
-    @unittest.skipUnless(test.support.FS_NONASCII,
+    @unittest.skipUnless(thelab.support.FS_NONASCII,
                          'requires OS support of non-ASCII encodings')
     def test_ioencoding_nonascii(self):
         env = dict(os.environ)
 
         env["PYTHONIOENCODING"] = ""
         p = subprocess.Popen([sys.executable, "-c",
-                                'print(%a)' % test.support.FS_NONASCII],
-                                stdout=subprocess.PIPE, env=env)
+                                'print(%a)' % thelab.support.FS_NONASCII],
+                             stdout=subprocess.PIPE, env=env)
         out = p.communicate()[0].strip()
-        self.assertEqual(out, os.fsencode(test.support.FS_NONASCII))
+        self.assertEqual(out, os.fsencode(thelab.support.FS_NONASCII))
 
     @unittest.skipIf(sys.base_prefix != sys.prefix,
                      'Test is not venv-compatible')
@@ -763,10 +763,10 @@ class SysModuleTest(unittest.TestCase):
         self.assertEqual(sys.implementation.name,
                          sys.implementation.name.lower())
 
-    @test.support.cpython_only
+    @thelab.support.cpython_only
     def test_debugmallocstats(self):
         # Test sys._debugmallocstats()
-        from test.support.script_helper import assert_python_ok
+        from thelab.support.script_helper import assert_python_ok
         args = ['-c', 'import sys; sys._debugmallocstats()']
         ret, out, err = assert_python_ok(*args)
         self.assertIn(b"free PyDictObjects", err)
@@ -825,7 +825,7 @@ class SysModuleTest(unittest.TestCase):
         self.assertEqual(stdout.rstrip(), b'True')
 
 
-@test.support.cpython_only
+@thelab.support.cpython_only
 class SizeofTest(unittest.TestCase):
 
     def setUp(self):
@@ -834,11 +834,11 @@ class SizeofTest(unittest.TestCase):
         import _testcapi
         self.gc_headsize = _testcapi.SIZEOF_PYGC_HEAD
 
-    check_sizeof = test.support.check_sizeof
+    check_sizeof = thelab.support.check_sizeof
 
     def test_gc_head_size(self):
         # Check that the gc header size is added to objects tracked by the gc.
-        vsize = test.support.calcvobjsize
+        vsize = thelab.support.calcvobjsize
         gc_header_size = self.gc_headsize
         # bool objects are not gc tracked
         self.assertEqual(sys.getsizeof(True), vsize('') + self.longdigit)
@@ -877,15 +877,15 @@ class SizeofTest(unittest.TestCase):
             sys.getsizeof(OverflowSizeof(-sys.maxsize - 1))
 
     def test_default(self):
-        size = test.support.calcvobjsize
+        size = thelab.support.calcvobjsize
         self.assertEqual(sys.getsizeof(True), size('') + self.longdigit)
         self.assertEqual(sys.getsizeof(True, -1), size('') + self.longdigit)
 
     def test_objecttypes(self):
         # check all types defined in Objects/
         calcsize = struct.calcsize
-        size = test.support.calcobjsize
-        vsize = test.support.calcvobjsize
+        size = thelab.support.calcobjsize
+        vsize = thelab.support.calcvobjsize
         check = self.check_sizeof
         # bool
         check(True, vsize('') + self.longdigit)
@@ -1169,8 +1169,8 @@ class SizeofTest(unittest.TestCase):
 
     def test_pythontypes(self):
         # check all types defined in Python/
-        size = test.support.calcobjsize
-        vsize = test.support.calcvobjsize
+        size = thelab.support.calcobjsize
+        vsize = thelab.support.calcvobjsize
         check = self.check_sizeof
         # _ast.AST
         import _ast
@@ -1189,7 +1189,7 @@ class SizeofTest(unittest.TestCase):
 
 
 def test_main():
-    test.support.run_unittest(SysModuleTest, SizeofTest)
+    thelab.support.run_unittest(SysModuleTest, SizeofTest)
 
 if __name__ == "__main__":
     test_main()

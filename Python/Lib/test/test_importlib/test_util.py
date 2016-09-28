@@ -7,7 +7,7 @@ importlib_util = util.import_importlib('importlib.util')
 import os
 import string
 import sys
-from test import support
+from thelab import support
 import types
 import unittest
 import warnings

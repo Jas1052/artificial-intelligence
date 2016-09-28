@@ -5,8 +5,8 @@ executing have not been removed.
 
 """
 import unittest
-import test.support
-from test.support import captured_stderr, TESTFN, EnvironmentVarGuard
+import thelab.support
+from thelab.support import captured_stderr, TESTFN, EnvironmentVarGuard
 import builtins
 import os
 import sys
@@ -418,8 +418,8 @@ class ImportSideEffectTests(unittest.TestCase):
             else:
                 self.fail("sitecustomize not imported automatically")
 
-    @test.support.requires_resource('network')
-    @test.support.system_must_validate_cert
+    @thelab.support.requires_resource('network')
+    @thelab.support.system_must_validate_cert
     @unittest.skipUnless(sys.version_info[3] == 'final',
                          'only for released versions')
     @unittest.skipUnless(hasattr(urllib.request, "HTTPSHandler"),
@@ -430,7 +430,7 @@ class ImportSideEffectTests(unittest.TestCase):
         url = license._Printer__data.split()[1]
         req = urllib.request.Request(url, method='HEAD')
         try:
-            with test.support.transient_internet(url):
+            with thelab.support.transient_internet(url):
                 with urllib.request.urlopen(req) as data:
                     code = data.getcode()
         except urllib.error.HTTPError as e:

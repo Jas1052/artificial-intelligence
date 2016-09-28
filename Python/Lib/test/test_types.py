@@ -1,6 +1,6 @@
 # Python test set -- part 6, built-in types
 
-from test.support import run_with_locale
+from thelab.support import run_with_locale
 import collections.abc
 import inspect
 import pickle

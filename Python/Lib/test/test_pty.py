@@ -1,4 +1,4 @@
-from test.support import verbose, import_module, reap_children
+from thelab.support import verbose, import_module, reap_children
 
 # Skip these tests if termios is not available
 import_module('termios')

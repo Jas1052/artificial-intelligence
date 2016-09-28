@@ -9,7 +9,7 @@ import stat
 import tempfile
 import unittest
 
-from test import support
+from thelab import support
 TESTFN = support.TESTFN
 
 try:

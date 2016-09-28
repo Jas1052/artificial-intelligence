@@ -2,7 +2,7 @@
 
 Edit modules have their own test files files
 '''
-from test.support import requires
+from thelab.support import requires
 requires('gui')
 import tkinter as tk
 import unittest

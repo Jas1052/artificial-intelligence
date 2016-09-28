@@ -8,9 +8,9 @@ import unittest
 import subprocess
 import textwrap
 
-from test import support
+from thelab import support
 # This little helper class is essential for testing pdb under doctest.
-from test.test_doctest import _FakeInput
+from thelab.test_doctest import _FakeInput
 
 
 class PdbTestInput(object):
@@ -289,8 +289,8 @@ def test_list_commands():
     """Test the list and source commands of pdb.
 
     >>> def test_function_2(foo):
-    ...     import test.test_pdb
-    ...     test.test_pdb.do_nothing()
+    ...     import thelab.test_pdb
+    ...     thelab.test_pdb.do_nothing()
     ...     'some...'
     ...     'more...'
     ...     'code...'
@@ -1060,7 +1060,7 @@ class PdbTestCase(unittest.TestCase):
 
 
 def load_tests(*args):
-    from test import test_pdb
+    from thelab import test_pdb
     suites = [unittest.makeSuite(PdbTestCase), doctest.DocTestSuite(test_pdb)]
     return unittest.TestSuite(suites)
 

@@ -10,7 +10,7 @@ except ImportError:
     threading = None
 import time
 import unittest
-from test.support import TESTFN, run_unittest, reap_threads, cpython_only
+from thelab.support import TESTFN, run_unittest, reap_threads, cpython_only
 
 try:
     select.poll

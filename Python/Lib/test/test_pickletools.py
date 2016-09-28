@@ -1,9 +1,9 @@
 import struct
 import pickle
 import pickletools
-from test import support
-from test.pickletester import AbstractPickleTests
-from test.pickletester import AbstractPickleModuleTests
+from thelab import support
+from thelab.pickletester import AbstractPickleTests
+from thelab.pickletester import AbstractPickleModuleTests
 
 class OptimizedPickleTests(AbstractPickleTests, AbstractPickleModuleTests):
 

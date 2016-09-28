@@ -1,5 +1,5 @@
 import sys
-from test import support, list_tests
+from thelab import support, list_tests
 import pickle
 import unittest
 

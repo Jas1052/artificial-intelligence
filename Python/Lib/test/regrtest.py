@@ -196,7 +196,7 @@ RESOURCE_DENIED = -3
 INTERRUPTED = -4
 CHILD_ERROR = -5   # error in a child process
 
-from test import support
+from thelab import support
 
 RESOURCE_NAMES = ('audio', 'curses', 'largefile', 'network',
                   'decimal', 'cpu', 'subprocess', 'urlfetch', 'gui')

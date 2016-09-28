@@ -8,7 +8,7 @@ import io
 import unittest
 from email import policy, message_from_bytes
 from email.generator import BytesGenerator
-from test.test_email import TestEmailBase, parameterize
+from thelab.test_email import TestEmailBase, parameterize
 
 # This is like textwrap.dedent for bytes, except that it uses \r\n for the line
 # separators on the rebuilt string.

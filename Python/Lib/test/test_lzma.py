@@ -5,7 +5,7 @@ import pickle
 import random
 import unittest
 
-from test.support import (
+from thelab.support import (
     _4G, TESTFN, import_module, bigmemtest, run_unittest, unlink
 )
 

@@ -18,7 +18,7 @@ FILES_PER_THREAD = 50
 
 import tempfile
 
-from test.support import start_threads, import_module
+from thelab.support import start_threads, import_module
 threading = import_module('threading')
 import unittest
 import io

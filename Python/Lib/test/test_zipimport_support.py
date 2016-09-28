@@ -2,7 +2,7 @@
 # for working with modules located inside zipfiles
 # The tests are centralised in this fashion to make it easy to drop them
 # if a platform doesn't support zipimport
-import test.support
+import thelab.support
 import os
 import os.path
 import sys
@@ -14,10 +14,10 @@ import inspect
 import linecache
 import pdb
 import unittest
-from test.support.script_helper import (spawn_python, kill_python, assert_python_ok,
-                                        make_script, make_zip_script)
+from thelab.support.script_helper import (spawn_python, kill_python, assert_python_ok,
+                                          make_script, make_zip_script)
 
-verbose = test.support.verbose
+verbose = thelab.support.verbose
 
 # Library modules covered by this test set
 #  pdb (Issue 4201)
@@ -29,8 +29,8 @@ verbose = test.support.verbose
 #  test_cmd_line_script (covers the zipimport support in runpy)
 
 # Retrieve some helpers from other test cases
-from test import (test_doctest, sample_doctest, sample_doctest_no_doctests,
-                  sample_doctest_no_docstrings)
+from thelab import (test_doctest, sample_doctest, sample_doctest_no_doctests,
+                    sample_doctest_no_docstrings)
 
 
 def _run_object_doctest(obj, module):
@@ -46,7 +46,7 @@ def _run_object_doctest(obj, module):
         runner.run(example)
     f, t = runner.failures, runner.tries
     if f:
-        raise test.support.TestFailed("%d of %d doctests failed" % (f, t))
+        raise thelab.support.TestFailed("%d of %d doctests failed" % (f, t))
     if verbose:
         print ('doctest (%s) ... %d tests with zero failures' % (module.__name__, t))
     return f, t
@@ -78,7 +78,7 @@ class ZipSupportTests(unittest.TestCase):
 
     def test_inspect_getsource_issue4223(self):
         test_src = "def foo(): pass\n"
-        with test.support.temp_dir() as d:
+        with thelab.support.temp_dir() as d:
             init_name = make_script(d, '__init__', test_src)
             name_in_zip = os.path.join('zip_pkg',
                                        os.path.basename(init_name))
@@ -118,7 +118,7 @@ class ZipSupportTests(unittest.TestCase):
             mod_name = mod_name.replace("sample_", "sample_zipped_")
             sample_sources[mod_name] = src
 
-        with test.support.temp_dir() as d:
+        with thelab.support.temp_dir() as d:
             script_name = make_script(d, 'test_zipped_doctest',
                                             test_src)
             zip_name, run_name = make_zip_script(d, 'test_zip',
@@ -195,7 +195,7 @@ class ZipSupportTests(unittest.TestCase):
                     doctest.testmod()
                     """)
         pattern = 'File "%s", line 2, in %s'
-        with test.support.temp_dir() as d:
+        with thelab.support.temp_dir() as d:
             script_name = make_script(d, 'script', test_src)
             rc, out, err = assert_python_ok(script_name)
             expected = pattern % (script_name, "__main__.Test")
@@ -222,7 +222,7 @@ class ZipSupportTests(unittest.TestCase):
                     import pdb
                     pdb.Pdb(nosigint=True).runcall(f)
                     """)
-        with test.support.temp_dir() as d:
+        with thelab.support.temp_dir() as d:
             script_name = make_script(d, 'script', test_src)
             p = spawn_python(script_name)
             p.stdin.write(b'l\n')
@@ -239,7 +239,7 @@ class ZipSupportTests(unittest.TestCase):
 
 
 def tearDownModule():
-    test.support.reap_children()
+    thelab.support.reap_children()
 
 if __name__ == '__main__':
     unittest.main()

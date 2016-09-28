@@ -1,6 +1,6 @@
 """Tests for distutils.command.bdist_wininst."""
 import unittest
-from test.support import run_unittest
+from thelab.support import run_unittest
 
 from distutils.command.bdist_wininst import bdist_wininst
 from distutils.tests import support

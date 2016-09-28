@@ -1,7 +1,7 @@
 # -*- coding: koi8-r -*-
 
 import unittest
-from test.support import TESTFN, unlink, unload, rmtree, script_helper, captured_stdout
+from thelab.support import TESTFN, unlink, unload, rmtree, script_helper, captured_stdout
 import importlib
 import os
 import sys

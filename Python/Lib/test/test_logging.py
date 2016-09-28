@@ -38,8 +38,8 @@ import socket
 import struct
 import sys
 import tempfile
-from test.support.script_helper import assert_python_ok
-from test import support
+from thelab.support.script_helper import assert_python_ok
+from thelab import support
 import textwrap
 import time
 import unittest

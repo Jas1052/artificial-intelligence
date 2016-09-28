@@ -10,7 +10,7 @@ import time
 import queue
 import random
 import unittest
-from test import support
+from thelab import support
 
 DELAY = 0 # Set > 0 when testing a module other than _dummy_thread, such as
           # the '_thread' module.

@@ -4,7 +4,7 @@ import unittest
 import ast
 import weakref
 
-from test import support
+from thelab import support
 
 def to_tuple(t):
     if t is None or isinstance(t, (str, int, complex)):

@@ -1,4 +1,4 @@
-from test import support
+from thelab import support
 import unittest
 import dummy_threading as _threading
 import time

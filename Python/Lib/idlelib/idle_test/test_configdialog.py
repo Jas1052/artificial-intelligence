@@ -4,7 +4,7 @@ Coverage: 46% just by creating dialog.
 The other half is code for working with user customizations.
 '''
 from idlelib.configDialog import ConfigDialog  # always test import
-from test.support import requires
+from thelab.support import requires
 requires('gui')
 from tkinter import Tk
 import unittest

@@ -1,4 +1,4 @@
-from test import support
+from thelab import support
 # If we end up with a significant number of tests that don't require
 # threading, this test module should be split.  Right now we skip
 # them all if we don't have threading.
@@ -11,8 +11,8 @@ import socketserver
 import time
 import calendar
 
-from test.support import (reap_threads, verbose, transient_internet,
-                          run_with_tz, run_with_locale)
+from thelab.support import (reap_threads, verbose, transient_internet,
+                            run_with_tz, run_with_locale)
 import unittest
 from datetime import datetime, timezone, timedelta
 try:

@@ -6,8 +6,8 @@ import sys
 import types
 import unittest
 
-from test.test_importlib import util
-from test.support import run_unittest
+from thelab.test_importlib import util
+from thelab.support import run_unittest
 
 # needed tests:
 #

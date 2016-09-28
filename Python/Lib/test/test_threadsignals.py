@@ -4,7 +4,7 @@ import unittest
 import signal
 import os
 import sys
-from test.support import run_unittest, import_module
+from thelab.support import run_unittest, import_module
 thread = import_module('_thread')
 import time
 

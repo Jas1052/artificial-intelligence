@@ -7,7 +7,7 @@ import sys
 import tempfile
 import unittest
 
-from test import support
+from thelab import support
 
 
 class PyCompileTests(unittest.TestCase):

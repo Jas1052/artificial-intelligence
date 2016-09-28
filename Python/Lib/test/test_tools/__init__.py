@@ -2,7 +2,7 @@
 import os
 import unittest
 import importlib
-from test import support
+from thelab import support
 from fnmatch import fnmatch
 
 basepath = os.path.dirname(                 # <src/install dir>

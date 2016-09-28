@@ -6,7 +6,7 @@ import sys
 import types
 import unittest
 import warnings
-from test import support
+from thelab import support
 
 
 class AsyncYieldFrom:
@@ -70,39 +70,39 @@ class AsyncBadSyntaxTest(unittest.TestCase):
 
     def test_badsyntax_1(self):
         with self.assertRaisesRegex(SyntaxError, "'await' outside"):
-            import test.badsyntax_async1
+            import thelab.badsyntax_async1
 
     def test_badsyntax_2(self):
         with self.assertRaisesRegex(SyntaxError, "'await' outside"):
-            import test.badsyntax_async2
+            import thelab.badsyntax_async2
 
     def test_badsyntax_3(self):
         with self.assertRaisesRegex(SyntaxError, 'invalid syntax'):
-            import test.badsyntax_async3
+            import thelab.badsyntax_async3
 
     def test_badsyntax_4(self):
         with self.assertRaisesRegex(SyntaxError, 'invalid syntax'):
-            import test.badsyntax_async4
+            import thelab.badsyntax_async4
 
     def test_badsyntax_5(self):
         with self.assertRaisesRegex(SyntaxError, 'invalid syntax'):
-            import test.badsyntax_async5
+            import thelab.badsyntax_async5
 
     def test_badsyntax_6(self):
         with self.assertRaisesRegex(
             SyntaxError, "'yield' inside async function"):
 
-            import test.badsyntax_async6
+            import thelab.badsyntax_async6
 
     def test_badsyntax_7(self):
         with self.assertRaisesRegex(
             SyntaxError, "'yield from' inside async function"):
 
-            import test.badsyntax_async7
+            import thelab.badsyntax_async7
 
     def test_badsyntax_8(self):
         with self.assertRaisesRegex(SyntaxError, 'invalid syntax'):
-            import test.badsyntax_async8
+            import thelab.badsyntax_async8
 
     def test_badsyntax_9(self):
         ns = {}

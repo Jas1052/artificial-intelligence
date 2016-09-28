@@ -1,6 +1,6 @@
 "Test posix functions"
 
-from test import support
+from thelab import support
 
 # Skip these tests if there is no posix module.
 posix = support.import_module('posix')

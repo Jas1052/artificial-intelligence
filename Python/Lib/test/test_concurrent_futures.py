@@ -1,15 +1,15 @@
-import test.support
+import thelab.support
 
 # Skip tests if _multiprocessing wasn't built.
-test.support.import_module('_multiprocessing')
+thelab.support.import_module('_multiprocessing')
 # Skip tests if sem_open implementation is broken.
-test.support.import_module('multiprocessing.synchronize')
+thelab.support.import_module('multiprocessing.synchronize')
 # import threading after _multiprocessing to raise a more revelant error
 # message: "No module named _multiprocessing". _multiprocessing is not compiled
 # without thread support.
-test.support.import_module('threading')
+thelab.support.import_module('threading')
 
-from test.support.script_helper import assert_python_ok
+from thelab.support.script_helper import assert_python_ok
 
 import os
 import sys
@@ -73,7 +73,7 @@ class ExecutorMixin:
     def tearDown(self):
         self.executor.shutdown(wait=True)
         dt = time.time() - self.t1
-        if test.support.verbose:
+        if thelab.support.verbose:
             print("%.2fs" % dt, end=' ')
         self.assertLess(dt, 60, "synchronization issue: test lasted too long")
 
@@ -410,7 +410,7 @@ class ExecutorTest:
         self.executor.map(str, [2] * (self.worker_count + 1))
         self.executor.shutdown()
 
-    @test.support.cpython_only
+    @thelab.support.cpython_only
     def test_no_stale_references(self):
         # Issue #16284: check that the executors don't unnecessarily hang onto
         # references.
@@ -498,7 +498,7 @@ class ProcessPoolExecutorTest(ProcessPoolMixin, ExecutorTest, unittest.TestCase)
         self.assertIs(type(cause), futures.process._RemoteTraceback)
         self.assertIn('raise RuntimeError(123) # some comment', cause.tb)
 
-        with test.support.captured_stderr() as f1:
+        with thelab.support.captured_stderr() as f1:
             try:
                 raise exc
             except RuntimeError:
@@ -542,7 +542,7 @@ class FutureTests(unittest.TestCase):
         self.assertTrue(was_cancelled)
 
     def test_done_callback_raises(self):
-        with test.support.captured_stderr() as stderr:
+        with thelab.support.captured_stderr() as stderr:
             raising_was_called = False
             fn_was_called = False
 
@@ -729,12 +729,12 @@ class FutureTests(unittest.TestCase):
 
         self.assertTrue(isinstance(f1.exception(timeout=5), OSError))
 
-@test.support.reap_threads
+@thelab.support.reap_threads
 def test_main():
     try:
-        test.support.run_unittest(__name__)
+        thelab.support.run_unittest(__name__)
     finally:
-        test.support.reap_children()
+        thelab.support.reap_children()
 
 if __name__ == "__main__":
     test_main()

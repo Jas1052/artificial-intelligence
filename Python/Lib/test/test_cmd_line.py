@@ -2,15 +2,15 @@
 # Most tests are executed with environment variables ignored
 # See test_cmd_line_script.py for testing of script execution
 
-import test.support, unittest
+import thelab.support, unittest
 import os
 import shutil
 import sys
 import subprocess
 import tempfile
-from test.support import script_helper
-from test.support.script_helper import (spawn_python, kill_python, assert_python_ok,
-    assert_python_failure)
+from thelab.support import script_helper
+from thelab.support.script_helper import (spawn_python, kill_python, assert_python_ok,
+                                          assert_python_failure)
 
 
 # XXX (ncoghlan): Move to script_helper and make consistent with run_python
@@ -133,11 +133,11 @@ class CmdLineTest(unittest.TestCase):
         # All good if execution is successful
         assert_python_ok('-c', 'pass')
 
-    @unittest.skipUnless(test.support.FS_NONASCII, 'need support.FS_NONASCII')
+    @unittest.skipUnless(thelab.support.FS_NONASCII, 'need support.FS_NONASCII')
     def test_non_ascii(self):
         # Test handling of non-ascii data
         command = ("assert(ord(%r) == %s)"
-                   % (test.support.FS_NONASCII, ord(test.support.FS_NONASCII)))
+                   % (thelab.support.FS_NONASCII, ord(thelab.support.FS_NONASCII)))
         assert_python_ok('-c', command)
 
     # On Windows, pass bytes to subprocess doesn't test how Python decodes the
@@ -384,7 +384,7 @@ class CmdLineTest(unittest.TestCase):
             stderr=subprocess.PIPE,
             preexec_fn=preexec)
         out, err = p.communicate()
-        self.assertEqual(test.support.strip_python_stderr(err), b'')
+        self.assertEqual(thelab.support.strip_python_stderr(err), b'')
         self.assertEqual(p.returncode, 42)
 
     def test_no_stdin(self):
@@ -432,8 +432,8 @@ class CmdLineTest(unittest.TestCase):
         # Issue #15001: PyRun_SimpleFileExFlags() did crash because it kept a
         # borrowed reference to the dict of __main__ module and later modify
         # the dict whereas the module was destroyed
-        filename = test.support.TESTFN
-        self.addCleanup(test.support.unlink, filename)
+        filename = thelab.support.TESTFN
+        self.addCleanup(thelab.support.unlink, filename)
         with open(filename, "w") as script:
             print("import sys", file=script)
             print("del sys.modules['__main__']", file=script)
@@ -468,7 +468,7 @@ class CmdLineTest(unittest.TestCase):
             # dummyvar to prevent extranous -E
             dummyvar="")
         self.assertEqual(out.strip(), b'1 1 1')
-        with test.support.temp_cwd() as tmpdir:
+        with thelab.support.temp_cwd() as tmpdir:
             fake = os.path.join(tmpdir, "uuid.py")
             main = os.path.join(tmpdir, "main.py")
             with open(fake, "w") as f:
@@ -485,8 +485,8 @@ class CmdLineTest(unittest.TestCase):
             self.assertEqual(out.strip(), b"ok")
 
 def test_main():
-    test.support.run_unittest(CmdLineTest)
-    test.support.reap_children()
+    thelab.support.run_unittest(CmdLineTest)
+    thelab.support.reap_children()
 
 if __name__ == "__main__":
     test_main()

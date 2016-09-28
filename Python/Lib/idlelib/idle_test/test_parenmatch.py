@@ -3,7 +3,7 @@
 This must currently be a gui test because ParenMatch methods use
 several text methods not defined on idlelib.idle_test.mock_tk.Text.
 '''
-from test.support import requires
+from thelab.support import requires
 requires('gui')
 
 import unittest

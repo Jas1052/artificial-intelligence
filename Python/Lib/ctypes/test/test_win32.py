@@ -2,7 +2,7 @@
 
 from ctypes import *
 import unittest, sys
-from test import support
+from thelab import support
 
 import _ctypes_test
 
