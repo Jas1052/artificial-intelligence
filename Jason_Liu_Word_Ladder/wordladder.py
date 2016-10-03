@@ -37,9 +37,6 @@ class node:
     def getParent(self):
         return self.parent
 
-    def getChildren(self):
-        return self.children
-
     #checks if puzzle is solved
     def checkGoal(self):
             if self.word == goal:
@@ -51,37 +48,28 @@ class node:
             pos = self.word.index(letter)
             for i in alphabet:
                 newWord = tempWord[:pos] + i + tempWord[pos+1:]
-                if newWord in wordList and newWord != self.word and newWord not in seen:
-                    # seen.add(newWord)
+                if newWord in wordList and newWord not in seen:
                     newChild = node(newWord, self, self.depth + 1)
                     heapq.heappush(fringe, newChild)
-
-    def __str__(self):
-        return self.word
-
 fringe = []
 seen = set([])
+count = []
+solution = True
 
 def solve(tree):
     heapq.heappush(fringe, tree)
     while len(fringe) is not 0:
         nodeTemp = heapq.heappop(fringe)
-        seen.add(nodeTemp.getWord)
+        seen.add(nodeTemp.getWord())
         if nodeTemp.checkGoal() is True:
-            # print(wordTemp)
-            print("\nPath:")
-            print("------")
             parentNode = nodeTemp
             while parentNode.getParent() is not None:
-                print(parentNode.getWord())
+                count.append(parentNode.getWord())
                 parentNode = parentNode.getParent()
-            print(parentNode.getWord())
-
-            end = time.time()
-            print("\n")
-            print(end - begin)
-            exit(1)
+            return
         nodeTemp.createChildren()
+    solution = False
+    return
 
 # main
 # using sets, no repetitions, "in mySet" is very fast,
@@ -89,10 +77,32 @@ def solve(tree):
 words = [line.rstrip('\n') for line in open('dictionary.txt')]  # stores dictionary in lines list
 wordList = set(words)
 
-begin = time.time()
+with open('puzzleB.txt') as f:
+    puzzles = [line.rstrip('\n') for line in open('puzzleB.txt')]
+output = ''
+for puzzle in puzzles:
+    begin = time.time()
+    puzzleWords = puzzle.split(' ')
+    start = puzzleWords[0]
+    goal = puzzleWords[1]
 
-start = "reflux"
-goal = "scurfs"
-seen.add(start)
-tree = node(start, None, 1)
-solve(tree)
+    seen.add(start)
+    tree = node(start, None, 1)
+
+    solve(tree)
+
+    num = str(len(count))
+    if len(count) == 0:
+        num = '--'
+    end = time.time()
+    timer = str(round(end - begin, 3))
+    #print(start + " " + goal + " " + num + " " + timer)
+    output = output + "\n" + start + " " + goal + " " + num + " " + timer
+
+    seen.clear()
+    fringe.clear()
+    count.clear()
+
+text_file = open("solutions.txt", "w")
+text_file.write(output)
+text_file.close()
