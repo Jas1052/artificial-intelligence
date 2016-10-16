@@ -1,0 +1,30 @@
+Jacksonville    Atlanta         315.07          0.031          
+Los Angeles     Guadalajara     1408.20         0.079          
+Columbus        Leon            2038.80         1.362          
+Atlanta         Quebec City     1310.21         0.535          
+Philadelphia    Tucson          2325.26         1.371          
+Miami           Seattle         3242.63         1.332          
+Mexicali        Charlotte       2286.49         0.262          
+Austin          Atlanta         903.04          0.111          
+Atlanta         Dallas          782.61          0.077          
+Mexicali        Brooklyn        2744.68         0.93           
+St Louis        Houston         758.02          0.081          
+Columbus        Ottawa          630.83          0.194          
+Miami           Phoenix         2381.39         0.449          
+Fort Worth      Winnipeg        1351.50         0.26           
+San Antonio     Merida          1675.41         0.259          
+San Jose        Mexico City     2121.56         0.108          
+Leon            Portland        2517.61         0.202          
+Ciudad Juarez   Edmonton        1920.67         0.111          
+Hermosillo      Kansas City     1406.43         0.038          
+Indianapolis    Merida          2814.99         1.792          
+Miami           Tucson          2262.69         0.355          
+Atlanta         Indianapolis    510.18          0.055          
+Mexico City     Toronto         2384.31         0.417          
+Las Vegas       Orlando         2575.42         0.747          
+Columbus        Austin          1188.58         0.284          
+Charlotte       Austin          1147.80         0.155          
+Orlando         Monterrey       1561.65         0.239          
+Fort Worth      Miami           1351.04         0.253          
+Denver          Montreal        1767.78         0.35           
+Mexicali        San Diego       118.56          0.002          

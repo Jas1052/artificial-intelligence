@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ebb20243-779d-443f-bf6f-3afcfae85f68" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Word_Ladder/puzzleB.txt" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Word_Ladder/test.py" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Railroads/railroads.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Railroads/rrCities.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Railroads/rrEdges.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Railroads/rrNodes.txt" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Jason_Liu_Word_Ladder/dictionary.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Jason_Liu_Word_Ladder/puzzleB.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Jason_Liu_Word_Ladder/solutions.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Jason_Liu_Word_Ladder/wordladder.py" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Jason_Liu_Word_Ladder.rar" afterPath="$PROJECT_DIR$/Other/Jason_Liu_Word_Ladder.rar" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/eightpuzzle.py" afterPath="$PROJECT_DIR$/Other/eightpuzzle.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/heapsort.py" afterPath="$PROJECT_DIR$/Other/heapsort.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Word_Ladder/wordladder.py" afterPath="$PROJECT_DIR$/Word_Ladder/wordladder.py" />
     </list>
     <ignored path="AI.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -19,6 +27,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/AI$wordladder.coverage" NAME="wordladder Coverage Results" MODIFIED="1475517578172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Word_Ladder" />
+    <SUITE FILE_PATH="coverage/AI$railroads.coverage" NAME="railroads Coverage Results" MODIFIED="1476639237192" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Railroads" />
     <SUITE FILE_PATH="coverage/AI$test.coverage" NAME="test Coverage Results" MODIFIED="1475253747149" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Word_Ladder" />
     <SUITE FILE_PATH="coverage/AI$heapsort.coverage" NAME="heapsort Coverage Results" MODIFIED="1473979240335" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/AI$eightpuzzle.coverage" NAME="eightpuzzle Coverage Results" MODIFIED="1474312947816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -32,44 +41,76 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="wordladder.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Word_Ladder/wordladder.py">
+      <file leaf-file-name="railroads.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Railroads/railroads.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="52" column="34" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="34" />
+            <state relative-caret-position="2486">
+              <caret line="115" column="36" selection-start-line="115" selection-start-column="36" selection-end-line="115" selection-end-column="36" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#0#38#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="solutions.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Word_Ladder/solutions.txt">
+      <file leaf-file-name="solutions.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Railroads/solutions.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+            <state relative-caret-position="462">
+              <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="puzzleB.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Word_Ladder/puzzleB.txt">
+      <file leaf-file-name="rrEdges.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Railroads/rrEdges.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527208">
+              <caret line="23964" column="7" selection-start-line="23964" selection-start-column="0" selection-end-line="23964" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rrNodes.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Railroads/rrNodes.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60742">
+              <caret line="2761" column="7" selection-start-line="2761" selection-start-column="0" selection-end-line="2761" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Railroads/test.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="154">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dictionary.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Word_Ladder/dictionary.txt">
+      <file leaf-file-name="rrCities.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Railroads/rrCities.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="7728" column="6" selection-start-line="7728" selection-start-column="0" selection-end-line="7728" selection-end-column="6" />
+            <state relative-caret-position="506">
+              <caret line="23" column="15" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="15" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wordladder.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Word_Ladder/wordladder.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2288">
+              <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="109" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -93,6 +134,12 @@
         <option value="$PROJECT_DIR$/Word_Ladder/output.txt" />
         <option value="$PROJECT_DIR$/Word_Ladder/solutions.txt" />
         <option value="$PROJECT_DIR$/Word_Ladder/wordladder.py" />
+        <option value="$PROJECT_DIR$/Railroads/rrCities.txt" />
+        <option value="$PROJECT_DIR$/Railroads/rrNodes.txt" />
+        <option value="$PROJECT_DIR$/Railroads/rrEdges.txt" />
+        <option value="$PROJECT_DIR$/Railroads/test.txt" />
+        <option value="$PROJECT_DIR$/Railroads/railroads.py" />
+        <option value="$PROJECT_DIR$/Railroads/solutions.txt" />
       </list>
     </option>
   </component>
@@ -133,7 +180,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -163,12 +209,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Word_Ladder" />
+              <option name="myItemId" value="Railroads" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -179,15 +226,16 @@
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\jliu1\Documents\Senior\AI\Word  Ladder" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\jliu1\Documents\Senior\AI\Word_Ladder" />
       <recent name="C:\Users\jliu1\Documents\Senior\AI\Word  Ladder" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jliu1\Documents\Senior\AI\Other" />
+      <recent name="C:\Users\jliu1\Documents\Senior\AI\Word  Ladder" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.wordladder">
+  <component name="RunManager" selected="Python.railroads">
     <configuration default="false" name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -219,7 +267,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="AI" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/heapsort.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\jliu1\Documents\Senior\AI\Other\heapsort.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -237,7 +285,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="AI" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/eightpuzzle.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\jliu1\Documents\Senior\AI\Other\eightpuzzle.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -256,6 +304,24 @@
       <module name="AI" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thelab.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="railroads" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Railroads" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="AI" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Railroads/railroads.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -486,19 +552,21 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <list size="5">
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.wordladder" />
       <item index="1" class="java.lang.String" itemvalue="Python.test" />
       <item index="2" class="java.lang.String" itemvalue="Python.heapsort" />
       <item index="3" class="java.lang.String" itemvalue="Python.eightpuzzle" />
       <item index="4" class="java.lang.String" itemvalue="Python.thelab" />
+      <item index="5" class="java.lang.String" itemvalue="Python.railroads" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.test" />
-        <item index="1" class="java.lang.String" itemvalue="Python.thelab" />
-        <item index="2" class="java.lang.String" itemvalue="Python.eightpuzzle" />
-        <item index="3" class="java.lang.String" itemvalue="Python.heapsort" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.railroads" />
+        <item index="1" class="java.lang.String" itemvalue="Python.test" />
+        <item index="2" class="java.lang.String" itemvalue="Python.thelab" />
+        <item index="3" class="java.lang.String" itemvalue="Python.eightpuzzle" />
+        <item index="4" class="java.lang.String" itemvalue="Python.heapsort" />
       </list>
     </recent_temporary>
   </component>
@@ -526,27 +594,27 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13748658" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16111708" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4473386" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3612684" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23782559" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997735" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3612684" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997735" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -556,10 +624,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09399773" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44394112" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4473386" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3612684" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23782559" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.107411385" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15896885" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -590,73 +658,12 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Word_Ladder/dictionary.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465520">
-          <caret line="21160" column="6" selection-start-line="21160" selection-start-column="0" selection-end-line="21160" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/thelab.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Word_Ladder/wordladder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Word_Ladder/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2046">
-          <caret line="93" column="23" selection-start-line="93" selection-start-column="23" selection-end-line="93" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Word_Ladder/dictionary.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108790">
-          <caret line="4945" column="6" selection-start-line="4945" selection-start-column="6" selection-end-line="4945" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/thelab.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Word_Ladder/wordladder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Word_Ladder/dictionary.txt">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="89276">
           <caret line="4058" column="6" selection-start-line="4058" selection-start-column="6" selection-end-line="4058" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eightpuzzle.py">
+    <entry file="file://$PROJECT_DIR$/Other/eightpuzzle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1342">
           <caret line="62" column="23" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="23" />
@@ -677,11 +684,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="89276">
           <caret line="4058" column="6" selection-start-line="4058" selection-start-column="6" selection-end-line="4058" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eightpuzzle.py">
+    <entry file="file://$PROJECT_DIR$/Other/eightpuzzle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1342">
           <caret line="62" column="23" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="23" />
@@ -702,11 +708,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="89276">
           <caret line="4058" column="6" selection-start-line="4058" selection-start-column="6" selection-end-line="4058" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eightpuzzle.py">
+    <entry file="file://$PROJECT_DIR$/Other/eightpuzzle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1342">
           <caret line="62" column="23" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="23" />
@@ -723,7 +728,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eightpuzzle.py">
+    <entry file="file://$PROJECT_DIR$/Other/eightpuzzle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1364">
           <caret line="62" column="23" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="23" />
@@ -734,7 +739,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90156">
           <caret line="4098" column="4" selection-start-line="4098" selection-start-column="0" selection-end-line="4098" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -752,7 +756,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="109296">
           <caret line="4968" column="6" selection-start-line="4968" selection-start-column="6" selection-end-line="4968" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -770,11 +773,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="109296">
           <caret line="4968" column="6" selection-start-line="4968" selection-start-column="6" selection-end-line="4968" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eightpuzzle.py">
+    <entry file="file://$PROJECT_DIR$/Other/eightpuzzle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1166">
           <caret line="54" column="12" selection-start-line="54" selection-start-column="12" selection-end-line="54" selection-end-column="12" />
@@ -788,7 +790,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eightpuzzle.py">
+    <entry file="file://$PROJECT_DIR$/Other/eightpuzzle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -802,7 +804,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eightpuzzle.py">
+    <entry file="file://$PROJECT_DIR$/Other/eightpuzzle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -816,7 +818,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eightpuzzle.py">
+    <entry file="file://$PROJECT_DIR$/Other/eightpuzzle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -830,7 +832,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eightpuzzle.py">
+    <entry file="file://$PROJECT_DIR$/Other/eightpuzzle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -844,7 +846,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eightpuzzle.py">
+    <entry file="file://$PROJECT_DIR$/Other/eightpuzzle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -858,7 +860,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eightpuzzle.py">
+    <entry file="file://$PROJECT_DIR$/Other/eightpuzzle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -872,35 +874,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/heapsort.py">
+    <entry file="file://$PROJECT_DIR$/Other/heapsort.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/heapsort.py">
+    <entry file="file://$PROJECT_DIR$/Other/heapsort.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/heapsort.py">
+    <entry file="file://$PROJECT_DIR$/Other/heapsort.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/heapsort.py">
+    <entry file="file://$PROJECT_DIR$/Other/heapsort.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/heapsort.py">
+    <entry file="file://$PROJECT_DIR$/Other/heapsort.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-8">
           <caret line="47" column="28" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
@@ -914,58 +916,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eightpuzzle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1342">
-          <caret line="62" column="23" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm2016.2/system/python_stubs/1286609865/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="735" column="8" selection-start-line="735" selection-start-column="8" selection-end-line="735" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Word_Ladder/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1760">
-          <caret line="83" column="19" selection-start-line="0" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Word_Ladder/output.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Word_Ladder/test.py" />
+    <entry file="file://$PROJECT_DIR$/Word_Ladder/output.txt" />
     <entry file="file://$PROJECT_DIR$/thelab.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="487">
           <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Word_Ladder/dictionary.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
+        <state relative-caret-position="170016">
           <caret line="7728" column="6" selection-start-line="7728" selection-start-column="0" selection-end-line="7728" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Word_Ladder/solutions.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -973,17 +943,87 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Other/eightpuzzle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="87" column="18" selection-start-line="87" selection-start-column="18" selection-end-line="87" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Word_Ladder/solutions.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Railroads/rrNodes.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60742">
+          <caret line="2761" column="7" selection-start-line="2761" selection-start-column="0" selection-end-line="2761" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Railroads/rrEdges.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527208">
+          <caret line="23964" column="7" selection-start-line="23964" selection-start-column="0" selection-end-line="23964" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Word_Ladder/wordladder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="52" column="34" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="34" />
+        <state relative-caret-position="2288">
+          <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="109" selection-end-column="17" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Railroads/rrCities.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="23" column="15" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-198">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Railroads/test.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Railroads/railroads.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2486">
+          <caret line="115" column="36" selection-start-line="115" selection-start-column="36" selection-end-line="115" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Railroads/solutions.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
