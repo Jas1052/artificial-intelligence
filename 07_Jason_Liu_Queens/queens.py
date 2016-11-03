@@ -1,3 +1,4 @@
+# DFS
 import time
 import math
 import heapq
@@ -58,6 +59,7 @@ class nQueens:
 
     def goal_test(self):
         """ returns True iff state is the goal state """
+
         if -1 in self.state:
             return False
         else:
@@ -87,6 +89,8 @@ def dfs_search(board):
         board containing an nQueens solution
         or None if none exists
     """
+    count = 0
+    goalcount = 0
     fringe = deque([])
     fringe.append(board)
     while(True):
@@ -94,24 +98,81 @@ def dfs_search(board):
             print("Empty Fringe")
             return
         n = fringe.pop()
-        # print(n)
+        goalcount = goalcount + 1
         if n.goal_test():
-            print n.state
+            print goalcount
             return
         column = n.get_next_unassigned_var()
         for val in n.choices[column]:
+            count = count+1
             child = nQueens(copy.deepcopy(n.state), copy.deepcopy(n.choices), copy.deepcopy(n.n), n)
             child.assign(column, val)
             fringe.append(child)
+
 # ----------------------------------------------------------------
 
-for i in range(5,50,5):
+for i in range(5,50,3):
     begin = time.time()
     print '\n'
-    print i
     board = nQueens(n=i)
     dfs_search(board)
     end = time.time()
 
     timer = str(round(end - begin, 3))
     print timer
+
+"""
+/usr/bin/python2.7 "/home/jliu/Documents/Link to Senior/AI/Queens/queens.py"
+
+
+5
+[4, 2, 0, 3, 1]
+11
+0.001
+
+
+8
+[7, 3, 0, 2, 5, 1, 6, 4]
+124
+0.014
+
+
+11
+[10, 8, 6, 4, 2, 0, 9, 7, 5, 3, 1]
+85
+0.013
+
+
+14
+[13, 11, 9, 7, 2, 4, 1, 10, 0, 5, 12, 8, 6, 3]
+1934
+0.325
+
+
+17
+[16, 14, 12, 15, 9, 6, 2, 10, 1, 3, 0, 13, 11, 8, 5, 7, 4]
+5449
+1.112
+
+
+20
+[19, 17, 15, 18, 16, 7, 5, 8, 2, 0, 3, 11, 4, 1, 12, 10, 13, 6, 14, 9]
+199686
+55.855
+
+
+23
+[22, 20, 18, 21, 19, 14, 12, 10, 5, 3, 1, 4, 2, 13, 15, 17, 0, 16, 7, 11, 8, 6, 9]
+25328
+8.29
+
+
+26
+[25, 23, 21, 24, 22, 17, 15, 13, 11, 5, 3, 1, 6, 4, 2, 0, 16, 19, 10, 14, 18, 20, 8, 12, 7, 9]
+398246
+159.538
+
+
+29
+
+"""
