@@ -1,8 +1,10 @@
-import random
-column = set([1,5,3,5,8,3,9])
-ar = []
-for val in column:
-    ar.append(val)
-print(ar)
-ar.reverse()
-print ar
+6 8 2 1 5 3 4 7 9 
+9 5 1 7 6 4 8 3 2 
+3 7 4 8 9 2 1 6 5 
+4 3 7 5 2 8 9 1 6 
+8 1 6 9 4 7 2 5 3 
+2 9 5 3 1 6 7 4 8 
+5 6 8 2 7 1 3 9 4 
+7 2 9 4 3 5 6 8 1 
+1 4 3 6 8 9 5 2 7 
+Solution is correct!
