@@ -1479,7 +1479,7 @@ if __name__ == "__main__":
 
     # simple test program (from the XML-RPC specification)
 
-    # local server, available from Lib/xmlrpc/server.py
+    # local server, available from Lib/xmlrpc/strategies.py
     server = ServerProxy("http://localhost:8000")
 
     try:
