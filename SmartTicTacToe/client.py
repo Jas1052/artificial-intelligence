@@ -25,7 +25,7 @@ def play(strategy_X, strategy_O, first=MAX, silent=True):
     in one game. Returns X, O or TIE as a result (string)
 
     The functions make_move, next_player and terminal_test are
-    implemented elsewhere (e.g. in core.py). The current implementation
+    implemented elsewhere (e.g. in othello_core.py). The current implementation
     uses a 9-char string as the state, but that is not exposed at this level.
     """
     board = start_state
