@@ -2,16 +2,16 @@
 import pickle
 import random
 from time import time
-from jliu_strategy import othelloGame      # first file
+from jliu_strategy import Strategy      # first file
 from rehan_strategy import Strategy99  # second file
-import othello_core as core
+import Othello_Core as core
 
 tic = time()
 ROUNDS = 10
 SILENT = False
 
-s = othelloGame()   # name of class in first strategy
-v = othelloGame()  # name of class in second strategy
+s = Strategy()   # name of class in first strategy
+v = Strategy()  # name of class in second strategy
 
 s1 = s.alphabeta_strategy(3)    # actually calling of method in class; returns a strategy method
 s2 = v.alphabeta_strategy(3)    # ditto

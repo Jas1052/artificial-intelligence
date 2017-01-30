@@ -1,4 +1,4 @@
-import othello_core as ai
+import Othello_Core as ai
 import copy
 import random
 
@@ -19,7 +19,7 @@ bval = sum(map(abs, SQUARE_WEIGHTS))
 aval = -(bval)
 
 
-class othelloGame(ai.OthelloCore):
+class Strategy(ai.OthelloCore):
     def __init__(self, board=None):
         if board is None:
             board = self.initial_board()
@@ -97,7 +97,7 @@ class othelloGame(ai.OthelloCore):
 
     def make_move(self, move, player, board):
         """Update the board to reflect the move by the specified player."""
-        temp_board = [i for i in board]
+        temp_board = board
         if move is not None:
             self.make_flips(move, player, temp_board, 10)
             self.make_flips(move, player, temp_board, -10)
@@ -206,7 +206,7 @@ class othelloGame(ai.OthelloCore):
             return bval
         return fnl
 
-    def alphabeta(self, player, board, alpha, beta, depth):
+    def alphabeta(self, player, board, alpha, beta,  depth):
         if depth is 0:
             return self.weight(player, self.opponent(player), board), None
 
@@ -238,10 +238,34 @@ class othelloGame(ai.OthelloCore):
                 if move in self.legal_moves(player, board):
                     return 10*y + x
                 else:
-                    print('Not a legal move. Input another one.')
+                    print('Not a legal move. Try again.')
         return humanPlayer
 
     def alphabeta_strategy(self, depth):
         def strategy(board, player):
             return self.alphabeta(player, board, aval, bval, depth)[1]
         return strategy
+
+    def best_strategy(self, board, player, best_move, still_running):
+        """
+            :param board: a length 100 list representing the board state
+            :param player: WHITE or BLACK
+            :param best_move: shared multiptocessing.Value containing an int of
+                    the current best move
+            :param still_running: shared multiprocessing.Value containing an int
+                    that is 0 iff the parent process intends to kill this process
+            :return: best move as an int in [11,88] or possibly 0 for 'unknown'
+        """
+        while still_running is not 0:
+            depth = 5
+            best_move.value = self.alphabeta(player, board, aval, bval, depth)[1]
+            depth += 1
+
+        """
+        depth = 5
+        while still_running is not 0:
+            best_move.value = self.alphabeta(player, board, aval, bval, 5)
+            depth += 1
+        print('problem')
+        return self.alphabeta(player, board, aval, bval, 15)[1]
+        """
