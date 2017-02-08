@@ -15,10 +15,6 @@ SQUARE_WEIGHTS = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 ]
 
-bval = sum(map(abs, SQUARE_WEIGHTS))
-aval = -(bval)
-
-
 class Strategy(ai.OthelloCore):
     def __init__(self, board=None):
         if board is None:
@@ -129,7 +125,6 @@ class Strategy(ai.OthelloCore):
             if self.is_legal(i, player, board):
                 output.append(i)
         return random.sample(output, len(output))
-        # pass
 
     def any_legal_move(self, player, board):
         """Can player make any moves? Returns a boolean"""
@@ -164,7 +159,7 @@ class Strategy(ai.OthelloCore):
             return '@'
 
     def score(self, player, board):
-        """Compute player's score (number of player's pieces minus opponent's)."""
+        """Compute player's score (current_depthber of player's pieces minus opponent's)."""
         otherPlayer = self.opponent(player)
         counter = 0
         for val in board:
@@ -172,6 +167,15 @@ class Strategy(ai.OthelloCore):
                 counter += 1
             if val is otherPlayer:
                 counter -= 1
+        return counter
+
+    def weigh(self, board):
+        counter = 0
+        for i in range(11, 88):
+            if board[i] is '@':
+                counter -= SQUARE_WEIGHTS[i]
+            if board[i] is 'o':
+                counter += SQUARE_WEIGHTS[i]
         return counter
 
     def randomMove(self, player, board):
@@ -188,46 +192,6 @@ class Strategy(ai.OthelloCore):
         self.make_flips(move, player, board, 9)
         self.make_flips(move, player, board, -9)
 
-    # alpha beta
-    def weight(self, p, o, b):
-        fnl = 0
-        for x in self.squares():
-            if b[x] is p:
-                fnl += SQUARE_WEIGHTS[x]
-            elif b[x] is o:
-                fnl -= SQUARE_WEIGHTS[x]
-        return fnl
-
-    def terminal_test(self, p, b):
-        fnl = self.score(p, b)
-        if fnl < 0:
-            return aval
-        elif fnl > 0:
-            return bval
-        return fnl
-
-    def alphabeta(self, player, board, alpha, beta,  depth):
-        if depth is 0:
-            return self.weight(player, self.opponent(player), board), None
-
-        def value(board, alpha, beta):
-            return -self.alphabeta(self.opponent(player), board, -beta, -alpha, depth - 1)[0]
-
-        m = self.legal_moves(player, board)
-        if len(m) is 0:
-            if not self.any_legal_move(self.opponent(player), board):
-                return self.terminal_test(player, board), None
-            return value(board, alpha, beta), None
-        fnl = m[0]
-        for x in m:
-            if alpha >= beta:
-                break
-            v = value(self.make_move(x, player, list(board)), alpha, beta)
-            if v > alpha:
-                alpha = v
-                fnl = x
-        return alpha, fnl
-
     def human_strategy(self, depth):
         def humanPlayer(board, player):
             print('Your Move: ' + player)
@@ -241,11 +205,6 @@ class Strategy(ai.OthelloCore):
                     print('Not a legal move. Try again.')
         return humanPlayer
 
-    def alphabeta_strategy(self, depth):
-        def strategy(board, player):
-            return self.alphabeta(player, board, aval, bval, depth)[1]
-        return strategy
-
     def best_strategy(self, board, player, best_move, still_running):
         """
             :param board: a length 100 list representing the board state
@@ -256,16 +215,61 @@ class Strategy(ai.OthelloCore):
                     that is 0 iff the parent process intends to kill this process
             :return: best move as an int in [11,88] or possibly 0 for 'unknown'
         """
-        while still_running is not 0:
+        """while still_running is not 0:
             depth = 5
-            best_move.value = self.alphabeta(player, board, aval, bval, depth)[1]
+            best_move.value = self.alpha_beta(board, player, depth)
             depth += 1
-
         """
-        depth = 5
+        depth = 3
         while still_running is not 0:
-            best_move.value = self.alphabeta(player, board, aval, bval, 5)
+            val = self.alpha_beta(board, player, depth)
+            best_move.value = val
             depth += 1
-        print('problem')
-        return self.alphabeta(player, board, aval, bval, 15)[1]
-        """
+        return
+
+    def alpha_beta(self, board, player, depth):
+        if player is 'o':
+            v, m = self.max_value(board, player, -10**10, 10**10, depth, 0)
+            if m is None:
+                return 0
+            return m
+        if player is '@':
+            v, m = self.min_value(board, player, -10**10, 10**10, depth, 0)
+            if m is None:
+                return 0
+            return m
+
+    def max_value(self, board, player, alpha, beta, depth, current_depth):
+        if self.next_player(board, player) is None or current_depth is depth:
+            return self.weigh(board), None
+        v = -10**10
+        move = None
+        for val in self.legal_moves(player, board):
+            tempv = v
+            tempBoard = [board[i] for i in range(len(board))]
+            tempBoard = self.make_move(val, player, tempBoard)
+            v = max(v, self.min_value(tempBoard, self.next_player(tempBoard, player), alpha, beta, depth, current_depth + 1)[0])
+            if tempv is not v:
+                move = val
+            if v >= beta:
+                return v, val
+            alpha = max(alpha, v)
+        return v, move
+
+    def min_value(self, board, player, alpha, beta, depth, current_depth):
+        if self.next_player(board, player) is None or current_depth is depth:
+            return self.weigh(board), None
+        v = 10**10
+        move = None
+        for val in self.legal_moves(player, board):
+            tempv = v
+            tempBoard = [board[i] for i in range(len(board))]
+            tempBoard = self.make_move(val, player, tempBoard)
+            v = min(v, self.max_value(tempBoard, self.next_player(tempBoard, player), alpha, beta, depth, current_depth + 1)[0])
+            if tempv is not v:
+                move = val
+            if alpha >= v:
+                return v, val
+            beta = min(beta, v)
+        return v, move
+
