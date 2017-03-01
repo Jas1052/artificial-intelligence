@@ -22,6 +22,7 @@ def avg_entropy(list):
         total += (arrSum/listSum) * entropy(arr)
     return total
 
-print(entropy([3,4,1]))
-exampleList = [[0,2],[4,0],[2,4]]
+# print(entropy([3,4,1]))
+print(entropy([9,5]))
+exampleList = [[9,5],[10,4], [9,5],[10,4]]
 print(avg_entropy(exampleList))
