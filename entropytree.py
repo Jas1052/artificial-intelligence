@@ -22,10 +22,34 @@ def make_ds():
     for val in list(ds.values()):
         val.pop(0)
 
-    for key, val in list(ds.values()):
-        # question : [entropy, choices, array tuple of freq]
-        pass
-    
+    answers = ds['Play?']
+    ds.pop('Day', None)
+    ds.pop('Play?', None)
+
+    for key, val in ds.items():
+        # question : [entropy, array of choices, array of array of yesno]
+        choices = []
+        yesno = []
+        freq = []
+        for i in range(len(val)):
+            option = val[i]
+            if option in choices:
+                if answers[i] == 'Yes':
+                    yesno[choices.index(option)][0] += 1
+                else:
+                    yesno[choices.index(option)][1] += 1
+            else:
+                choices.append(option)
+                yesno.append([0, 0])
+                if answers[i] == 'Yes':  # cannot use 'is'
+                    yesno[choices.index(option)][0] += 1
+                else:
+                    yesno[choices.index(option)][1] += 1
+        for i in range(len(choices)):
+            freq.append(0)
+        for option in val:
+            freq[choices.index(option)] += 1
+        ds[key] = [entropy(freq), choices, yesno]
     return ds
 
 def make_tree(ds, level):

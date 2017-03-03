@@ -7,7 +7,7 @@ def entropy(list):
         if val is 0:
             total += 0
         else:
-            total += (val/listSum) * math.log2(val/listSum)
+            total += (val/listSum) * math.log(val/listSum, 2)
     return -1 *  total
 
 def avg_entropy(list):
