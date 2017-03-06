@@ -75,21 +75,23 @@ def make_tree(ds, level, table):
     for val in best_col:
         new_ds, new_table = extract(ds, best_col, best_col_key, val, table)
         if isSame(new_ds):
-            print('---' + level + ")", val, getAnswer(new_ds))
+            print('---' * level + "> ", str(val), getAnswer(new_ds))
         else:
-            print('---' * level + ">" + "...")
-            print(level)
+            print('---' * level + "> " + str(val) + "...")
             make_tree(new_ds, level + 1, new_table)
 
 def isSame(ds):
-    for val in ds.values():
-        if val[0] is not 0.0:
+    for key, val in ds.items():
+        if val == []:
+            return True
+        if val[0] != 0.0:
             return False
     return True
 
 def getAnswer(ds):
-    if ds.values()[2][0][1] is not 0:
-        return 'Yes'
+    for val in ds.values():
+        if val[2][0][1] is not 0:
+            return 'Yes'
     else:
         return 'No'
 
@@ -126,16 +128,15 @@ def extract(ds, best_col, best_col_key, val, table):
                 else:
                     yesno[choices.index(option)][1] += 1
             new_ds[key] = [avg_entropy(yesno), choices, yesno]
-    for key, value in table.items():
+    new_table = copy.copy(table)
+    for key, value in new_table.items():
         newVal = []
         for i in range(len(value)):
             if i not in indices:
                 newVal.append(value[i])
-        table[key] = newVal
-    print(val)
-    print(new_ds)
-    print(table)
-    return new_ds, table
+        new_table[key] = newVal
+    new_table.pop(best_col_key, None)
+    return new_ds, new_table
 
 def entropy(list):
     total = 0
