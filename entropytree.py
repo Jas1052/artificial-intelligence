@@ -2,9 +2,6 @@ import math
 import csv
 import copy
 
-answers = []
-full_table = {}
-
 def make_ds():
     ds = {}
     csvArr = []
@@ -27,14 +24,17 @@ def make_ds():
         val.pop(0)
 
     global answers
-    answers = ds['Play?']
     ds.pop('Day', None)
-    global full_table
-    full_table = copy.copy(ds)
-    ds.pop('Play?', None)
+    return ds
 
+def make_tree(ds, level):
+    if level is 10:
+        exit(0)
+    best_col_key = None
+    lowest_entropy = 999
+    answers = ds.pop('Play?', None)
     for key, val in ds.items():
-        # question : [entropy, array of choices, array of array of yesno]
+        # checks for lowest entropy
         choices = []
         yesno = []
         for i in range(len(val)):
@@ -51,92 +51,46 @@ def make_ds():
                     yesno[choices.index(option)][0] += 1
                 else:
                     yesno[choices.index(option)][1] += 1
-        """
-        for i in range(len(choices)):
-            freq.append(0)
-        for option in val:
-            freq[choices.index(option)] += 1
-        """
-        ds[key] = [avg_entropy(yesno), choices, yesno]
-    return ds
-
-# question : [entropy, array of choices, array of array of yesno]
-def make_tree(ds, level, table):
-    if level is 10:
-        exit(0)
-    best_col_key = None
-    lowest_entropy = 999
-    for key, val in ds.items():
-        if val[0] < lowest_entropy:
+        # print(str(key) + ': ' + str(avg_entropy(yesno)))
+        if avg_entropy(yesno) < lowest_entropy:
             best_col_key = key
-            lowest_entropy = val[0]
-    best_col = ds[best_col_key][1]
+            lowest_entropy = avg_entropy(yesno)
+    # print('best key: ' + str(best_col_key))
+    ds['Play?'] = answers
     print("---" * level, best_col_key, "?")
+    # print('Best Col Key: ' + best_col_key)
+    best_col = list(set(ds[best_col_key]))
     for val in best_col:
-        new_ds, new_table = extract(ds, best_col, best_col_key, val, table)
+        new_ds = extract(ds, best_col_key, val)
         if isSame(new_ds):
-            print('---' * level + "> ", str(val), getAnswer(new_ds))
+            print('---' * level + "> ", str(val), new_ds['Play?'][0])
         else:
             print('---' * level + "> " + str(val) + "...")
-            make_tree(new_ds, level + 1, new_table)
+            make_tree(new_ds, level + 1)
 
 def isSame(ds):
-    for key, val in ds.items():
-        if val == []:
-            return True
-        if val[0] != 0.0:
+    test = ds['Play?'][0]
+    for value in ds['Play?']:
+        if value != test:
             return False
     return True
 
-def getAnswer(ds):
-    for val in ds.values():
-        if val[2][0][1] is not 0:
-            return 'Yes'
-    else:
-        return 'No'
-
-def extract(ds, best_col, best_col_key, val, table):
+def extract(ds, best_col_key, val):
+    new_ds = copy.copy(ds)
     indices = []
-    for i in range(len(table[best_col_key])):
-        if table[best_col_key][i] == val:
+    for i in range(len(ds[best_col_key])):
+        choice = new_ds[best_col_key][i]
+        if choice == val:
             indices.append(i)
-    new_ds = {}
-    # question : [entropy, array of choices, array of array of yesno]
-    for key, value in table.items():
-        questionValues = []
-        for i in indices:
-            questionValues.append(value[i])
-        new_ds[key] = questionValues
+    # print(indices)
+    for key, val in new_ds.items():
+        new_arr = []
+        for i in range(len(val)):
+            if i in indices:
+                new_arr.append(val[i])
+        new_ds[key] = new_arr
     new_ds.pop(best_col_key, None)
-    answers = new_ds['Play?']
-    new_ds.pop('Play?', None)
-    for key, value in new_ds.items():
-        choices = []
-        yesno = []
-        for i in range(len(value)):
-            option = value[i]
-            if option in choices:
-                if answers[i] == 'Yes':
-                    yesno[choices.index(option)][0] += 1
-                else:
-                    yesno[choices.index(option)][1] += 1
-            else:
-                choices.append(option)
-                yesno.append([0, 0])
-                if answers[i] == 'Yes':  # cannot use 'is'
-                    yesno[choices.index(option)][0] += 1
-                else:
-                    yesno[choices.index(option)][1] += 1
-            new_ds[key] = [avg_entropy(yesno), choices, yesno]
-    new_table = copy.copy(table)
-    for key, value in new_table.items():
-        newVal = []
-        for i in range(len(value)):
-            if i not in indices:
-                newVal.append(value[i])
-        new_table[key] = newVal
-    new_table.pop(best_col_key, None)
-    return new_ds, new_table
+    return new_ds
 
 def entropy(list):
     total = 0
@@ -160,10 +114,6 @@ def avg_entropy(list):
         total += (arrSum/listSum) * entropy(arr)
     return total
 
-# print(entropy([3,4,1]))
-# print(entropy([9,5]))
-# exampleList = [[9,5],[10,4], [9,5],[10,4]]
-# print(avg_entropy(exampleList))
 data_structure = make_ds()
 print(data_structure)
-make_tree(data_structure, 0, full_table)
+make_tree(data_structure, 0)
