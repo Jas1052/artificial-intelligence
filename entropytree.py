@@ -2,37 +2,59 @@ import math
 import csv
 import copy
 
+"""
+csvName = 'tennis_tree.csv'
+label = 'Day'
+bigQuestion = 'Play?'
+answerOne = 'Yes'
+answerTwo = 'No'
+"""
+"""
+csvName = 'cook.csv'
+label = 'Label'
+bigQuestion = 'EatOut?'
+answerOne = 'GoOUT'
+answerTwo = 'EatIN'
+"""
+csvName = 'house-votes-84.csv'
+label = 'Label'
+bigQuestion = 'Party?'
+answerOne = 'republican'
+answerTwo = 'democrat'
+
 def make_ds():
     ds = {}
     csvArr = []
-    with open('tennis_tree.csv', newline='') as csvfile:
-        reader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+    with open(csvName, newline='') as csvfile:
+        reader = csv.reader(csvfile, delimiter=',', quotechar='|')
         # rotate through vals in first row
         for row in reader:
-            csvArr.append(row[0].split(','))
-
+            csvArr.append(row)
     # rotates through vals in first row
     for i in range(len(csvArr[0])):
         choices = []
         # rotates through row and gets choice
         for row in csvArr:
             choices.append(row[i])
-        ds.update({csvArr[0][i]:choices})
-
+        ds[csvArr[0][i]] = choices
+    
     # drops repeated question in choices
+    """
     for val in list(ds.values()):
+        print(val[0])
         val.pop(0)
-
+    """
     global answers
-    ds.pop('Day', None)
+    global label
+    ds.pop(label, None)
     return ds
 
 def make_tree(ds, level):
-    if level is 10:
-        exit(0)
+    global bigQuestion
+    global answerOne
     best_col_key = None
     lowest_entropy = 999
-    answers = ds.pop('Play?', None)
+    answers = ds.pop(bigQuestion, None)
     for key, val in ds.items():
         # checks for lowest entropy
         choices = []
@@ -40,14 +62,14 @@ def make_tree(ds, level):
         for i in range(len(val)):
             option = val[i]
             if option in choices:
-                if answers[i] == 'Yes':
+                if answers[i] == answerOne:
                     yesno[choices.index(option)][0] += 1
                 else:
                     yesno[choices.index(option)][1] += 1
             else:
                 choices.append(option)
                 yesno.append([0, 0])
-                if answers[i] == 'Yes':  # cannot use 'is'
+                if answers[i] == answerOne:  # cannot use 'is'
                     yesno[choices.index(option)][0] += 1
                 else:
                     yesno[choices.index(option)][1] += 1
@@ -56,21 +78,22 @@ def make_tree(ds, level):
             best_col_key = key
             lowest_entropy = avg_entropy(yesno)
     # print('best key: ' + str(best_col_key))
-    ds['Play?'] = answers
+    ds[bigQuestion] = answers
     print("---" * level, best_col_key, "?")
     # print('Best Col Key: ' + best_col_key)
     best_col = list(set(ds[best_col_key]))
     for val in best_col:
         new_ds = extract(ds, best_col_key, val)
-        if isSame(new_ds):
-            print('---' * level + "> ", str(val), new_ds['Play?'][0])
+        if isEntropyZero(new_ds):
+            print('---' * level + "> ", str(val), new_ds[bigQuestion][0])
         else:
             print('---' * level + "> " + str(val) + "...")
             make_tree(new_ds, level + 1)
 
-def isSame(ds):
-    test = ds['Play?'][0]
-    for value in ds['Play?']:
+def isEntropyZero(ds):
+    global bigQuestion
+    test = ds[bigQuestion][0]
+    for value in ds[bigQuestion]:
         if value != test:
             return False
     return True
@@ -115,5 +138,5 @@ def avg_entropy(list):
     return total
 
 data_structure = make_ds()
-print(data_structure)
+# print(data_structure)
 make_tree(data_structure, 0)
