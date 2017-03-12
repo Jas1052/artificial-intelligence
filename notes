@@ -1,0 +1,27 @@
+Headers = [ dsdfsd ]
+DS = {dfd, df d, dfdf}
+
+reader = csv.reader(csvfile)
+ds = {row[0] : row[1:] for row in reader}
+
+extract method
+def restrict(data, column, value):
+	return {a : data[a] for a in data if data[a][column] == value}
+
+def freq_dist(data_dict):
+	vals = val_list(data_dict, Class_index)
+	return {a: vals.count(a) for a in set(vals)}
+
+def parameter_entropy(data, col):
+	length = len(data)
+	total = 0
+	for v in val_set(data, col):
+		ds = restrict(data, col, v)
+		l = len(ds)
+		e = freq_entropy(freq_dist(ds))
+		total += l/length*e
+	return total
+
+if freq_entropy(freqs) < 0.001
+
+list comprehension

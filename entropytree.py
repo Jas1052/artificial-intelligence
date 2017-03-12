@@ -22,6 +22,25 @@ bigQuestion = 'Party?'
 answerOne = 'republican'
 answerTwo = 'democrat'
 
+numberOfRows = 25
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+    def getValue(self):
+        return self.value
+
+    def getNext(self):
+        return self.next
+
+    def setValue(self, val):
+        self.value = val
+
+    def setNext(self,newnext):
+        self.next = newnext
+
 def make_ds():
     ds = {}
     csvArr = []
@@ -35,7 +54,9 @@ def make_ds():
         choices = []
         # rotates through row and gets choice
         for row in csvArr:
-            choices.append(row[i])
+            # checks for missing data (?)
+            if '?' not in row:
+                choices.append(row[i])
         ds[csvArr[0][i]] = choices
     
     # drops repeated question in choices
