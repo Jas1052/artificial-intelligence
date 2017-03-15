@@ -1,6 +1,7 @@
 import math
 import csv
 import copy
+import random
 
 """
 csvName = 'tennis_tree.csv'
@@ -22,26 +23,41 @@ bigQuestion = 'Party?'
 answerOne = 'republican'
 answerTwo = 'democrat'
 
-numberOfRows = 25
-
-class Node:
+class Node(object):
+    "Generic tree node."
     def __init__(self, value):
         self.value = value
-        self.next = None
+        self.children = []
 
-    def getValue(self):
+    def add_child(self, node):
+        self.children.append(node)
+
+    def print(self, level=1):
+        print(self.value)
+        if self.children is not []:
+            for child in self.children:
+                for i in range(level):
+                    print('----', end='')
+                print(' ', end='')
+                child.print(level+1)
+
+    def get_children(self):
+        return self.children
+
+    def get_child(self, val):
+
+        for child in self.children:
+            if child.get_value() is val:
+                return child
+        return None
+
+    def get_value(self):
         return self.value
 
-    def getNext(self):
-        return self.next
+    def set_value(self, value):
+        self.value = value
 
-    def setValue(self, val):
-        self.value = val
-
-    def setNext(self,newnext):
-        self.next = newnext
-
-def make_ds():
+def make_ds(numberOfRows):
     ds = {}
     csvArr = []
     with open(csvName, newline='') as csvfile:
@@ -49,6 +65,7 @@ def make_ds():
         # rotate through vals in first row
         for row in reader:
             csvArr.append(row)
+    csvArr = randRows(csvArr, numberOfRows)
     # rotates through vals in first row
     for i in range(len(csvArr[0])):
         choices = []
@@ -58,19 +75,15 @@ def make_ds():
             if '?' not in row:
                 choices.append(row[i])
         ds[csvArr[0][i]] = choices
-    
     # drops repeated question in choices
-    """
     for val in list(ds.values()):
-        print(val[0])
         val.pop(0)
-    """
     global answers
     global label
     ds.pop(label, None)
     return ds
 
-def make_tree(ds, level):
+def make_tree(ds, level, node):
     global bigQuestion
     global answerOne
     best_col_key = None
@@ -94,22 +107,33 @@ def make_tree(ds, level):
                     yesno[choices.index(option)][0] += 1
                 else:
                     yesno[choices.index(option)][1] += 1
-        # print(str(key) + ': ' + str(avg_entropy(yesno)))
         if avg_entropy(yesno) < lowest_entropy:
             best_col_key = key
             lowest_entropy = avg_entropy(yesno)
-    # print('best key: ' + str(best_col_key))
     ds[bigQuestion] = answers
-    print("---" * level, best_col_key, "?")
-    # print('Best Col Key: ' + best_col_key)
+    # print("---" * level, best_col_key, "?")
     best_col = list(set(ds[best_col_key]))
     for val in best_col:
         new_ds = extract(ds, best_col_key, val)
         if isEntropyZero(new_ds):
-            print('---' * level + "> ", str(val), new_ds[bigQuestion][0])
+            new_child = Node((best_col_key, val))
+            new_child.add_child(Node((new_ds[bigQuestion][0], None)))
+            node.add_child(new_child)
+            # print('---' * level + "> ", str(val), new_ds[bigQuestion][0])
         else:
-            print('---' * level + "> " + str(val) + "...")
-            make_tree(new_ds, level + 1)
+            # print('---' * level + "> " + str(val) + "...")
+            new_child = Node((best_col_key, val))
+            node.add_child(new_child)
+            make_tree(new_ds, level + 1, new_child)
+            
+def randRows(arr, number):
+    blocked = []
+    number = len(arr)-number
+    for val in range(number):
+        randomIndex = random.randint(1, len(arr) - 1)
+        blocked.append(randomIndex)
+        arr.pop(randomIndex)
+    return arr
 
 def isEntropyZero(ds):
     global bigQuestion
@@ -158,6 +182,34 @@ def avg_entropy(list):
         total += (arrSum/listSum) * entropy(arr)
     return total
 
-data_structure = make_ds()
-# print(data_structure)
-make_tree(data_structure, 0)
+def test_accuracy(tree, ds):
+    correct = 0
+    length = len(ds[bigQuestion])
+    for i in range(length):
+        currentNode = tree
+        answerFound = False
+        unknown = False
+        while currentNode.get_children() is not []:
+            if currentNode == '?':
+                unKnown = True
+                break
+            for child in currentNode.get_children():
+                if child.get_value()[0] == answerOne or child.get_value()[0] == answerTwo:
+                    currentNode = child
+                    answerFound = True
+                if answerFound is False and child.get_value()[1] == ds[child.get_value()[0]][i]:
+                    currentNode = child
+            if answerFound is True:
+                break
+        if currentNode.get_value()[0] is ds[bigQuestion][i] and unknown is False:
+            correct += 1
+    return correct/length
+
+for i in range(10, 236):
+    root = Node(('root', None))
+    rows = i
+    data_structure = make_ds(rows)
+    # print(data_structure)
+    make_tree(data_structure, 0, root)
+    # root.print()
+    print(str(test_accuracy(root, data_structure)))
