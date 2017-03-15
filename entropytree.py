@@ -23,6 +23,8 @@ bigQuestion = 'Party?'
 answerOne = 'republican'
 answerTwo = 'democrat'
 
+leftoverRows = []
+
 class Node(object):
     "Generic tree node."
     def __init__(self, value):
@@ -43,13 +45,6 @@ class Node(object):
 
     def get_children(self):
         return self.children
-
-    def get_child(self, val):
-
-        for child in self.children:
-            if child.get_value() is val:
-                return child
-        return None
 
     def get_value(self):
         return self.value
@@ -129,10 +124,13 @@ def make_tree(ds, level, node):
 def randRows(arr, number):
     blocked = []
     number = len(arr)-number
+    global leftoverRows
+    leftoverRows.append(arr[0])
     for val in range(number):
         randomIndex = random.randint(1, len(arr) - 1)
         blocked.append(randomIndex)
-        arr.pop(randomIndex)
+        removed = arr.pop(randomIndex)
+        leftoverRows.append(removed)
     return arr
 
 def isEntropyZero(ds):
@@ -182,6 +180,24 @@ def avg_entropy(list):
         total += (arrSum/listSum) * entropy(arr)
     return total
 
+def convert_to_ds(arr):
+    ds = {}
+    for i in range(len(arr[0])):
+        choices = []
+        # rotates through row and gets choice
+        for row in arr:
+            # checks for missing data (?)
+            if '?' not in row:
+                choices.append(row[i])
+        ds[arr[0][i]] = choices
+    # drops repeated question in choices
+    for val in list(ds.values()):
+        val.pop(0)
+    global answers
+    global label
+    ds.pop(label, None)
+    return ds
+
 def test_accuracy(tree, ds):
     correct = 0
     length = len(ds[bigQuestion])
@@ -189,27 +205,28 @@ def test_accuracy(tree, ds):
         currentNode = tree
         answerFound = False
         unknown = False
-        while currentNode.get_children() is not []:
-            if currentNode == '?':
-                unKnown = True
-                break
+        while currentNode.get_children() != []:
             for child in currentNode.get_children():
                 if child.get_value()[0] == answerOne or child.get_value()[0] == answerTwo:
                     currentNode = child
                     answerFound = True
                 if answerFound is False and child.get_value()[1] == ds[child.get_value()[0]][i]:
                     currentNode = child
-            if answerFound is True:
-                break
-        if currentNode.get_value()[0] is ds[bigQuestion][i] and unknown is False:
+        if currentNode.get_value()[0] == ds[bigQuestion][i] and unknown == False:
             correct += 1
     return correct/length
 
-for i in range(10, 236):
-    root = Node(('root', None))
-    rows = i
-    data_structure = make_ds(rows)
-    # print(data_structure)
-    make_tree(data_structure, 0, root)
-    # root.print()
-    print(str(test_accuracy(root, data_structure)))
+for i in range(10, 200, 5):
+    total = 0
+    for trial in range(50):
+        root = Node(('root', None))
+        rows = i
+        data_structure = make_ds(rows)
+        # print(data_structure)
+        make_tree(data_structure, 0, root)
+        # root.print()
+        accuracy = test_accuracy(root, convert_to_ds(leftoverRows))
+        total += accuracy
+        #print(str(accuracy))
+        leftoverRows = []
+    print(total/50)
