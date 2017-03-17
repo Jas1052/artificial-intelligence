@@ -58,8 +58,7 @@ def make_ds(numberOfRows):
     with open(csvName, newline='') as csvfile:
         reader = csv.reader(csvfile, delimiter=',', quotechar='|')
         # rotate through vals in first row
-        for row in reader:
-            csvArr.append(row)
+        [csvArr.append(row) for row in reader]
     csvArr = randRows(csvArr, numberOfRows)
     # rotates through vals in first row
     for i in range(len(csvArr[0])):
@@ -71,8 +70,7 @@ def make_ds(numberOfRows):
                 choices.append(row[i])
         ds[csvArr[0][i]] = choices
     # drops repeated question in choices
-    for val in list(ds.values()):
-        val.pop(0)
+    [val.pop(0) for val in list(ds.values())]
     global answers
     global label
     ds.pop(label, None)
@@ -158,6 +156,12 @@ def extract(ds, best_col_key, val):
     new_ds.pop(best_col_key, None)
     return new_ds
 
+def freq_entropy(freq):
+    s = sum(freq)
+    p = [i /s for i in freq]
+    return (-sum([i*math.log(i,2) for i in p if i>0]))
+
+"""
 def entropy(list):
     total = 0
     listSum = sum(list)
@@ -167,6 +171,7 @@ def entropy(list):
         else:
             total += (val/listSum) * math.log2(val/listSum)
     return -1 *  total
+"""
 
 def avg_entropy(list):
     total = 0
@@ -177,7 +182,7 @@ def avg_entropy(list):
             listSum += val
     for arr in list:
         arrSum = sum(arr)
-        total += (arrSum/listSum) * entropy(arr)
+        total += (arrSum/listSum) * freq_entropy(arr)
     return total
 
 def convert_to_ds(arr):
@@ -218,7 +223,7 @@ def test_accuracy(tree, ds):
 
 for i in range(10, 200, 5):
     total = 0
-    for trial in range(50):
+    for trial in range(10):
         root = Node(('root', None))
         rows = i
         data_structure = make_ds(rows)
@@ -229,4 +234,4 @@ for i in range(10, 200, 5):
         total += accuracy
         #print(str(accuracy))
         leftoverRows = []
-    print(total/50)
+    print(total/10)
