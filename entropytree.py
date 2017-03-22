@@ -198,7 +198,6 @@ def convert_to_ds(arr):
     # drops repeated question in choices
     for val in list(ds.values()):
         val.pop(0)
-    global answers
     global label
     ds.pop(label, None)
     return ds
@@ -211,6 +210,7 @@ def test_accuracy(tree, ds):
         answerFound = False
         unknown = False
         while currentNode.get_children() != []:
+            #print(currentNode.print())
             for child in currentNode.get_children():
                 if child.get_value()[0] == answerOne or child.get_value()[0] == answerTwo:
                     currentNode = child
@@ -221,7 +221,7 @@ def test_accuracy(tree, ds):
             correct += 1
     return correct/length
 
-for i in range(10, 200, 5):
+for i in range(15, 200, 5):
     total = 0
     for trial in range(10):
         root = Node(('root', None))
@@ -230,7 +230,8 @@ for i in range(10, 200, 5):
         # print(data_structure)
         make_tree(data_structure, 0, root)
         # root.print()
-        accuracy = test_accuracy(root, convert_to_ds(leftoverRows))
+        leftoverDS = convert_to_ds(leftoverRows)
+        accuracy = test_accuracy(root, leftoverDS)
         total += accuracy
         #print(str(accuracy))
         leftoverRows = []
