@@ -17,16 +17,24 @@ bigQuestion = 'EatOut?'
 answerOne = 'GoOUT'
 answerTwo = 'EatIN'
 """
+"""
 csvName = 'house-votes-84.csv'
 label = 'Label'
 bigQuestion = 'Party?'
 answerOne = 'republican'
 answerTwo = 'democrat'
+"""
+csvName = 'quizA_train.csv'
+label = 'ID'
+bigQuestion = 'Result'
+answerOne = 'True'
+answerTwo = 'False'
+
 
 leftoverRows = []
 
 class Node(object):
-    "Generic tree node."
+    "Generic tree node"
     def __init__(self, value):
         self.value = value
         self.children = []
@@ -52,10 +60,10 @@ class Node(object):
     def set_value(self, value):
         self.value = value
 
-def make_ds(numberOfRows):
+def make_ds(numberOfRows, file):
     ds = {}
     csvArr = []
-    with open(csvName, newline='') as csvfile:
+    with open(file, newline='') as csvfile:
         reader = csv.reader(csvfile, delimiter=',', quotechar='|')
         # rotate through vals in first row
         [csvArr.append(row) for row in reader]
@@ -102,6 +110,8 @@ def make_tree(ds, level, node):
                     yesno[choices.index(option)][1] += 1
         if avg_entropy(yesno) < lowest_entropy:
             best_col_key = key
+            if best_col_key == 'A2':
+                print(avg_entropy(yesno))
             lowest_entropy = avg_entropy(yesno)
     ds[bigQuestion] = answers
     # print("---" * level, best_col_key, "?")
@@ -161,18 +171,6 @@ def freq_entropy(freq):
     p = [i /s for i in freq]
     return (-sum([i*math.log(i,2) for i in p if i>0]))
 
-"""
-def entropy(list):
-    total = 0
-    listSum = sum(list)
-    for val in list:
-        if val is 0:
-            total += 0
-        else:
-            total += (val/listSum) * math.log2(val/listSum)
-    return -1 *  total
-"""
-
 def avg_entropy(list):
     total = 0
     listSum = 0
@@ -219,20 +217,52 @@ def test_accuracy(tree, ds):
                     currentNode = child
         if currentNode.get_value()[0] == ds[bigQuestion][i] and unknown == False:
             correct += 1
+        else:
+            print(currentNode.get_value())
     return correct/length
 
-for i in range(15, 200, 5):
+def countNodes(node):
+    count = 0
+    currentNode = node
+    if currentNode.get_children() != []:
+        for child in currentNode.get_children():
+            count += countNodes(child)
+    else:
+        count += 1
+    return count
+"""
+for i in range(990, 995, 5):
     total = 0
-    for trial in range(10):
+    for trial in range(1):
         root = Node(('root', None))
         rows = i
-        data_structure = make_ds(rows)
+        data_structure = make_ds(rows, csvName)
         # print(data_structure)
         make_tree(data_structure, 0, root)
-        # root.print()
+        root.print()
+        print(countNodes(root))
+        leftoverDS = make_ds(990, 'quizA_test.csv')
+        accuracy = test_accuracy(root, leftoverDS)
+        total += accuracy
+        # print(str(accuracy))
+        leftoverRows = []
+    print(total/1)
+"""
+
+for i in range(990, 995, 5):
+    total = 0
+    for trial in range(1):
+        root = Node(('root', None))
+        rows = i
+        data_structure = make_ds(rows, csvName)
+        # print(data_structure)
+        make_tree(data_structure, 0, root)
+        root.print()
+        print(countNodes(root))
         leftoverDS = convert_to_ds(leftoverRows)
         accuracy = test_accuracy(root, leftoverDS)
         total += accuracy
         #print(str(accuracy))
         leftoverRows = []
-    print(total/10)
+    print(total/1)
+
