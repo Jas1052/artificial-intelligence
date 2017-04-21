@@ -4,7 +4,7 @@ import itertools
 # learning rate
 lamb = 1
 epoch = 500
-n = 4
+n = 3
 
 def find_weight(training_set):
     w = np.array([0.5]*(n+1))
@@ -13,6 +13,7 @@ def find_weight(training_set):
             f = actuator(np.dot(x, w))
             w = w + (lamb*(fx - f))*x
     accuracy = 1 - (sum([abs(fx-actuator(np.dot(x, w))) for (x, fx) in training_set]))/len(training_set)
+    print(w)
     return (w, accuracy)
 
 def actuator(val):
