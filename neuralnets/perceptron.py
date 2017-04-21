@@ -4,7 +4,7 @@ import itertools
 # learning rate
 lamb = 1
 epoch = 500
-n = 3
+n = 2
 
 def find_weight(training_set):
     w = np.array([0.5]*(n+1))
