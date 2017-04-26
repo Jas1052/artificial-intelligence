@@ -33,20 +33,27 @@ w14 = 1
 w24 = 1
 w35 = 1
 w45 = 1
+w36 = -1
+w46 = -1
 
 t3 = -1.5
 t4 = 0.5
 t5 = 1.5
+t6 = -0.5
 
 x1 = Input()
 x2 = Input()
-node_3 = Percept([w13,w23],t3)
-node_4 = Percept([w14,w24],t4)
-node_5 = Percept([w35,w45],t5)
+
+node_3 = Percept([w13,w23],t3) # nand
+node_4 = Percept([w14,w24],t4) # or
+node_5 = Percept([w35,w45],t5) # and 
+node_6 = Percept([w36,w46],t6) # nor
+
 node_3.set_inputs([x1,x2])
 node_4.set_inputs([x1,x2])
 node_5.set_inputs([node_3, node_4])
 xor = node_5
+
 for a in range(2):
     for b in range(2):
         x1.set_value(a)
