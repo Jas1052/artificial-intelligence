@@ -13,7 +13,7 @@ def find_weight(training_set):
             f = actuator(np.dot(x, w))
             w = w + (lamb*(fx - f))*x
     accuracy = 1 - (sum([abs(fx-actuator(np.dot(x, w))) for (x, fx) in training_set]))/len(training_set)
-    print(w)
+    # print(w)
     return (w, accuracy)
 
 def actuator(val):
@@ -45,6 +45,7 @@ correct = 0
 for ts in arrTS:
     vector, accuracy = find_weight(ts)
     if accuracy == 1.0:
+        print(vector)
         correct += 1
 accuracy = correct/len(arrTS)
 print(correct)
