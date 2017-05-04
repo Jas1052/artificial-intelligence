@@ -6,12 +6,10 @@ import math
 #classes defined: Percept and Input(extends Percept)
 #parameters: the weights (w_ij) and thresholds (t_j)
 
-target = [0, 1, 1, 0]
-
 class Percept:
     def __init__(self, weights, threshold):
         self.weights = weights
-        self.threshold = threshold
+        self.threshold = 
         self.percepts = None
     def set_inputs(self, percepts):
         self.percepts = percepts
@@ -40,6 +38,7 @@ class Input(Percept):
 x1 = Input()
 x2 = Input()
 
+"""
 values = [[-0.5, -0.5, -1.5],
 [ 0.5,  0.5, -0.5],
 [ 1.5, -2.5, -0.5],
@@ -87,4 +86,6 @@ for a in nodes:
             # print('\n')
 
 print(counter)
-print("done")
+"""
+
+
