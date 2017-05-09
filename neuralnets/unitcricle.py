@@ -9,7 +9,7 @@ import math
 class Percept:
     def __init__(self, weights, threshold):
         self.weights = weights
-        self.threshold = 
+        self.threshold = threshold
         self.percepts = None
     def set_inputs(self, percepts):
         self.percepts = percepts
@@ -37,6 +37,27 @@ class Input(Percept):
 
 x1 = Input()
 x2 = Input()
+
+nand_gate = Percept([-1,-1],-1.5) # nand
+or_gate = Percept([1, 1],0.5) # or
+and_gate = Percept([1, 1],1.5) # and 
+nor_gate = Percept([-1, -1],-0.5) # nor
+
+xor_gate = copy.copy(and_gate)
+xor_gate.set_inputs([nand_gate, or_gate])
+
+xnor_gate = copy.copy(nand_gate)
+xnor_gate.set_inputs([nand_gate, or_gate])
+
+square_gate = copy.copy(and_gate)
+square_gate.set_inputs([xor_gate, xnor_gate])
+
+x1.set_value(0)
+x2.set_value(0)
+nand_gate.set_inputs([x1, x2])
+or_gate.set_inputs([x1, x2])
+
+print(square_gate.evaluate())
 
 """
 values = [[-0.5, -0.5, -1.5],
@@ -87,5 +108,7 @@ for a in nodes:
 
 print(counter)
 """
+
+
 
 
