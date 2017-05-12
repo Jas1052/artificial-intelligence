@@ -2,6 +2,7 @@ import numpy as np
 import itertools
 import copy
 import math
+import random
 
 #classes defined: Percept and Input(extends Percept)
 #parameters: the weights (w_ij) and thresholds (t_j)
@@ -57,7 +58,24 @@ x2.set_value(0)
 nand_gate.set_inputs([x1, x2])
 or_gate.set_inputs([x1, x2])
 
-print(square_gate.evaluate())
+iterations = 10
+count = 0
+
+for i in range(0, iterations):
+    compare = 0
+    x1.set_value(random.uniform(-1.5, 1.5))
+    x2.set_value(random.uniform(-1.5, 1.5))
+    if(x1.value**2 + x2.value**2) < 1:
+        compare = 0
+    else:
+        compare = 1
+    if(square_gate.evaluate() == compare):
+        count += 1
+        
+    print(x1.value, x2.value)
+    print("real: ", compare)
+    print(square_gate.evaluate())
+    print("")
 
 """
 values = [[-0.5, -0.5, -1.5],
