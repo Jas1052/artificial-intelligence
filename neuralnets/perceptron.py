@@ -25,7 +25,7 @@ def create_set(val):
     binaries = ["".join(seq) for seq in itertools.product("01", repeat=val)]
     for index in range(2**(2**val)):
         row = []
-        for binary in binaries:
+            for binary in binaries:
             tempBin = [int(d) for d in binary]
             tempBin.append(1)
             tempBin = np.array(tempBin)
